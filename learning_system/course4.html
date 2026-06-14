@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51S65JTC2F');
+</script>
+<meta charset="UTF-8">
+<meta name="description" content="家族・夫婦で考える就労支援コース（全5レッスン）。ダブルケアラー・介護離職・夫婦の就労課題を学ぶ。">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コース4：家族・夫婦で考える就労支援 | mimemime ラーニング</title>
+<style>
+:root {
+  --main: #3A7CA5;
+  --accent: #F2A65A;
+  --dark: #1F3A4D;
+  --light: #EBF5FB;
+  --gray: #7F8C8D;
+  --white: #FFFFFF;
+  --purple: #6c3483;
+  --purple-light: #9b59b6;
+  --bg: #F4F8FB;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Meiryo', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.7; }
+
+nav { background: var(--dark); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.nav-logo { color: white; font-size: 1.2rem; font-weight: bold; text-decoration: none; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { color: #ccc; text-decoration: none; font-size: 0.9rem; }
+.nav-links a:hover { color: white; }
+
+.course-hero { background: linear-gradient(135deg, #6c3483, #9b59b6); color: white; padding: 48px 24px 36px; }
+.course-hero-inner { max-width: 1100px; margin: 0 auto; }
+.course-tag { font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; display: inline-block; margin-bottom: 12px; }
+.course-hero h1 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 10px; }
+.course-hero p { color: rgba(255,255,255,0.85); font-size: 0.95rem; max-width: 600px; }
+.course-meta { display: flex; gap: 20px; margin-top: 16px; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+
+.progress-bar-wrap { background: rgba(0,0,0,0.2); border-radius: 4px; height: 6px; margin-top: 20px; max-width: 400px; }
+.progress-bar { background: var(--accent); height: 6px; border-radius: 4px; transition: width 0.4s; width: 20%; }
+
+.layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 32px 24px; gap: 28px; align-items: flex-start; }
+
+.sidebar { width: 260px; flex-shrink: 0; background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 20px; position: sticky; top: 80px; }
+.sidebar h3 { font-size: 0.85rem; color: var(--gray); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.lesson-list { list-style: none; }
+.lesson-list li { margin-bottom: 6px; }
+.lesson-list a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; text-decoration: none; color: var(--dark); font-size: 0.88rem; transition: background 0.15s; cursor: pointer; }
+.lesson-list a:hover { background: #f0e8f7; }
+.lesson-list a.active { background: #f0e8f7; color: var(--purple); font-weight: bold; border-left: 3px solid var(--purple); }
+.lesson-list a.done { color: var(--gray); }
+.lesson-list a.done::before { content: '✓'; color: #27AE60; font-weight: bold; }
+.lesson-num { width: 24px; height: 24px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
+.active .lesson-num { background: var(--purple); color: white; }
+
+.main-content { flex: 1; min-width: 0; }
+.lesson-card { background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 36px; display: none; }
+.lesson-card.active { display: block; }
+.lesson-label { font-size: 0.8rem; color: var(--purple); font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+.lesson-card h2 { font-size: 1.4rem; color: var(--dark); margin-bottom: 20px; }
+.lesson-card h3 { font-size: 1.05rem; color: var(--purple); margin: 24px 0 10px; }
+.lesson-card p { margin-bottom: 14px; font-size: 0.95rem; }
+.lesson-card ul, .lesson-card ol { padding-left: 20px; margin-bottom: 14px; font-size: 0.95rem; }
+.lesson-card li { margin-bottom: 6px; }
+
+.highlight { background: #f5eef8; border-left: 4px solid var(--purple); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+.highlight p { margin: 0; }
+.warn-box { background: #fef9e7; border: 1px solid #f39c12; border-radius: 8px; padding: 14px 18px; margin: 16px 0; font-size: 0.9rem; }
+.warn-box strong { color: #e67e22; }
+.case-box { background: #f8f4fd; border-radius: 10px; padding: 18px 22px; margin: 16px 0; border: 1px solid #d7bde2; }
+.case-box h4 { color: var(--purple); margin-bottom: 8px; }
+
+.reflection { background: #f5eef8; border-radius: 10px; padding: 20px; margin: 24px 0; }
+.reflection h4 { color: var(--purple); margin-bottom: 10px; }
+.reflection textarea { width: 100%; min-height: 90px; border: 1px solid #c39bd3; border-radius: 6px; padding: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical; background: white; }
+.reflection textarea:focus { outline: none; border-color: var(--purple); }
+.reflection p { font-size: 0.85rem; color: var(--gray); margin-top: 6px; margin-bottom: 0; }
+
+.quiz-box { background: #f5eef8; border-radius: 12px; padding: 24px; margin: 24px 0; }
+.quiz-box h4 { color: var(--purple); margin-bottom: 16px; }
+.quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-option { background: white; border: 2px solid #d7bde2; border-radius: 8px; padding: 12px 16px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; text-align: left; }
+.quiz-option:hover { border-color: var(--purple); }
+.quiz-option.correct { border-color: #27AE60; background: #eafaf1; color: #27AE60; }
+.quiz-option.wrong { border-color: #e74c3c; background: #fdedec; color: #e74c3c; }
+.quiz-result { margin-top: 12px; font-size: 0.9rem; display: none; padding: 10px 14px; border-radius: 6px; }
+.quiz-result.show { display: block; }
+.quiz-result.ok { background: #eafaf1; color: #27AE60; }
+.quiz-result.ng { background: #fdedec; color: #e74c3c; }
+
+.nav-btns { display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid #eee; }
+.btn { padding: 11px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: bold; cursor: pointer; border: none; transition: all 0.2s; }
+.btn-prev { background: #eee; color: var(--dark); }
+.btn-prev:hover { background: #ddd; }
+.btn-next { background: var(--purple); color: white; }
+.btn-next:hover { background: #5b2c6f; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+}
+
+/* ハンバーガーメニュー */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-right:-8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:64px;left:0;right:0;background:var(--dark);padding:20px 32px;gap:20px;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .nav-links.open{display:flex!important;}
+  .nav-links a{font-size:1rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav-links .nav-cta{border:none;text-align:center;}
+}
+</style>
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mimemime.com/og-image.png">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">mime<span>mime</span> ラーニング</a>
+  <div class="nav-links">
+    <a href="index.html">← コース一覧</a>
+    <a href="contact.html">相談する</a>
+  </div>
+<button class="hamburger" aria-label="メニューを開く" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="course-hero">
+  <div class="course-hero-inner">
+    <div class="course-tag">COURSE 4 ／ 初中級</div>
+    <h1>家族・夫婦で考える就労支援</h1>
+    <p>「夫の躓き」「ダブルケアラー」「介護離職」——家族の状況が就労に与える影響と、一緒に乗り越える方法を学びます。</p>
+    <div class="course-meta">
+      <span>5レッスン</span>
+      <span>⏱ 約50分</span>
+      <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F2A65A;margin-right:5px;"></span>初中級</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h3>レッスン一覧</h3>
+    <ul class="lesson-list">
+      <li><a onclick="showLesson(1)" id="nav1" class="active"><span class="lesson-num">1</span>家族が就労に与える影響</a></li>
+      <li><a onclick="showLesson(2)" id="nav2"><span class="lesson-num">2</span>夫婦間の「就労の躓き」</a></li>
+      <li><a onclick="showLesson(3)" id="nav3"><span class="lesson-num">3</span>ダブルケアラーとは</a></li>
+      <li><a onclick="showLesson(4)" id="nav4"><span class="lesson-num">4</span>介護と仕事を両立する</a></li>
+      <li><a onclick="showLesson(5)" id="nav5"><span class="lesson-num">5</span>家族で取り組む就労計画</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card active" id="lesson1">
+      <div class="lesson-label">Lesson 1</div>
+      <h2>家族が就労に与える影響</h2>
+
+      <p>就労支援というと「本人の問題」として捉えられがちですが、実際には家族の状況が就労に大きな影響を与えます。このコースでは、家族・夫婦という視点から就労支援を考えます。</p>
+
+      <h3>なぜ「家族」の視点が必要なのか</h3>
+      <p>就労に課題を抱える方の多くは、家庭の事情と密接に絡み合っています。たとえば——</p>
+      <ul>
+        <li>配偶者が精神的に不安定で、外出すること自体が難しい</li>
+        <li>親の介護が必要で、フルタイムでは働けない</li>
+        <li>子どもの特性（発達障害等）に手がかかり、自分のことに手が回らない</li>
+        <li>経済的なプレッシャーから、家族全体がストレス状態にある</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>家族は「障壁」にもなるし「支え」にもなります。</strong>家族全体のコンテキストを理解することが、就労支援を成功させる鍵です。</p>
+      </div>
+
+      <h3>家族状況別の就労課題</h3>
+      <div class="case-box">
+        <h4>パターンA：配偶者が精神疾患</h4>
+        <p>本人が元気でも、パートナーのケアに追われ「私が働くより家にいるべきでは」という葛藤が生まれやすい。精神的な疲弊も蓄積しやすい。</p>
+      </div>
+      <div class="case-box">
+        <h4>パターンB：子育てと障害の重なり</h4>
+        <p>本人に障害があり、かつ子育て中の場合。周囲のサポートが薄いと、就労どころではなくなる。</p>
+      </div>
+      <div class="case-box">
+        <h4>パターンC：経済的プレッシャー</h4>
+        <p>家計が苦しく、「早く稼がなければ」という焦りが焦りを呼ぶ悪循環。焦りは判断力を低下させ、就労の失敗につながりやすい。</p>
+      </div>
+
+      <h3>支援者として意識すること</h3>
+      <p>mimemimeでは、利用者本人だけでなく、可能な範囲で家族の状況もヒアリングします。「家族も一緒に変わっていく」という視点を大切にしています。</p>
+
+      <div class="nav-btns">
+        <button class="btn btn-prev" disabled>← 前へ</button>
+        <button class="btn btn-next" onclick="showLesson(2)">次へ →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div class="lesson-card" id="lesson2">
+      <div class="lesson-label">Lesson 2</div>
+      <h2>夫婦間の「就労の躓き」</h2>
+
+      <p>「夫が突然仕事を辞めた」「妻がうつで家に引きこもっている」——夫婦の一方が就労に躓くと、もう一方も大きな影響を受けます。</p>
+
+      <h3>「躓き」が起きやすいシーン</h3>
+      <ul>
+        <li><strong>突然の退職・解雇：</strong>ショックと経済的不安が同時に押し寄せる</li>
+        <li><strong>メンタル不調からの休職：</strong>いつ復職できるかわからない不安</li>
+        <li><strong>転職の失敗が続く：</strong>自己肯定感が下がり、次の一歩が踏み出せない</li>
+        <li><strong>障害が発覚・診断：</strong>今後の働き方を一から考え直す必要が生まれる</li>
+      </ul>
+
+      <div class="warn-box">
+        <strong>よくある落とし穴：</strong>「早く働いてよ」というプレッシャーは逆効果です。焦りや責め立ては回復を遅らせ、夫婦関係そのものを傷つけます。
+      </div>
+
+      <h3>パートナーとしての関わり方</h3>
+      <div class="case-box">
+        <h4>やってほしいこと</h4>
+        <ul>
+          <li>「ゆっくりでいいよ」と言葉にして伝える</li>
+          <li>家事・育児の分担を見直す（片方に集中しない）</li>
+          <li>一緒に情報を探す（支援機関の相談に同行する）</li>
+          <li>本人の「したいこと」「できること」に耳を傾ける</li>
+        </ul>
+      </div>
+      <div class="case-box">
+        <h4>避けてほしいこと</h4>
+        <ul>
+          <li>「なんで動けないの？」と責める</li>
+          <li>「あの人はできているのに」と比較する</li>
+          <li>支援機関への相談を「大げさ」と否定する</li>
+          <li>本人の意思を無視して就職先を決める</li>
+        </ul>
+      </div>
+
+      <h3>mimemimeが提供するサポート</h3>
+      <p>必要に応じて、パートナーを交えた面談を実施します。「夫婦でどう乗り越えるか」を一緒に考える場を設けることができます。</p>
+
+      <div class="reflection">
+        <h4>振り返り</h4>
+        <textarea placeholder="あなたやあなたの身近な人が「就労の躓き」を経験したとき、どんなサポートがあったらよかったと思いますか？自由に書いてみましょう。"></textarea>
+        <p>※入力内容は保存されません。自分のための振り返りとして活用してください。</p>
+      </div>
+
+      <div class="nav-btns">
+        <button class="btn btn-prev" onclick="showLesson(1)">← 前へ</button>
+        <button class="btn btn-next" onclick="showLesson(3)">次へ →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div class="lesson-card" id="lesson3">
+      <div class="lesson-label">Lesson 3</div>
+      <h2>ダブルケアラーとは</h2>
+
+      <p>「ダブルケアラー」という言葉を聞いたことがありますか？育児と介護を同時に担う状態のことを指します。近年、社会問題として注目されています。</p>
+
+      <h3>ダブルケアラーの定義</h3>
+      <div class="highlight">
+        <p>子育て（育児）と親などの介護を同時に行う人のこと。晩婚化・高齢出産の増加により、40代で小さな子どもを育てながら親の介護も担うケースが増加しています。</p>
+      </div>
+
+      <h3>どのくらいいる？</h3>
+      <ul>
+        <li>内閣府の調査では、ダブルケアラーは全国に約25万人と推計（2016年時点）</li>
+        <li>女性が約6割を占める</li>
+        <li>40代が最も多く、就労盛りの年代と重なる</li>
+        <li>実際には隠れダブルケアラーも多く、実数はさらに多いとみられる</li>
+      </ul>
+
+      <h3>ダブルケアラーの就労困難</h3>
+      <div class="case-box">
+        <h4>時間的制約</h4>
+        <p>子どもの送迎・介護の通院付き添い・食事準備など、時間を自由に使えない。フルタイムはもちろん、パートタイムも難しいケースがある。</p>
+      </div>
+      <div class="case-box">
+        <h4>精神的疲弊</h4>
+        <p>「育てること」と「看取ること」に同時に向き合う心理的負荷は非常に大きい。バーンアウト（燃え尽き症候群）のリスクが高い。</p>
+      </div>
+      <div class="case-box">
+        <h4>孤立化</h4>
+        <p>「こんなこと誰にも言えない」「私だけが苦しい」と感じて孤立するケースが多い。支援を求めることへのハードルも高い。</p>
+      </div>
+
+      <h3>活用できる制度</h3>
+      <ul>
+        <li><strong>介護休業・介護休暇：</strong>家族の介護のために仕事を休む権利（最大93日）</li>
+        <li><strong>育児・介護休業法：</strong>短時間勤務制度も活用可能</li>
+        <li><strong>地域包括支援センター：</strong>介護相談の窓口。無料で利用可能</li>
+        <li><strong>ファミリーサポートセンター：</strong>育児の助け合いネットワーク</li>
+        <li><strong>就労移行支援：</strong>ダブルケアラー本人の就労支援として活用できる</li>
+      </ul>
+
+      <div class="nav-btns">
+        <button class="btn btn-prev" onclick="showLesson(2)">← 前へ</button>
+        <button class="btn btn-next" onclick="showLesson(4)">次へ →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div class="lesson-card" id="lesson4">
+      <div class="lesson-label">Lesson 4</div>
+      <h2>介護と仕事を両立する</h2>
+
+      <p>日本では年間約10万人が「介護離職」——介護を理由に仕事を辞めることを余儀なくされています。しかし、辞めることが必ずしも最善とは限りません。</p>
+
+      <h3>介護離職のリスク</h3>
+      <ul>
+        <li>収入が途絶え、介護にかかる費用を捻出できなくなる</li>
+        <li>社会とのつながりが切れ、孤立感・燃え尽きが加速する</li>
+        <li>介護が終わった後、再就職が難しくなる（空白期間・スキルの低下）</li>
+        <li>介護する本人の健康も損なわれやすい</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>「辞めるか、続けるか」の二択ではありません。</strong>「どうすれば続けられるか」を考えることが重要です。</p>
+      </div>
+
+      <h3>両立のための実践策</h3>
+      <div class="case-box">
+        <h4>① 職場への相談・制度活用</h4>
+        <ul>
+          <li>上司や人事に早めに相談する（抱え込まない）</li>
+          <li>介護休業・短時間勤務・テレワークを申請する</li>
+          <li>「突発的な休み」への理解を得ておく</li>
+        </ul>
+      </div>
+      <div class="case-box">
+        <h4>② 介護サービスを積極的に使う</h4>
+        <ul>
+          <li>デイサービス・ショートステイ・訪問介護を組み合わせる</li>
+          <li>「自分でやらなければ」という思い込みを手放す</li>
+          <li>ケアマネジャーと連携してプランを立てる</li>
+        </ul>
+      </div>
+      <div class="case-box">
+        <h4>③ 家族で分担する</h4>
+        <ul>
+          <li>兄弟姉妹・配偶者など、家族全体で介護を分担する話し合いをする</li>
+          <li>「誰が何をするか」を決めておく（暗黙の期待は摩擦を生む）</li>
+        </ul>
+      </div>
+
+      <h3>mimemimeでの対応</h3>
+      <p>mimemimeでは、介護を抱えながら就労を目指す方のために、時間的に柔軟なプログラムを用意しています。週1日から始めることも可能ですので、まずはご相談ください。</p>
+
+      <div class="quiz-box">
+        <h4>確認クイズ</h4>
+        <p>介護離職について、正しい説明はどれ？</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="answer(this, false)">A. 介護が始まったら、仕事は辞めるべきだ</button>
+          <button class="quiz-option" onclick="answer(this, true)">B. 介護休業や短時間勤務を使いながら仕事を続ける方法がある</button>
+          <button class="quiz-option" onclick="answer(this, false)">C. 介護は家族だけで対応すべきで、外部サービスは使わない方がよい</button>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <span id="quizMsg"></span>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <button class="btn btn-prev" onclick="showLesson(3)">← 前へ</button>
+        <button class="btn btn-next" onclick="showLesson(5)">次へ →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div class="lesson-card" id="lesson5">
+      <div class="lesson-label">Lesson 5（最終）</div>
+      <h2>家族で取り組む就労計画</h2>
+
+      <p>最後のレッスンでは、家族全体で就労に向けた計画を立てるための考え方を学びます。一人で抱え込まず、チームとして取り組むことが大切です。</p>
+
+      <h3>家族就労計画の5ステップ</h3>
+      <ol>
+        <li style="margin-bottom:12px;"><strong>現状の「見える化」：</strong>誰が何を担っているか、家計の状況はどうか、誰がどんな課題を抱えているかを書き出す</li>
+        <li style="margin-bottom:12px;"><strong>「できること」「したいこと」の整理：</strong>本人の希望と、現実的にできることをすり合わせる</li>
+        <li style="margin-bottom:12px;"><strong>短期目標の設定：</strong>「3ヶ月後にどうなっていたいか」という小さな目標を家族で共有する</li>
+        <li style="margin-bottom:12px;"><strong>役割分担の決定：</strong>家族の誰が何をサポートするか決め、一人に負担が集中しないようにする</li>
+        <li style="margin-bottom:12px;"><strong>定期的な見直し：</strong>月に一度、状況を確認し合う場を設ける。うまくいっていないことは正直に話す</li>
+      </ol>
+
+      <h3>「家族会議」のすすめ</h3>
+      <div class="highlight">
+        <p>月に一度、30分でも家族で話し合う場を作りましょう。「誰かが困っているサイン」を見逃さないための、大切な習慣です。</p>
+      </div>
+
+      <h3>🌱 mimemimeとの連携</h3>
+      <div class="case-box">
+        <h4>家族同席の相談会</h4>
+        <p>ご希望の方には、ご家族も一緒に参加できる相談会を実施しています。支援者を交えることで、家族だけでは見えていなかった視点が見えてきます。</p>
+      </div>
+      <div class="case-box">
+        <h4>定期的な進捗共有</h4>
+        <p>利用者の同意を得た上で、ご家族に定期的な状況報告を行うことができます。「本人から聞きにくいこと」も、支援者を通じて共有できます。</p>
+      </div>
+
+      <div class="reflection">
+        <h4>コース修了 振り返り</h4>
+        <textarea placeholder="このコースを通じて、家族・夫婦の観点から就労支援について感じたこと・気づいたことを自由に書いてみましょう。"></textarea>
+        <p>※入力内容は保存されません。</p>
+      </div>
+
+      <div style="background: linear-gradient(135deg, #6c3483, #9b59b6); color: white; border-radius: 12px; padding: 28px; text-align: center; margin: 24px 0;">
+        <div style="font-size: 2rem; margin-bottom: 12px;"></div>
+        <h3 style="color: white; margin-bottom: 8px;">コース4 修了おめでとうございます！</h3>
+        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">家族・夫婦の視点から就労支援を学び終えました。一人で悩まず、家族と、そして支援者と一緒に進んでいきましょう。</p>
+        <a href="contact.html" style="display: inline-block; background: white; color: #6c3483; font-weight: bold; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 0.95rem;">無料相談を申し込む →</a>
+      </div>
+
+      <div class="nav-btns">
+        <button class="btn btn-prev" onclick="showLesson(4)">← 前へ</button>
+        <a href="index.html" class="btn btn-next" style="text-decoration:none; display:inline-flex; align-items:center;">コース一覧へ</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer style="background:#111; color:#888; text-align:center; padding:32px 24px; font-size:0.85rem;">
+  <p>© 2026 株式会社mimemime（まいむまいむ）｜ <a href="privacy.html" style="color:#aaa;">プライバシーポリシー</a></p>
+</footer>
+
+<script>
+let current = 1;
+const total = 5;
+const done = new Set();
+
+function showLesson(n) {
+  document.getElementById('lesson' + current).classList.remove('active');
+  document.getElementById('nav' + current).classList.remove('active');
+  if (current < n) done.add(current);
+  current = n;
+  document.getElementById('lesson' + n).classList.add('active');
+  document.getElementById('nav' + n).classList.add('active');
+  const pct = Math.round((n / total) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function answer(btn, correct) {
+  const opts = btn.parentElement.querySelectorAll('.quiz-option');
+  opts.forEach(o => o.disabled = true);
+  const result = document.getElementById('quizResult');
+  const msg = document.getElementById('quizMsg');
+  if (correct) {
+    btn.classList.add('correct');
+    result.className = 'quiz-result show ok';
+    msg.innerHTML = '<svg viewBox="0 0 32 32" width="18" height="18" fill="none" stroke="#27AE60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:4px;flex-shrink:0;" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="m11 16.5 3.3 3.3L21.5 12.5"/></svg>正解！介護休業・短時間勤務など、仕事を続けながら介護と両立する方法があります。';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'quiz-result show ng';
+    msg.innerHTML = '<svg viewBox="0 0 32 32" width="18" height="18" fill="none" stroke="#e0604a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:4px;flex-shrink:0;" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="m12 12 8 8m0-8-8 8"/></svg>惜しい！仕事を辞めなくても両立できる制度・サービスがあります。正解はBです。';
+  }
+}
+</script>
+</body>
+</html>

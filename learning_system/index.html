@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51S65JTC2F');
+</script>
+<meta charset="UTF-8">
+<meta name="description" content="障害・就労・介護に関する無料オンライン学習コース。全4コース無料・登録不要。スマホで学べます。">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mimemime ラーニングセンター | 働き方を共に学ぶ</title>
+<style>
+:root {
+  --main: #3A7CA5;
+  --accent: #F2A65A;
+  --dark: #1F3A4D;
+  --light: #EBF5FB;
+  --light2: #FEF6EE;
+  --gray: #7F8C8D;
+  --white: #FFFFFF;
+  --green: #27AE60;
+  --bg: #F4F8FB;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Meiryo', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.7; }
+
+/* ナビ */
+nav { background: var(--dark); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.nav-logo { color: white; font-size: 1.2rem; font-weight: bold; text-decoration: none; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { color: #ccc; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.nav-links a:hover { color: white; }
+
+/* ヒーロー */
+.hero { background: linear-gradient(135deg, var(--dark) 0%, #2c5f7a 100%); color: white; padding: 80px 24px 60px; text-align: center; }
+.hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 16px; }
+.hero h1 span { color: var(--accent); }
+.hero p { font-size: 1.1rem; color: #ccc; max-width: 600px; margin: 0 auto 32px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 8px 20px; font-size: 0.9rem; color: #ddd; }
+
+/* セクション */
+.section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+.section-title { font-size: 1.6rem; color: var(--main); margin-bottom: 8px; }
+.section-title::before { content: ''; display: inline-block; width: 5px; height: 1em; background: var(--accent); margin-right: 12px; vertical-align: middle; border-radius: 3px; }
+.section-sub { color: var(--gray); margin-bottom: 40px; font-size: 0.95rem; }
+
+/* コースカード */
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.course-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+.course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.card-header { padding: 24px; background: linear-gradient(135deg, var(--main), #2d6d99); color: white; position: relative; }
+.card-header.orange { background: linear-gradient(135deg, #e67e22, var(--accent)); }
+.card-header.green { background: linear-gradient(135deg, #1e8449, var(--green)); }
+.card-header.purple { background: linear-gradient(135deg, #6c3483, #9b59b6); }
+.card-emoji { font-size: 2.5rem; margin-bottom: 12px; }
+.card-tag { font-size: 0.75rem; background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+.card-header h3 { font-size: 1.15rem; }
+.card-body { padding: 20px 24px; }
+.card-body p { font-size: 0.9rem; color: var(--gray); margin-bottom: 16px; }
+.card-meta { display: flex; gap: 16px; font-size: 0.8rem; color: var(--gray); }
+.card-meta span { display: flex; align-items: center; gap: 4px; }
+.card-btn { display: block; margin-top: 16px; background: var(--main); color: white; text-align: center; padding: 10px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; }
+.card-btn:hover { background: var(--dark); }
+
+/* お知らせ */
+.notice-box { background: white; border-left: 5px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.notice-box h4 { color: var(--accent); font-size: 0.85rem; margin-bottom: 6px; }
+.notice-box p { font-size: 0.9rem; color: var(--dark); }
+
+/* 特徴 */
+.features { background: var(--dark); padding: 60px 24px; }
+.features-inner { max-width: 1100px; margin: 0 auto; }
+.features h2 { color: white; text-align: center; font-size: 1.6rem; margin-bottom: 8px; }
+.features-sub { color: #aaa; text-align: center; margin-bottom: 40px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.feature-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; text-align: center; }
+.feature-item .icon { font-size: 2rem; margin-bottom: 12px; }
+.feature-item h4 { color: white; margin-bottom: 8px; }
+.feature-item p { color: #aaa; font-size: 0.85rem; }
+
+/* CTA */
+.cta { background: linear-gradient(135deg, var(--accent), #e67e22); padding: 60px 24px; text-align: center; }
+.cta h2 { color: white; font-size: 1.8rem; margin-bottom: 12px; }
+.cta p { color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+.cta-btn { display: inline-block; background: white; color: var(--accent); font-weight: bold; padding: 14px 40px; border-radius: 50px; font-size: 1.05rem; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s; }
+.cta-btn:hover { transform: scale(1.04); }
+
+/* フッター */
+footer { background: #111; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85rem; }
+footer a { color: #aaa; }
+
+/* モーダル */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: white; border-radius: 16px; max-width: 480px; width: 90%; padding: 36px; text-align: center; }
+.modal h3 { color: var(--main); margin-bottom: 12px; }
+.modal p { color: var(--gray); margin-bottom: 24px; font-size: 0.95rem; }
+.modal-btn { background: var(--main); color: white; border: none; padding: 12px 32px; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+
+/* ハンバーガーメニュー */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-right:-8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:64px;left:0;right:0;background:var(--dark);padding:20px 32px;gap:20px;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .nav-links.open{display:flex!important;}
+  .nav-links a{font-size:1rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav-links .nav-cta{border:none;text-align:center;}
+}
+</style>
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mimemime.com/og-image.png">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">mime<span>mime</span> ラーニング</a>
+  <div class="nav-links">
+    <a href="index.html">コース一覧</a>
+    <a href="about.html">このサイトについて</a>
+    <a href="contact.html">相談する</a>
+  </div>
+<button class="hamburger" aria-label="メニューを開く" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="hero">
+  <h1>あなたらしい働き方を、<span>共に学ぼう</span></h1>
+  <p>就労に関する不安・疑問を、一緒に解消していくオンライン学習プログラムです。<br>自分のペースで、どこからでも学べます。</p>
+  <div class="hero-badge">全コース無料公開中 &nbsp;|&nbsp; スマホ対応 &nbsp;|&nbsp; ⏱ 1レッスン10〜15分</div>
+</div>
+
+<div class="section">
+  <div class="notice-box">
+    <h4>🌱 はじめての方へ</h4>
+    <p>まずは「<strong>コース1：就労移行支援入門</strong>」から始めることをおすすめします。制度の基礎がわかると、あとのコースがぐっと理解しやすくなります。</p>
+  </div>
+
+  <div class="section-title">コース一覧</div>
+  <p class="section-sub">4つのテーマ別コースで、就労に関する知識とスキルを段階的に学べます</p>
+
+  <div class="courses-grid">
+    <a href="course1.html" class="course-card">
+      <div class="card-header">
+        <div class="card-emoji"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="18" height="24" rx="2"/><path d="M12 4V3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1"/><path d="m11.5 14 1.8 1.8L16.5 12.5"/><path d="M19 14h4"/><path d="m11.5 21 1.8 1.8L16.5 19.5"/><path d="M19 21h4"/></svg></div>
+        <div class="card-tag">COURSE 1</div>
+        <h3>就労移行支援入門</h3>
+      </div>
+      <div class="card-body">
+        <p>就労移行支援とは何か？どんな人が使えるのか？費用は？をわかりやすく解説します。</p>
+        <div class="card-meta">
+          <span>6レッスン</span>
+          <span>⏱ 約60分</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#27AE60;margin-right:5px;"></span>初級</span>
+        </div>
+        <div class="card-btn">コースを始める →</div>
+      </div>
+    </a>
+
+    <a href="course2.html" class="course-card">
+      <div class="card-header orange">
+        <div class="card-emoji"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 6 8v7c0 7 4.5 11.6 10 13 5.5-1.4 10-6 10-13V8z"/><path d="m11.5 16 3 3 6-6.5"/></svg></div>
+        <div class="card-tag">COURSE 2</div>
+        <h3>心理的安全性と働き方</h3>
+      </div>
+      <div class="card-body">
+        <p>「ここにいていい」と感じられる職場とは？心理的安全性の概念と、あなたに合った職場の選び方を学びます。</p>
+        <div class="card-meta">
+          <span>5レッスン</span>
+          <span>⏱ 約50分</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F2A65A;margin-right:5px;"></span>初中級</span>
+        </div>
+        <div class="card-btn">コースを始める →</div>
+      </div>
+    </a>
+
+    <a href="course3.html" class="course-card">
+      <div class="card-header green">
+        <div class="card-emoji"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h5l4-3 4 3h3"/><path d="m13 16 3 3a2 2 0 0 0 2.8-2.8L14.5 12"/><path d="m17 14 2.5 2.5a2 2 0 0 0 2.8-2.8L19 10.5"/><path d="M4 11h4v9H4zM24 11h4v9h-4z"/></svg></div>
+        <div class="card-tag">COURSE 3</div>
+        <h3>障害と就労の基礎知識</h3>
+      </div>
+      <div class="card-body">
+        <p>精神・発達・身体障害それぞれの就労のポイント、合理的配慮の申請方法、働き続けるためのコツを学びます。</p>
+        <div class="card-meta">
+          <span>7レッスン</span>
+          <span>⏱ 約70分</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F2A65A;margin-right:5px;"></span>初中級</span>
+        </div>
+        <div class="card-btn">コースを始める →</div>
+      </div>
+    </a>
+
+    <a href="course4.html" class="course-card">
+      <div class="card-header purple">
+        <div class="card-emoji"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="10" r="4"/><circle cx="21" cy="10" r="4"/><path d="M5 27v-3a6 6 0 0 1 6-6h0a6 6 0 0 1 6 6v3"/><path d="M15 27v-3a6 6 0 0 1 6-6h0a6 6 0 0 1 6 6v3"/></svg></div>
+        <div class="card-tag">COURSE 4</div>
+        <h3>家族・夫婦で考える就労支援</h3>
+      </div>
+      <div class="card-body">
+        <p>「夫の躓き」「ダブルケアラー」「介護離職」——家族の状況が就労に与える影響と、一緒に乗り越える方法を学びます。</p>
+        <div class="card-meta">
+          <span>5レッスン</span>
+          <span>⏱ 約50分</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F2A65A;margin-right:5px;"></span>初中級</span>
+        </div>
+        <div class="card-btn">コースを始める →</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="features">
+  <div class="features-inner">
+    <h2>mimemime ラーニングの特徴</h2>
+    <p class="features-sub">現役就労移行支援員の代表が監修した、現場の知恵が詰まったプログラムです</p>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="icon"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9.5V16l4.5 2.5"/></svg></div>
+        <h4>自分のペースで学べる</h4>
+        <p>1レッスン10〜15分。通勤中でも、寝る前でも、あなたのタイミングで学べます。</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="14" width="18" height="13" rx="2.5"/><path d="M11 14V10a5 5 0 0 1 10 0v4"/><circle cx="16" cy="20" r="2"/></svg></div>
+        <h4>心理的安全性を重視</h4>
+        <p>「正解しなければいけない」プレッシャーなし。学びの過程を大切にします。</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H13l-5 4v-4H9a3 3 0 0 1-3-3z"/></svg></div>
+        <h4>いつでも相談できる</h4>
+        <p>学びながら疑問が出たら、いつでもmimemimeのスタッフに相談できます。</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon"><svg viewBox="0 0 32 32" width="40" height="40" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c3 3 4.5 7 4.5 11s-1.5 8-4.5 11c-3-3-4.5-7-4.5-11S13 8 16 5z"/></svg></div>
+        <h4>全国どこからでも</h4>
+        <p>スマートフォン・タブレット・PCに対応。場所を選ばず学べます。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>学びながら、一緒に次の一歩を踏み出しませんか？</h2>
+  <p>コースを受講しながら、いつでも無料相談をご利用いただけます。<br>あなたのペースで、あなたに合った働き方を見つけましょう。</p>
+  <a href="contact.html" class="cta-btn">無料相談を申し込む</a>
+</div>
+
+<footer>
+  <p>© 2026 株式会社mimemime（まいむまいむ）｜ <a href="privacy.html">プライバシーポリシー</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>障害者求人サイト 徹底比較・スコア分析 2026年版 | mimemime</title>
+<meta name="description" content="障害者向け求人サイト10社以上を現役就労移行支援員が徹底比較。求人数・サポート品質・在宅対応などを独自スコアで評価。あなたに合ったサイト選びをサポートします。">
+<meta property="og:title" content="障害者求人サイト 徹底比較2026 | mimemime">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mimemime.com/compare.html">
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-51S65JTC2F');</script>
+<style>
+:root{
+  --main:#3A7CA5;--accent:#F2A65A;--dark:#1F3A4D;
+  --gray:#7F8C8D;--green:#27AE60;--red:#E74C3C;
+  --purple:#8E44AD;--bg:#F4F8FB;
+  --gold:#F39C12;--silver:#95A5A6;--bronze:#CD853F;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Helvetica Neue',Arial,'Hiragino Sans','Meiryo',sans-serif;background:#f7fafc;color:var(--dark);line-height:1.7;}
+
+/* NAV */
+.announce-bar{background:#17303f;border-bottom:1px solid rgba(242,166,90,.25);color:rgba(255,255,255,.9);text-align:center;font-size:.82rem;padding:9px 16px;}
+.announce-bar a{color:var(--accent);text-decoration:none;font-weight:bold;}
+nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:bold;text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:.9rem;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-cta{background:var(--accent);color:#fff!important;padding:8px 20px;border-radius:20px;font-weight:bold;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* HERO */
+.hero{background:var(--dark);padding:64px 32px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(242,166,90,.15) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:320px;height:320px;background:radial-gradient(circle,rgba(58,124,165,.2) 0%,transparent 70%);pointer-events:none;}
+.breadcrumb{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:16px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none;}
+.hero h1{font-size:2.2rem;font-weight:900;color:#fff;margin-bottom:16px;position:relative;line-height:1.25;}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.75);max-width:620px;margin:0 auto 24px;position:relative;}
+.hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;position:relative;}
+.hero-meta span{font-size:.8rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:5px;}
+
+/* NOTICE */
+.notice{max-width:900px;margin:32px auto;padding:0 32px;}
+.notice-box{background:rgba(58,124,165,.07);border-left:4px solid var(--main);border-radius:0 8px 8px 0;padding:14px 18px;font-size:.85rem;color:var(--dark);line-height:1.7;}
+.notice-box strong{color:var(--main);}
+
+/* FILTER TABS */
+.filter-wrap{background:#fff;border-bottom:1px solid #e5edf4;padding:0 32px;position:sticky;top:64px;z-index:150;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.filter-inner{max-width:1100px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.filter-inner::-webkit-scrollbar{display:none;}
+.filter-tab{flex-shrink:0;padding:14px 20px;font-size:.85rem;font-weight:bold;color:var(--gray);cursor:pointer;border:none;background:transparent;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}
+.filter-tab:hover{color:var(--main);}
+.filter-tab.active{color:var(--main);border-bottom-color:var(--main);}
+
+/* MAIN */
+.wrap{max-width:1100px;margin:0 auto;padding:48px 32px;}
+
+/* RANKING HEADER */
+.ranking-intro{text-align:center;margin-bottom:40px;}
+.ranking-intro h2{font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+.ranking-intro h2 em{color:var(--main);font-style:normal;}
+.ranking-intro p{font-size:.9rem;color:var(--gray);}
+
+/* SCORE LEGEND */
+.legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gray);}
+.legend-dot{width:12px;height:12px;border-radius:50%;}
+
+/* SITE CARD */
+.site-card{background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(31,58,77,.08);margin-bottom:28px;overflow:hidden;transition:box-shadow .2s;}
+.site-card:hover{box-shadow:0 8px 32px rgba(31,58,77,.14);}
+.site-card-header{padding:28px 32px 24px;display:flex;gap:24px;align-items:flex-start;border-bottom:1px solid #f0f4f8;}
+.rank-badge{flex-shrink:0;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;}
+.rank-1{background:linear-gradient(135deg,#f6d365,#fda085);color:#fff;}
+.rank-2{background:linear-gradient(135deg,#a8c0cc,#c5d8df);color:#555;}
+.rank-3{background:linear-gradient(135deg,#d4a76a,#e8c49a);color:#fff;}
+.rank-other{background:#f0f4f8;color:var(--gray);}
+.site-emoji{font-size:2.2rem;flex-shrink:0;}
+.site-info{flex:1;}
+.site-name{font-size:1.25rem;font-weight:900;color:var(--dark);margin-bottom:4px;}
+.site-tagline{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.site-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.stag{font-size:.72rem;font-weight:bold;padding:3px 10px;border-radius:12px;}
+.stag-blue{background:rgba(58,124,165,.1);color:var(--main);}
+.stag-green{background:rgba(39,174,96,.1);color:var(--green);}
+.stag-orange{background:rgba(242,166,90,.15);color:#c47a00;}
+.stag-purple{background:rgba(142,68,173,.1);color:var(--purple);}
+.stag-red{background:rgba(231,76,60,.1);color:var(--red);}
+.total-score{flex-shrink:0;text-align:center;}
+.total-score .score-num{font-size:2.8rem;font-weight:900;line-height:1;color:var(--dark);}
+.total-score .score-denom{font-size:.9rem;color:var(--gray);}
+.total-score .score-label{font-size:.72rem;color:var(--gray);margin-top:4px;}
+.stars{color:var(--accent);font-size:1rem;margin-top:4px;}
+
+/* SCORE BARS */
+.site-body{padding:24px 32px;display:grid;grid-template-columns:1.618fr 1fr;gap:32px;}
+.scores-section h3{font-size:.85rem;font-weight:bold;color:var(--gray);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;}
+.score-row{margin-bottom:14px;}
+.score-row-header{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:5px;}
+.score-name{color:var(--dark);font-weight:500;}
+.score-val{font-weight:bold;}
+.score-bar-track{background:#f0f4f8;border-radius:99px;height:10px;overflow:hidden;}
+.score-bar-fill{height:100%;border-radius:99px;transition:width .8s ease;}
+.fill-90up{background:linear-gradient(90deg,var(--green),#2ecc71);}
+.fill-70up{background:linear-gradient(90deg,var(--main),#5ba3c9);}
+.fill-50up{background:linear-gradient(90deg,var(--accent),#f5c66c);}
+.fill-below50{background:linear-gradient(90deg,var(--red),#e07070);}
+
+/* RADAR CHART */
+.radar-wrap{display:flex;flex-direction:column;align-items:center;}
+.radar-wrap h3{font-size:.85rem;font-weight:bold;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;align-self:flex-start;}
+canvas.radar{max-width:220px;}
+
+/* PROS CONS */
+.pros-cons{padding:0 32px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.pc-box{border-radius:10px;padding:16px 18px;}
+.pc-box.pros{background:rgba(39,174,96,.06);border:1px solid rgba(39,174,96,.2);}
+.pc-box.cons{background:rgba(231,76,60,.06);border:1px solid rgba(231,76,60,.15);}
+.pc-title{font-size:.8rem;font-weight:bold;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.pc-title.pros{color:var(--green);}
+.pc-title.cons{color:var(--red);}
+.pc-list{list-style:none;}
+.pc-list li{font-size:.83rem;padding:4px 0;color:var(--dark);display:flex;align-items:flex-start;gap:6px;line-height:1.5;}
+.pc-list li::before{flex-shrink:0;margin-top:2px;}
+.pc-list.pros-list li::before{content:'✓';color:var(--green);font-weight:bold;}
+.pc-list.cons-list li::before{content:'✗';color:var(--red);}
+
+/* RECOMMEND STRIP */
+.rec-strip{background:var(--bg);border-top:1px solid #e5edf4;padding:14px 32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.rec-label{font-size:.78rem;font-weight:bold;color:var(--gray);white-space:nowrap;}
+.rec-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.rec-chip{font-size:.75rem;background:#fff;border:1.5px solid #c8d8e8;color:var(--dark);padding:4px 10px;border-radius:12px;}
+
+/* COMPARISON TABLE */
+.compare-section{margin-top:56px;}
+.compare-section h2{font-size:1.4rem;font-weight:900;margin-bottom:8px;}
+.compare-section h2 em{color:var(--main);font-style:normal;}
+.compare-section p{font-size:.88rem;color:var(--gray);margin-bottom:24px;}
+.tbl-wrap{overflow-x:auto;}
+table.ctbl{width:100%;border-collapse:collapse;font-size:.83rem;min-width:700px;}
+table.ctbl thead th{background:var(--dark);color:#fff;padding:12px 14px;text-align:center;white-space:nowrap;}
+table.ctbl thead th:first-child{text-align:left;}
+table.ctbl tbody td{padding:11px 14px;border-bottom:1px solid #f0f4f8;text-align:center;vertical-align:middle;}
+table.ctbl tbody td:first-child{text-align:left;font-weight:bold;}
+table.ctbl tbody tr:nth-child(even) td{background:#fafcfe;}
+table.ctbl tbody tr:hover td{background:rgba(58,124,165,.04);}
+.s-score{font-weight:bold;}
+.s-hi{color:var(--green);}
+.s-mid{color:var(--main);}
+.s-lo{color:var(--red);}
+.bar-mini{display:inline-block;height:6px;border-radius:3px;vertical-align:middle;margin-left:4px;}
+
+/* TYPE GUIDE */
+.type-section{margin-top:56px;}
+.type-section h2{font-size:1.4rem;font-weight:900;margin-bottom:8px;}
+.type-section h2 em{color:var(--accent);font-style:normal;}
+.type-section p{font-size:.88rem;color:var(--gray);margin-bottom:24px;}
+.type-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.type-card{background:#fff;border-radius:12px;box-shadow:0 3px 14px rgba(31,58,77,.08);padding:24px;}
+.type-icon{font-size:2rem;margin-bottom:12px;}
+.type-title{font-size:1rem;font-weight:bold;margin-bottom:8px;}
+.type-desc{font-size:.83rem;color:var(--gray);margin-bottom:14px;line-height:1.6;}
+.type-picks{font-size:.82rem;}
+.type-picks strong{color:var(--main);}
+
+/* CTA */
+.cta-box{background:var(--dark);color:#fff;border-radius:16px;padding:48px 40px;text-align:center;margin-top:56px;}
+.cta-box h2{font-size:1.5rem;font-weight:900;margin-bottom:12px;}
+.cta-box h2 em{color:var(--accent);font-style:normal;}
+.cta-box p{font-size:.92rem;color:rgba(255,255,255,.8);max-width:540px;margin:0 auto 24px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-line{background:#06C755;color:#fff;padding:14px 28px;border-radius:28px;font-weight:bold;font-size:.95rem;text-decoration:none;}
+.btn-accent{background:var(--accent);color:#fff;padding:14px 28px;border-radius:28px;font-weight:bold;font-size:.95rem;text-decoration:none;}
+
+/* DISCLAIMER */
+.disclaimer{background:#f5f5f5;border-top:1px solid #e0e0e0;padding:24px 32px;text-align:center;font-size:.78rem;color:#999;line-height:1.8;}
+
+/* FOOTER */
+footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px;}
+.footer-logo{color:#fff;font-size:1.2rem;font-weight:bold;text-decoration:none;display:block;margin-bottom:12px;}
+.footer-logo span{color:var(--accent);}
+.footer-brand p{font-size:.85rem;line-height:1.7;max-width:260px;}
+.footer-links h4{color:#fff;font-size:.9rem;margin-bottom:14px;}
+.footer-links a{display:block;color:#888;text-decoration:none;font-size:.85rem;margin-bottom:8px;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom a{color:#888;text-decoration:none;}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--dark);padding:20px 32px;gap:20px;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .hero h1{font-size:1.6rem;}
+  .site-body{grid-template-columns:1fr;}
+  .pros-cons{grid-template-columns:1fr;}
+  .site-card-header{flex-wrap:wrap;gap:16px;}
+  .wrap{padding:32px 16px;}
+  .cta-box{padding:32px 20px;}
+  .footer-top{flex-direction:column;}
+  .type-cards{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="announce-bar">📊 現役就労移行支援員による独自調査 · <a href="jobs.html">求人を探す</a> · <a href="learning_system/contact.html">無料相談</a></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">mime<span>mime</span></a>
+  <div class="nav-links">
+    <a href="jobs.html">求人情報</a>
+    <a href="compare.html" class="active">サイト比較</a>
+    <a href="blog/index.html">ブログ</a>
+    <a href="index.html#about">会社について</a>
+    <a href="https://lin.ee/XlWTqy1" style="background:#06C755;color:#fff;padding:8px 16px;border-radius:20px;font-weight:bold;font-size:.85rem;text-decoration:none;">LINE相談</a>
+    <a href="learning_system/contact.html" class="nav-cta">無料相談</a>
+  </div>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="breadcrumb"><a href="index.html">ホーム</a> › 障害者求人サイト 徹底比較</p>
+  <h1>障害者求人サイト<br><em>徹底比較・スコア分析</em><br>2026年版</h1>
+  <p class="hero-sub">現役就労移行支援員が、主要サービスを8つの基準でスコア化。あなたの状況に合ったサービスをデータで選べます。</p>
+  <div class="hero-meta">
+    <span>📅 2026年6月現在の情報</span>
+    <span>👤 現役支援員による独自調査</span>
+    <span>📊 10サービス比較</span>
+    <span>⚠️ 個人差あり・参考情報</span>
+  </div>
+</div>
+
+<div class="notice">
+  <div class="notice-box">
+    <strong>ご注意：</strong>このページのスコアはmimemime独自の調査・評価基準によるものです。各サービスの公式評価ではありません。利用者の状況・障害種別・地域によって体験は異なります。必ず各サービスに直接ご確認ください。<strong>専門家への相談をおすすめします。</strong>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-wrap">
+  <div class="filter-inner">
+    <button class="filter-tab active" onclick="filterCards('all',this)">すべて (10)</button>
+    <button class="filter-tab" onclick="filterCards('agent',this)">🤝 転職エージェント</button>
+    <button class="filter-tab" onclick="filterCards('iko',this)">🎓 就労移行支援</button>
+    <button class="filter-tab" onclick="filterCards('gov',this)">🏛️ 公的機関</button>
+    <button class="filter-tab" onclick="filterCards('portal',this)">🔍 求人ポータル</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="ranking-intro">
+    <h2>総合スコア <em>ランキング</em></h2>
+    <p>8項目×10点満点で評価。各スコアの詳細は各カードで確認できます。</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#27AE60"></div>9〜10点（優秀）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3A7CA5"></div>7〜8点（良好）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#F2A65A"></div>5〜6点（普通）</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E74C3C"></div>4点以下（注意）</div>
+  </div>
+
+  <!-- ── CARD 1: dodaチャレンジ ── -->
+  <div class="site-card" data-type="agent">
+    <div class="site-card-header">
+      <div class="rank-badge rank-1">🥇</div>
+      <div class="site-emoji">🌟</div>
+      <div class="site-info">
+        <div class="site-name">dodaチャレンジ</div>
+        <div class="site-tagline">パーソルグループ運営・業界最大クラスの求人数と全国対応</div>
+        <div class="site-tags">
+          <span class="stag stag-blue">転職エージェント</span>
+          <span class="stag stag-green">全国対応</span>
+          <span class="stag stag-green">求人数No.1級</span>
+          <span class="stag stag-blue">全障害種別</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">83</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★★★</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">求人数・選択肢の豊富さ</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体障害サポート</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの丁寧さ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅・リモート求人</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職後サポート</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://doda.jp/challenge/promo/shutoken01.html?utm_source=a8&utm_medium=cpc&utm_campaign=affiliate&argument=y3Oqv7eK&dmai=a605957b1a1b61" target="_blank" rel="noopener sponsored" style="color:var(--main);">dodaチャレンジ公式（無料登録）</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar0" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>業界最大級の求人数で選択肢が豊富</li>
+          <li>パーソルグループの信頼性・実績</li>
+          <li>全国どこでも対応（地方も充実）</li>
+          <li>身体・精神・発達・知的すべて対応</li>
+          <li>大手企業求人が多く安定雇用につながりやすい</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>求人数が多いぶん担当者対応に差がある</li>
+          <li>精神・発達障害への専門性はatGPより薄い印象</li>
+          <li>在宅求人の絶対数はやや少なめ</li>
+          <li>登録後の連絡が多くなる場合がある</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">とにかく選択肢を増やしたい</span>
+        <span class="rec-chip">地方在住</span>
+        <span class="rec-chip">身体障害をお持ちの方</span>
+        <span class="rec-chip">大手企業に就職したい</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 2: atGP ── -->
+  <div class="site-card" data-type="agent">
+    <div class="site-card-header">
+      <div class="rank-badge rank-2">🥈</div>
+      <div class="site-emoji">🎯</div>
+      <div class="site-info">
+        <div class="site-name">atGP（アットジーピー）</div>
+        <div class="site-tagline">精神・発達障害支援の専門性No.1・就労移行も運営</div>
+        <div class="site-tags">
+          <span class="stag stag-blue">転職エージェント</span>
+          <span class="stag stag-purple">精神障害に強み</span>
+          <span class="stag stag-purple">発達障害に強み</span>
+          <span class="stag stag-green">就労移行も展開</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">80</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★★★</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">求人数・選択肢の豊富さ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体障害サポート</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの丁寧さ</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅・リモート求人</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職後サポート</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://www.atgp.jp/" target="_blank" rel="noopener" style="color:var(--main);">atgp.jp</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar1" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>精神・発達障害の専門知識を持つアドバイザー</li>
+          <li>就労移行支援（ジョブトレ）も運営し一貫サポート</li>
+          <li>非公開求人が充実している</li>
+          <li>就職後の定着支援が業界トップ水準</li>
+          <li>障害への理解度が高くコミュニケーションしやすい</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>首都圏・都市部中心で地方求人はやや少ない</li>
+          <li>身体障害専門のサポートはdodaより弱い</li>
+          <li>知的障害への対応は限定的なケースがある</li>
+          <li>担当者によって対応差が出やすい</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">精神障害をお持ちの方</span>
+        <span class="rec-chip">発達障害（ASD・ADHD）の方</span>
+        <span class="rec-chip">丁寧なサポートを求める方</span>
+        <span class="rec-chip">就職後も安心したい方</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 3: マイナビパートナーズ ── -->
+  <div class="site-card" data-type="agent">
+    <div class="site-card-header">
+      <div class="rank-badge rank-3">🥉</div>
+      <div class="site-emoji">💼</div>
+      <div class="site-info">
+        <div class="site-name">マイナビパートナーズ転職</div>
+        <div class="site-tagline">マイナビブランドの信頼感・キャリア相談が丁寧</div>
+        <div class="site-tags">
+          <span class="stag stag-blue">転職エージェント</span>
+          <span class="stag stag-orange">キャリア相談重視</span>
+          <span class="stag stag-blue">転職者向け</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">72</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★★☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">求人数・選択肢の豊富さ</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体障害サポート</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの丁寧さ</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅・リモート求人</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職後サポート</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://tenshoku.mynavi.jp/lp/handicapped/" target="_blank" rel="noopener" style="color:var(--main);">mynavi.jp</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar2" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>マイナビブランドへの企業信頼度が高い</li>
+          <li>面談・カウンセリングが丁寧でじっくり話せる</li>
+          <li>はじめての転職活動でも手厚く案内してくれる</li>
+          <li>登録・面談の手続きが比較的わかりやすい</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>atGPやdodaと比べると求人の絶対数が少ない</li>
+          <li>精神・発達障害の専門対応はやや劣る印象</li>
+          <li>在宅リモート系の求人は少なめ</li>
+          <li>首都圏中心のため地方は求人が限られる</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">はじめての転職活動</span>
+        <span class="rec-chip">身体障害をお持ちの方</span>
+        <span class="rec-chip">丁寧な面談を希望</span>
+        <span class="rec-chip">マイナビを使ったことがある方</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 4: LITALICO仕事ナビ ── -->
+  <div class="site-card" data-type="portal">
+    <div class="site-card-header">
+      <div class="rank-badge rank-other">4</div>
+      <div class="site-emoji">🔍</div>
+      <div class="site-info">
+        <div class="site-name">LITALICO仕事ナビ（スナビ）</div>
+        <div class="site-tagline">就労移行支援事業所を全国で検索できるポータルサイト</div>
+        <div class="site-tags">
+          <span class="stag stag-green">就労移行検索</span>
+          <span class="stag stag-green">全国対応</span>
+          <span class="stag stag-blue">ポータルサイト</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">71</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★★☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">情報量・選択肢の豊富さ</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体・知的障害対応</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">使いやすさ・見やすさ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職直結（求人あり）</span><span class="score-val s-lo">3/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-below50" style="width:30%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの個別対応</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://snabi.jp/" target="_blank" rel="noopener" style="color:var(--main);">snabi.jp</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar3" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>全国の就労移行支援事業所を網羅的に検索できる</li>
+          <li>地図検索・特徴検索で自分に合う施設を見つけやすい</li>
+          <li>登録不要で自由に閲覧できる</li>
+          <li>全障害種別に対応した施設を探せる</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>直接の求人情報はなく就労移行探しがメイン</li>
+          <li>個別サポートはなく自分で選んで連絡が必要</li>
+          <li>掲載情報が古い場合があるので要確認</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">まず就労移行支援を探したい</span>
+        <span class="rec-chip">いきなり転職は不安</span>
+        <span class="rec-chip">地元の支援機関を知りたい</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 5: ランスタッドチャレンジド ── -->
+  <div class="site-card" data-type="agent">
+    <div class="site-card-header">
+      <div class="rank-badge rank-other">5</div>
+      <div class="site-emoji">🌐</div>
+      <div class="site-info">
+        <div class="site-name">ランスタッドチャレンジド</div>
+        <div class="site-tagline">世界最大規模の人材企業グループ・全国幅広く対応</div>
+        <div class="site-tags">
+          <span class="stag stag-blue">転職エージェント</span>
+          <span class="stag stag-green">全国対応</span>
+          <span class="stag stag-blue">グローバル企業</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">68</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★★☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">求人数・選択肢の豊富さ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体障害サポート</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの丁寧さ</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅・リモート求人</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職後サポート</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://www.randstad.co.jp/challenged/" target="_blank" rel="noopener" style="color:var(--main);">randstad.co.jp</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar4" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>世界規模の企業ネットワークで大手求人が多い</li>
+          <li>全国対応で地方でも利用しやすい</li>
+          <li>身体障害の方への求人が充実</li>
+          <li>グローバル企業・外資系求人も扱う</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>精神・発達障害への専門サポートはやや薄い</li>
+          <li>カウンセリングがビジネスライクに感じる場合がある</li>
+          <li>就労移行支援利用中の方には向かないケースも</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">身体障害をお持ちの方</span>
+        <span class="rec-chip">大手・外資系希望</span>
+        <span class="rec-chip">地方在住</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 6: ハローワーク ── -->
+  <div class="site-card" data-type="gov">
+    <div class="site-card-header">
+      <div class="rank-badge rank-other">6</div>
+      <div class="site-emoji">🏛️</div>
+      <div class="site-info">
+        <div class="site-name">ハローワーク（公共職業安定所）</div>
+        <div class="site-tagline">国が運営・完全無料・手帳なしでも相談できる唯一の公的機関</div>
+        <div class="site-tags">
+          <span class="stag stag-orange">公的機関</span>
+          <span class="stag stag-green">完全無料</span>
+          <span class="stag stag-green">全国展開</span>
+          <span class="stag stag-orange">手帳なしOK</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">65</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★☆☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">求人数・選択肢の豊富さ</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体障害サポート</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国・地方対応</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">サポートの丁寧さ</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅・リモート求人</span><span class="score-val s-lo">4/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-below50" style="width:40%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職後サポート</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">登録のしやすさ</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar5" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>完全無料で誰でも使える唯一の公的窓口</li>
+          <li>障害者手帳がなくても相談できる</li>
+          <li>求人数は業界最大（民間非公開除く）</li>
+          <li>失業給付・各種制度手続きも同時に行える</li>
+          <li>全国約540か所で必ずどこかにある</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>担当者の専門知識・対応に大きなばらつきがある</li>
+          <li>精神・発達障害への深い理解は期待しにくい場合も</li>
+          <li>窓口に出向く必要があり体力的・精神的負担になることも</li>
+          <li>在宅・リモート求人は非常に少ない</li>
+          <li>民間エージェントに比べてサポートが受動的</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">手帳をまだお持ちでない方</span>
+        <span class="rec-chip">まずは無料で始めたい</span>
+        <span class="rec-chip">失業給付の手続きも必要</span>
+        <span class="rec-chip">地元密着で探したい</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 7: manaby ── -->
+  <div class="site-card" data-type="iko">
+    <div class="site-card-header">
+      <div class="rank-badge rank-other">7</div>
+      <div class="site-emoji">💻</div>
+      <div class="site-info">
+        <div class="site-name">manaby（マナビー）</div>
+        <div class="site-tagline">ITスキル特化型就労移行・在宅就労を目指す方に強い</div>
+        <div class="site-tags">
+          <span class="stag stag-green">就労移行支援</span>
+          <span class="stag stag-purple">IT・Web特化</span>
+          <span class="stag stag-green">在宅就労対応</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">63</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★☆☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職できる職種の多様さ</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害サポート</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">スキル習得の質</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国対応</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅就労への対応</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">通所負担の少なさ</span><span class="score-val s-hi">9/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:90%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職実績・定着率</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">利用開始のしやすさ</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://manaby.co.jp/" target="_blank" rel="noopener" style="color:var(--main);">manaby.co.jp</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar6" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>WEBデザイン・動画編集・プログラミングを本格的に学べる</li>
+          <li>在宅就労を目指す方に特化した支援</li>
+          <li>外出が難しい方でも通いやすい</li>
+          <li>全国展開で地方でも利用可能</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>IT・Web以外の職種を目指す場合は不向き</li>
+          <li>就職実績の公開が少なく比較しにくい</li>
+          <li>身体障害・知的障害への対応は限定的なケースも</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">在宅で働きたい</span>
+        <span class="rec-chip">IT・Web系スキルを身につけたい</span>
+        <span class="rec-chip">外出が難しい時期の方</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CARD 8: キズキビジネスカレッジ ── -->
+  <div class="site-card" data-type="iko">
+    <div class="site-card-header">
+      <div class="rank-badge rank-other">8</div>
+      <div class="site-emoji">🎓</div>
+      <div class="site-info">
+        <div class="site-name">キズキビジネスカレッジ</div>
+        <div class="site-tagline">うつ・発達障害×ビジネススキルを少人数で丁寧に</div>
+        <div class="site-tags">
+          <span class="stag stag-green">就労移行支援</span>
+          <span class="stag stag-purple">うつ・発達障害</span>
+          <span class="stag stag-orange">少人数制</span>
+        </div>
+      </div>
+      <div class="total-score">
+        <div class="score-num">61</div>
+        <div class="score-denom">/100点</div>
+        <div class="stars">★★★☆☆</div>
+        <div class="score-label">総合スコア</div>
+      </div>
+    </div>
+    <div class="site-body">
+      <div class="scores-section">
+        <h3>📊 評価スコア（各10点満点）</h3>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">精神・発達障害への専門性</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">支援の丁寧さ・安心感</span><span class="score-val s-hi">10/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-90up" style="width:100%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">スキル習得の充実度</span><span class="score-val s-mid">8/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:80%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">全国対応</span><span class="score-val s-lo">4/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-below50" style="width:40%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">在宅対応</span><span class="score-val s-50">5/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:50%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">身体・知的障害対応</span><span class="score-val s-lo">3/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-below50" style="width:30%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">就職実績</span><span class="score-val s-mid">7/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-70up" style="width:70%"></div></div></div>
+        <div class="score-row"><div class="score-row-header"><span class="score-name">利用開始のしやすさ</span><span class="score-val s-50">6/10</span></div><div class="score-bar-track"><div class="score-bar-fill fill-50up" style="width:60%"></div></div></div>
+        <p style="font-size:.75rem;color:var(--gray);margin-top:12px;">公式サイト: <a href="https://kizuki-corp.com/business-college/" target="_blank" rel="noopener" style="color:var(--main);">kizuki-corp.com</a></p>
+      </div>
+      <div class="radar-wrap">
+        <h3>レーダーチャート</h3>
+        <canvas class="radar" id="radar7" width="220" height="220"></canvas>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-box pros">
+        <div class="pc-title pros">💪 強み（ここがすごい）</div>
+        <ul class="pc-list pros-list">
+          <li>うつ・適応障害・発達障害への理解が深い</li>
+          <li>少人数制で一人ひとりに向き合ってくれる</li>
+          <li>ビジネスマナー・PCスキルを実践的に習得できる</li>
+          <li>就職実績が公開されており信頼性が高い</li>
+        </ul>
+      </div>
+      <div class="pc-box cons">
+        <div class="pc-title cons">⚠️ 弱み（ここに注意）</div>
+        <ul class="pc-list cons-list">
+          <li>東京・大阪など都市部のみで地方在住者は利用不可</li>
+          <li>身体障害・知的障害の方向けプログラムは少ない</li>
+          <li>少人数のため定員がすぐに埋まることがある</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rec-strip">
+      <span class="rec-label">こんな方におすすめ：</span>
+      <div class="rec-chips">
+        <span class="rec-chip">うつ病・適応障害からの復職</span>
+        <span class="rec-chip">発達障害でビジネススキルを学びたい</span>
+        <span class="rec-chip">少人数の環境が安心</span>
+        <span class="rec-chip">都市部在住</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COMPARISON TABLE ── -->
+
+  <!-- dodaチャレンジ アフィリエイトバナー -->
+  <div style="background:linear-gradient(135deg,#1F3A4D,#0d5a8a);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+    <div>
+      <div style="font-size:.72rem;font-weight:bold;color:#F2A65A;letter-spacing:.1em;margin-bottom:6px;">🏆 総合スコア83点1位 · mimemime最推薦</div>
+      <div style="font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:8px;">dodaチャレンジに無料登録する</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;">非公開求人80〜90% · 面談サポート無料 · 全国対応<br>まず登録して求人を眺めるだけでもOK。しつこい電話は一切なし。</div>
+    </div>
+    <div style="flex-shrink:0;text-align:center;">
+      <a href="https://doda.jp/challenge/promo/shutoken01.html?utm_source=a8&utm_medium=cpc&utm_campaign=affiliate&argument=y3Oqv7eK&dmai=a605957b1a1b61" target="_blank" rel="noopener sponsored" style="display:inline-block;background:#F2A65A;color:#fff;font-weight:900;font-size:1rem;padding:14px 28px;border-radius:28px;text-decoration:none;">無料で求人を見る →</a>
+      <div style="font-size:.68rem;color:rgba(255,255,255,.4);margin-top:6px;">※A8.netアフィリエイト広告</div>
+    </div>
+  </div>
+
+  <div class="compare-section">
+    <h2>一目でわかる <em>スコア比較表</em></h2>
+    <p>8つの評価項目を横並びで比較。あなたに重要な項目でサービスを選べます。</p>
+    <div class="tbl-wrap">
+      <table class="ctbl">
+        <thead>
+          <tr>
+            <th>サービス名</th>
+            <th>総合</th>
+            <th>求人数</th>
+            <th>精神・発達</th>
+            <th>身体障害</th>
+            <th>全国対応</th>
+            <th>サポート質</th>
+            <th>在宅対応</th>
+            <th>就職後</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🌟 dodaチャレンジ</td><td><span class="s-score s-hi">83</span></td><td><span class="s-hi">10</span></td><td><span class="s-mid">8</span></td><td><span class="s-hi">9</span></td><td><span class="s-hi">10</span></td><td><span class="s-mid">8</span></td><td><span class="s-mid">7</span></td><td><span class="s-mid">8</span></td></tr>
+          <tr><td>🎯 atGP</td><td><span class="s-score s-hi">80</span></td><td><span class="s-mid">8</span></td><td><span class="s-hi">10</span></td><td><span class="s-mid">7</span></td><td><span class="s-mid">7</span></td><td><span class="s-hi">10</span></td><td><span class="s-mid">7</span></td><td><span class="s-hi">9</span></td></tr>
+          <tr><td>💼 マイナビパートナーズ</td><td><span class="s-score s-mid">72</span></td><td><span class="s-mid">7</span></td><td><span class="s-mid">7</span></td><td><span class="s-mid">8</span></td><td><span class="s-mid">7</span></td><td><span class="s-hi">9</span></td><td><span class="s-50">6</span></td><td><span class="s-mid">7</span></td></tr>
+          <tr><td>🔍 LITALICO仕事ナビ</td><td><span class="s-score s-mid">71</span></td><td><span class="s-hi">10</span></td><td><span class="s-hi">9</span></td><td><span class="s-hi">9</span></td><td><span class="s-hi">10</span></td><td><span class="s-50">5</span></td><td><span class="s-lo">3</span></td><td><span class="s-50">5</span></td></tr>
+          <tr><td>🌐 ランスタッド</td><td><span class="s-score s-mid">68</span></td><td><span class="s-mid">8</span></td><td><span class="s-50">6</span></td><td><span class="s-mid">8</span></td><td><span class="s-hi">9</span></td><td><span class="s-50">6</span></td><td><span class="s-50">6</span></td><td><span class="s-mid">7</span></td></tr>
+          <tr><td>🏛️ ハローワーク</td><td><span class="s-score s-mid">65</span></td><td><span class="s-hi">10</span></td><td><span class="s-50">5</span></td><td><span class="s-mid">7</span></td><td><span class="s-hi">10</span></td><td><span class="s-50">5</span></td><td><span class="s-lo">4</span></td><td><span class="s-50">6</span></td></tr>
+          <tr><td>💻 manaby</td><td><span class="s-score s-mid">63</span></td><td><span class="s-50">5</span></td><td><span class="s-mid">8</span></td><td><span class="s-50">5</span></td><td><span class="s-mid">7</span></td><td><span class="s-mid">8</span></td><td><span class="s-hi">10</span></td><td><span class="s-50">6</span></td></tr>
+          <tr><td>🎓 キズキBC</td><td><span class="s-score s-mid">61</span></td><td><span class="s-50">5</span></td><td><span class="s-hi">10</span></td><td><span class="s-lo">3</span></td><td><span class="s-lo">4</span></td><td><span class="s-hi">10</span></td><td><span class="s-50">5</span></td><td><span class="s-mid">7</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.78rem;color:var(--gray);margin-top:12px;">※スコアはmimemime独自調査（2026年6月現在）。10点満点で評価。個人差あり。</p>
+  </div>
+
+  <!-- ── TYPE GUIDE ── -->
+  <div class="type-section">
+    <h2>あなたの状況別<em>おすすめサービス</em></h2>
+    <p>状況・障害種別・目標によって最適なサービスは変わります。</p>
+    <div class="type-cards">
+      <div class="type-card">
+        <div class="type-icon">🧠</div>
+        <div class="type-title">精神障害（うつ・統合失調症）の方</div>
+        <div class="type-desc">じっくり話を聞いてもらえる環境と、就職後のフォローが重要です。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 atGP（専門性・定着支援が◎）<br>
+          2位 キズキBC（少人数で安心）<br>
+          3位 dodaチャレンジ（選択肢の広さ）
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">⚡</div>
+        <div class="type-title">発達障害（ASD・ADHD）の方</div>
+        <div class="type-desc">特性に理解のある担当者と、個別対応のしっかりした環境が鍵です。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 atGP（発達障害支援No.1水準）<br>
+          2位 キズキBC（少人数・丁寧）<br>
+          3位 manaby（在宅志向の方に）
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">♿</div>
+        <div class="type-title">身体障害をお持ちの方</div>
+        <div class="type-desc">求人の多さと設備対応の確認が重要。大手エージェントが力を発揮します。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 dodaチャレンジ（身体障害求人◎）<br>
+          2位 ランスタッドチャレンジド<br>
+          3位 マイナビパートナーズ
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🏠</div>
+        <div class="type-title">在宅・リモートで働きたい方</div>
+        <div class="type-desc">外出が難しい、通勤が困難な方。在宅特化サービスが最適です。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 manaby（在宅就労特化）<br>
+          2位 dodaチャレンジ（在宅求人あり）<br>
+          3位 atGP（在宅も取り扱い）
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">📍</div>
+        <div class="type-title">地方在住・地元で働きたい方</div>
+        <div class="type-desc">都市部の大手サービスは地方に弱いことも。公的機関も活用が鍵。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 ハローワーク（全国540か所）<br>
+          2位 dodaチャレンジ（地方対応強め）<br>
+          3位 ランスタッドチャレンジド
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">🌱</div>
+        <div class="type-title">就労移行支援中・訓練から始めたい方</div>
+        <div class="type-desc">まずはスキルと体力をつけることが優先。就労移行支援からスタート。</div>
+        <div class="type-picks">
+          <strong>おすすめ順：</strong><br>
+          1位 LITALICO仕事ナビ（施設検索）<br>
+          2位 manaby（在宅就労志向）<br>
+          3位 キズキBC（精神・発達向け）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>「どこから始めればいいか」<br><em>一緒に考えます</em></h2>
+    <p>比較表を見てもどれが合うかわからない——そんな方は現役支援員に直接相談してください。あなたの状況をじっくり聞きながら、最適な選択肢を整理するお手伝いができます。</p>
+    <div class="cta-btns">
+      <a href="https://lin.ee/XlWTqy1" class="btn-line">LINEで相談する（無料）</a>
+      <a href="learning_system/contact.html" class="btn-accent">相談フォームへ</a>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  このページのスコアはmimemime（株式会社mimemime）による独自評価です。各サービスの公式評価・保証ではありません。<br>
+  スコアは2026年6月現在の情報に基づきます。各サービスの内容は変更される場合があります。必ず公式サイトでご確認ください。<br>
+  利用者の状況・障害種別・地域・担当者により体験は異なります。本ページの情報によって生じた損害について責任を負いません。
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div style="max-width:260px;">
+        <a href="index.html" class="footer-logo">mime<span>mime</span></a>
+        <p style="font-size:.85rem;line-height:1.7;color:#888;">障害のある方・就労に悩む方のための、オンライン就労支援サービス。</p>
+      </div>
+      <div class="footer-links"><h4>求職者の方</h4><a href="jobs.html">求人を探す</a><a href="compare.html">サイト比較</a><a href="shindan.html">診断を受ける</a></div>
+      <div class="footer-links"><h4>mimemime</h4><a href="index.html">トップページ</a><a href="blog/index.html">ブログ</a><a href="learning_system/contact.html">無料相談</a></div>
+      <div class="footer-links"><h4>その他</h4><a href="learning_system/privacy.html">プライバシーポリシー</a><a href="tokushoho.html">特定商取引法</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 株式会社mimemime（まいむまいむ）</span><a href="learning_system/privacy.html">プライバシーポリシー</a></div>
+  </div>
+</footer>
+
+<script>
+// レーダーチャート描画
+const radarData = [
+  [10,8,9,10,8,7,8,8],   // doda
+  [8,10,7,7,10,7,9,8],   // atGP
+  [7,7,8,7,9,6,7,9],     // マイナビ
+  [10,9,9,10,5,3,5,10],  // LITALICO
+  [8,6,8,9,6,6,7,8],     // ランスタッド
+  [10,5,7,10,5,4,6,5],   // ハローワーク
+  [5,8,5,7,8,10,6,8],    // manaby
+  [5,10,3,4,10,5,7,6],   // キズキ
+];
+const labels = ['求人数','精神・発達','身体障害','全国対応','サポート','在宅','就職後','登録'];
+const colors = [
+  'rgba(39,174,96,.7)','rgba(58,124,165,.7)','rgba(242,166,90,.7)',
+  'rgba(142,68,173,.7)','rgba(52,152,219,.7)','rgba(231,76,60,.7)',
+  'rgba(26,188,156,.7)','rgba(243,156,18,.7)'
+];
+
+function drawRadar(canvasId, dataArr, color) {
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx = 110, cy = 115, r = 80, n = dataArr.length;
+  ctx.clearRect(0,0,220,220);
+
+  // グリッド
+  for(let ring=1;ring<=5;ring++){
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const a = (Math.PI*2/n)*i - Math.PI/2;
+      const x = cx + (r*ring/5)*Math.cos(a);
+      const y = cy + (r*ring/5)*Math.sin(a);
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(200,216,228,.5)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // 軸
+  for(let i=0;i<n;i++){
+    const a = (Math.PI*2/n)*i - Math.PI/2;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+r*Math.cos(a), cy+r*Math.sin(a));
+    ctx.strokeStyle = 'rgba(200,216,228,.6)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // データ
+  ctx.beginPath();
+  for(let i=0;i<n;i++){
+    const a = (Math.PI*2/n)*i - Math.PI/2;
+    const v = (dataArr[i]/10)*r;
+    const x = cx + v*Math.cos(a);
+    const y = cy + v*Math.sin(a);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = color.replace('.7','.25');
+  ctx.fill();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  // ラベル
+  ctx.font = 'bold 9px sans-serif';
+  ctx.fillStyle = '#4a6070';
+  ctx.textAlign = 'center';
+  for(let i=0;i<n;i++){
+    const a = (Math.PI*2/n)*i - Math.PI/2;
+    const lx = cx + (r+18)*Math.cos(a);
+    const ly = cy + (r+18)*Math.sin(a);
+    ctx.fillText(labels[i], lx, ly+3);
+  }
+}
+
+radarData.forEach((d,i) => drawRadar('radar'+i, d, colors[i]));
+
+// フィルタリング
+function filterCards(type, btn){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.site-card').forEach(card=>{
+    card.style.display = (type==='all' || card.dataset.type===type) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51S65JTC2F');
+</script>
+  <meta charset="UTF-8">
+  <meta name="description" content="今のあなたの気持ちを2問で診断。mimemimeの気持ちスキャン診断ツール。正解はありません、直感でどうぞ。">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>気持ちスキャン — mimemime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:   #1F3A4D;
+      --main:   #3A7CA5;
+      --accent: #F2A65A;
+      --green:  #27AE60;
+      --bg:     #F5F1EC;
+      --white:  #FFFFFF;
+      --text:   #2C3E50;
+      --sub:    #7F8C8D;
+      --border: #E2D9CE;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 460px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 8px 32px rgba(31,58,77,0.10), 0 1px 4px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--main), var(--accent));
+    }
+
+    /* ── Steps ── */
+    .step { display: none; }
+    .step.active { display: block; animation: up .35s cubic-bezier(.22,.84,.44,1) both; }
+    @keyframes up { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── Logo ── */
+    .logo {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--main);
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Progress dots ── */
+    .progress { display: flex; gap: 5px; margin-bottom: 1.75rem; }
+    .pd {
+      height: 4px; flex: 1; border-radius: 2px;
+      background: var(--border); transition: background .4s;
+    }
+    .pd.done   { background: var(--main); }
+    .pd.active { background: var(--accent); }
+
+    /* ── Question headings ── */
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .12em;
+      color: var(--sub); text-transform: uppercase; margin-bottom: .5rem;
+    }
+    h1 {
+      font-size: 21px; font-weight: 700; color: var(--dark);
+      line-height: 1.55; margin-bottom: .5rem;
+    }
+    .hint { font-size: 12px; color: var(--sub); margin-bottom: 1.5rem; line-height: 1.6; }
+
+    /* ── Options ── */
+    .options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 1.5rem; }
+    .option {
+      display: flex; align-items: center; gap: 12px;
+      border: 1.5px solid var(--border); border-radius: 14px;
+      padding: 13px 15px; cursor: pointer;
+      background: none; width: 100%; text-align: left;
+      font-family: inherit; font-size: 14px; color: var(--text);
+      line-height: 1.4; transition: border-color .2s, background .2s, transform .15s;
+    }
+    .option:hover {
+      border-color: var(--main); background: #EBF4FA;
+      transform: translateX(3px);
+    }
+    .option.selected {
+      border-color: var(--main); background: #EBF4FA;
+      color: var(--dark); font-weight: 500;
+    }
+    .option .icon { font-size: 22px; flex-shrink: 0; }
+    .option .label { flex: 1; }
+
+    /* ── Buttons ── */
+    .btn-next {
+      width: 100%; border: none; border-radius: 14px;
+      background: var(--dark); color: var(--white);
+      padding: 14px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background .2s, transform .15s;
+    }
+    .btn-next:hover:not(:disabled) { background: #2A4D66; transform: translateY(-1px); }
+    .btn-next:disabled { opacity: .35; cursor: not-allowed; }
+    .btn-back {
+      display: block; width: 100%; text-align: center;
+      background: none; border: none; font-family: inherit;
+      font-size: 12px; color: var(--sub); cursor: pointer;
+      margin-top: 12px; padding: 4px 0;
+    }
+
+    /* ── Privacy note ── */
+    .privacy {
+      font-size: 11px; color: var(--sub); line-height: 1.7;
+      background: #F9F6F2; border-radius: 10px;
+      padding: 10px 13px; margin-bottom: 1.5rem;
+    }
+
+    /* ── Welcome ── */
+    .hero { font-size: 52px; margin-bottom: 1rem; }
+    .tagline {
+      font-size: 13px; color: var(--sub); line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Result ── */
+    .result-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      color: var(--accent); letter-spacing: .1em;
+      background: #FEF5EA; padding: 4px 11px;
+      border-radius: 20px; margin-bottom: .75rem;
+    }
+    .result-title {
+      font-size: 22px; font-weight: 700; color: var(--dark);
+      line-height: 1.5; margin-bottom: 1rem;
+    }
+    .result-body {
+      font-size: 14px; color: var(--text); line-height: 1.9;
+      background: var(--bg); border-radius: 14px;
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-label {
+      font-size: 12px; font-weight: 700; color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .btn-cta {
+      width: 100%; border: none; border-radius: 14px;
+      background: var(--accent); color: var(--dark);
+      padding: 14px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background .2s, transform .15s;
+      margin-bottom: 9px;
+    }
+    .btn-cta:hover { background: #e89242; transform: translateY(-1px); }
+    .btn-secondary {
+      width: 100%; border: 1.5px solid var(--border); border-radius: 14px;
+      background: none; color: var(--sub);
+      padding: 12px; font-size: 14px; cursor: pointer;
+      font-family: inherit; transition: border-color .2s;
+      margin-bottom: 0;
+    }
+    .btn-secondary:hover { border-color: var(--main); color: var(--main); }
+    .result-meta {
+      font-size: 11px; color: var(--border);
+      margin-top: 1.25rem; padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 8px; line-height: 1.6;
+    }
+    .meta-pill {
+      background: var(--bg); border-radius: 20px;
+      padding: 2px 10px; color: var(--sub); font-size: 11px;
+    }
+    .btn-retry {
+      display: block; margin: 1rem auto 0;
+      background: none; border: none; font-family: inherit;
+      font-size: 12px; color: var(--main);
+      text-decoration: underline; cursor: pointer;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      body { padding: 1rem .75rem 3rem; }
+      .card { padding: 1.5rem 1.25rem; border-radius: 18px; }
+      h1 { font-size: 19px; }
+    }
+  </style>
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mimemime.com/og-image.png">
+</head>
+<body>
+<div class="card">
+
+  <!-- ─── STEP 0: Welcome ─── -->
+  <div class="step active" id="s0">
+    <div class="logo">mimemime</div>
+    <div class="hero">🌱</div>
+    <h1>今のあなたの気持ち、<br>少し教えてください</h1>
+    <p class="tagline">2つの質問に答えるだけ。<br>あなたに合ったメッセージをお伝えします。<br>正解はありません。直感でOKです。</p>
+    <div class="privacy">
+      🔒 回答はmimemimeのサービス改善のみに使用します。<br>お名前など、個人を特定する情報はいただきません。
+    </div>
+    <button class="btn-next" onclick="go(1)">はじめる →</button>
+  </div>
+
+  <!-- ─── STEP 1: Q1 ─── -->
+  <div class="step" id="s1">
+    <div class="logo">mimemime</div>
+    <div class="progress">
+      <div class="pd done"></div><div class="pd active"></div>
+      <div class="pd"></div><div class="pd"></div>
+    </div>
+    <p class="eyebrow">Question 1 / 2</p>
+    <h1>今、働くことについて<br>あなたの心に一番近いのは？</h1>
+    <p class="hint">直感でどうぞ。正解はありません。</p>
+    <div class="options">
+      <button class="option" onclick="pick1('A',this)"><span class="icon">🏃</span><span class="label">動き出したい</span></button>
+      <button class="option" onclick="pick1('B',this)"><span class="icon">💭</span><span class="label">もう少し考えたい</span></button>
+      <button class="option" onclick="pick1('C',this)"><span class="icon">🗣️</span><span class="label">まず誰かに話してみたい</span></button>
+      <button class="option" onclick="pick1('D',this)"><span class="icon">😔</span><span class="label">なんとなく不安</span></button>
+      <button class="option" onclick="pick1('E',this)"><span class="icon">🌫️</span><span class="label">よくわからない</span></button>
+    </div>
+    <button class="btn-next" id="b1" onclick="go(2)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(0)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 2: Q2 ─── -->
+  <div class="step" id="s2">
+    <div class="logo">mimemime</div>
+    <div class="progress">
+      <div class="pd done"></div><div class="pd done"></div>
+      <div class="pd active"></div><div class="pd"></div>
+    </div>
+    <p class="eyebrow">Question 2 / 2</p>
+    <h1>今、あなたに一番<br>必要なのは何だと思いますか？</h1>
+    <p class="hint">一番しっくりくるものを選んでください。</p>
+    <div class="options">
+      <button class="option" onclick="pick2('1',this)"><span class="icon">📖</span><span class="label">情報がほしい</span></button>
+      <button class="option" onclick="pick2('2',this)"><span class="icon">🤝</span><span class="label">安心して話せる場所</span></button>
+      <button class="option" onclick="pick2('3',this)"><span class="icon">👫</span><span class="label">一緒に考えてくれる人</span></button>
+      <button class="option" onclick="pick2('4',this)"><span class="icon">🪞</span><span class="label">まず自分のことを整理したい</span></button>
+    </div>
+    <button class="btn-next" id="b2" onclick="showResult()" disabled>結果を見る →</button>
+    <button class="btn-back" onclick="go(1)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 3: Result ─── -->
+  <div class="step" id="s3">
+    <div class="logo">mimemime</div>
+    <div class="progress">
+      <div class="pd done"></div><div class="pd done"></div>
+      <div class="pd done"></div><div class="pd active"></div>
+    </div>
+    <div id="r-tag" class="result-tag"></div>
+    <div id="r-title" class="result-title"></div>
+    <div id="r-body" class="result-body"></div>
+    <p class="cta-label">あなたに合うサポートを、一緒に見つけませんか。</p>
+    <!-- ↓ サイトのURLに合わせて変更してください -->
+    <button class="btn-cta" onclick="location.href='connect.html'">
+      無料で話してみる ↗
+    </button>
+    <button class="btn-secondary" onclick="location.href='learning_system/contact.html'">
+      モニターに応募する
+    </button>
+    <div id="r-meta" class="result-meta"></div>
+    <button class="btn-retry" onclick="restart()">もう一度やり直す</button>
+  </div>
+
+</div><!-- /card -->
+
+<script>
+/* ── State ── */
+const S = { q1: null, q2: null };
+
+/* ── Result profiles（全20パターン対応） ── */
+const P = {
+  /* ■ 準備完了型：動き出したい × 情報 / 一緒に考える */
+  A1: {
+    type: '準備完了型',
+    title: 'あとは、走る場所を見つけるだけ',
+    body: '動き出したい気持ち、ちゃんと届いています。\n\n必要な情報は、動きながら集まっていくものです。まず「一緒に進める人」を見つけることが、最初の一手かもしれません。\n\nmimemimeは、あなたのペースで横に並んで走る伴走者です。最初の一歩を、話しながら決めていきましょう。'
+  },
+  A3: {
+    type: '準備完了型',
+    title: 'あとは、走る場所を見つけるだけ',
+    body: '動き出したい気持ち、ちゃんと届いています。\n\n「一緒に考えてくれる人が欲しい」——その気持ちがあれば、もう十分です。mimemimeは、あなたの隣でともに考え、行動の形を一緒に作ります。\n\nまず話しに来てください。'
+  },
+
+  /* ■ 慎重な前進型：動き出したい × 安心 / 整理 */
+  A2: {
+    type: '慎重な前進型',
+    title: '動き出したい。でも、まず安心したい',
+    body: 'その両方の気持ち、矛盾していません。\n\n焦って動くより、安心できる場所を見つけてから動く方が長く続きます。\n\nmimemimeは、急かさない対話の場所です。まず話すだけ、から始めましょう。'
+  },
+  A4: {
+    type: '慎重な前進型',
+    title: '動き出したい。でも、まず整理したい',
+    body: '動きたい気持ちを、大切にしてください。\n\nまず自分を整理することで、「どこへ向かうか」が見えてきます。\n\nmimemimeは、あなたの言葉が出てくるまで、一緒に待ちます。'
+  },
+
+  /* ■ 対話探索型：もう少し考えたい / 話してみたい × 安心 / 一緒に考える */
+  B2: {
+    type: '対話から始める型',
+    title: '話すことが、考えることになる',
+    body: 'まだ考えが固まっていなくて大丈夫です。\n\n「安心して話せる場所」を求めているなら、それが今のあなたに必要なものです。\n\nmimemimeの対話は、答えを出すためではなく、あなたの気持ちをほぐすために始まります。'
+  },
+  B3: {
+    type: '対話から始める型',
+    title: '話すことが、考えることになる',
+    body: 'まだ考えが固まっていなくていいです。\n\n「一緒に考えてくれる人」がいると、思考の深さが変わります。\n\nmimemimeは、あなたの思考の伴走者として、問いかけながら一緒に進みます。'
+  },
+  C2: {
+    type: '対話から始める型',
+    title: 'その「話したい」という気持ちが入口',
+    body: '「まず誰かに話してみたい」——その感覚を、一番大切にしてください。\n\nうまくしゃべれなくていい。正解を持ってこなくていい。\n\nmimemimeは、あなたの言葉をそのまま受け取ります。'
+  },
+  C3: {
+    type: '対話から始める型',
+    title: 'その「話したい」という気持ちが入口',
+    body: '「話せる人が欲しい」と「一緒に考えてくれる人が欲しい」——その両方があなたにはあります。\n\nmimemimeは、聞きながら考え、考えながら一緒に動ける場所です。\n\nまず、話しに来てください。'
+  },
+
+  /* ■ 自己探求型：もう少し考えたい / 話してみたい × 情報 / 整理 */
+  B1: {
+    type: '自己探求型',
+    title: 'まず、自分を知ることから',
+    body: '「もっと考えたい」と「情報がほしい」——その組み合わせは、慎重で誠実な姿勢です。\n\n情報を得ながら、自分の気持ちを確かめていく。\n\nmimemimeはそのプロセスに付き合います。急がなくていいです。'
+  },
+  B4: {
+    type: '自己探求型',
+    title: 'まず、自分を知ることから',
+    body: '焦らなくていいです。「まず自分を整理したい」という言葉が、今のあなたへの一番正直な答えだと思います。\n\nmimemimeは、あなたの言葉が出てくるまで、一緒にいます。'
+  },
+  C1: {
+    type: '自己探求型',
+    title: 'まず、自分を知ることから',
+    body: '「話してみたい」のに「情報が欲しい」——どこから始めればいいかわからない気持ち、ありますよね。\n\nmimemimeでは、情報と対話を分けません。話しながら、一緒に必要なものを見つけます。'
+  },
+  C4: {
+    type: '自己探求型',
+    title: 'まず、自分を知ることから',
+    body: '「誰かに話したい」と「自分を整理したい」——その両方が今のあなたにあるなら、まず対話の場所に来るだけでいい。\n\nmimemimeが、その整理に一緒に付き合います。'
+  },
+
+  /* ■ そっと前進型：不安 / よくわからない × 安心 / 一緒に考える */
+  D2: {
+    type: 'そっと前進型',
+    title: '不安のまま、来てくれてありがとう',
+    body: 'うまく話せなくていいです。\n\n「安心して話せる場所」を求めているなら、それがそのままmimemimeです。\n\n何も決まっていなくていい。不安なまま来てください。それでいいんです。'
+  },
+  D3: {
+    type: 'そっと前進型',
+    title: '不安のまま、来てくれてありがとう',
+    body: '「一緒に考えてくれる人が欲しい」——その気持ちは、すごく勇気ある一言です。\n\nmimemimeは、あなたのペースに合わせて、隣に居続けます。急かしません。'
+  },
+  E2: {
+    type: 'そっと前進型',
+    title: 'わからなくていい。ここから始まる',
+    body: '「よくわからない」という言葉が、今のあなたに一番正直だと思います。\n\n「安心して話せる場所」を求めているなら、もうここがそこです。\n\n何も持ってこなくていい。ただ来るだけ。'
+  },
+  E3: {
+    type: 'そっと前進型',
+    title: 'わからなくていい。ここから始まる',
+    body: '「よくわからない」でも「誰かと一緒に考えたい」——その気持ちを持ってきてくれるだけで十分です。\n\nmimemimeは、あなたが言葉にできるまで、一緒にいます。'
+  },
+
+  /* ■ 立ち止まって整える型：不安 / よくわからない × 情報 / 整理 */
+  D1: {
+    type: '立ち止まって整える型',
+    title: 'まず、今の自分を受け止めることから',
+    body: '不安を抱えながら「情報が欲しい」と思う気持ち、よくわかります。\n\nでもまず、その不安を誰かに話してみませんか。\n\n情報より先に、あなたの気持ちを受け止める場所があることを知ってほしいです。'
+  },
+  D4: {
+    type: '立ち止まって整える型',
+    title: 'まず、今の自分を受け止めることから',
+    body: '「不安」と「自分を整理したい」が重なっているとき、一人で整理しようとするのは難しいものです。\n\nmimemimeが、その整理に一緒に付き合います。\n\n話すことで、少しずつ見えてくるものがあります。'
+  },
+  E1: {
+    type: '立ち止まって整える型',
+    title: 'まず、今の自分を受け止めることから',
+    body: '「よくわからない」のに「情報が欲しい」——その矛盾した気持ち、正直だと思います。\n\n情報の前に、まず「自分がどう感じているか」を誰かに話してみてください。\n\nmimemimeはそこから始めます。'
+  },
+  E4: {
+    type: '立ち止まって整える型',
+    title: 'まず、今の自分を受け止めることから',
+    body: '「よくわからない」という言葉が、今のあなたへの一番正直な答えかもしれません。\n\nそれでいいんです。整理しようとしなくていい。\n\nまず、その気持ちのまま来てください。'
+  }
+};
+
+const Q1L = { A:'動き出したい', B:'もう少し考えたい', C:'まず誰かに話してみたい', D:'なんとなく不安', E:'よくわからない' };
+const Q2L = { '1':'情報がほしい', '2':'安心して話せる場所', '3':'一緒に考えてくれる人', '4':'まず自分のことを整理したい' };
+
+/* ── Navigation ── */
+function go(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* ── Q1 select ── */
+function pick1(val, el) {
+  S.q1 = val;
+  document.querySelectorAll('#s1 .option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('b1').disabled = false;
+}
+
+/* ── Q2 select ── */
+function pick2(val, el) {
+  S.q2 = val;
+  document.querySelectorAll('#s2 .option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('b2').disabled = false;
+}
+
+/* ── Show result ── */
+function showResult() {
+  if (!S.q1 || !S.q2) return;
+  const key = S.q1 + S.q2;
+  const p = P[key] || P['E4'];
+
+  document.getElementById('r-tag').textContent   = p.type;
+  document.getElementById('r-title').textContent = p.title;
+  document.getElementById('r-body').innerHTML    = p.body.replace(/\n/g, '<br>');
+  document.getElementById('r-meta').innerHTML =
+    `<span class="meta-pill">Q1：${Q1L[S.q1]}</span><span class="meta-pill">Q2：${Q2L[S.q2]}</span>`;
+
+  // 将来のデータ収集用（Googleフォーム送信などをここに追加）
+  console.log('[mimemime診断]', { q1: S.q1, q2: S.q2, profile: p.type, title: p.title });
+
+  go(3);
+}
+
+/* ── Restart ── */
+function restart() {
+  S.q1 = null; S.q2 = null;
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('b1').disabled = true;
+  document.getElementById('b2').disabled = true;
+  go(0);
+}
+</script>
+</body>
+</html>

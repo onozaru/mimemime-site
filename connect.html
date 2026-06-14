@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51S65JTC2F');
+</script>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>つながる | mimemime</title>
+<meta name="description" content="LINE・X・無料相談フォーム——mimemimeとつながる方法をまとめました。">
+<style>
+:root{--main:#3A7CA5;--accent:#F2A65A;--dark:#1F3A4D;--gray:#7F8C8D;--bg:#F4F8FB;--line:#06C755;--x:#000;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Helvetica Neue',Arial,'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--dark);line-height:1.7;}
+nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:bold;text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:.9rem;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--accent);color:#fff!important;padding:8px 20px;border-radius:20px;font-weight:bold;}
+.hero{background:linear-gradient(135deg,var(--dark),#2c5f7a);color:#fff;padding:60px 32px 48px;text-align:center;}
+.hero h1{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:12px;}
+.hero p{color:#ccc;max-width:560px;margin:0 auto;}
+.section{max-width:860px;margin:0 auto;padding:60px 32px;}
+.connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:48px;}
+.connect-card{background:#fff;border-radius:20px;padding:36px 28px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.09);transition:transform .2s;}
+.connect-card:hover{transform:translateY(-4px);}
+.connect-card .icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px;}
+.connect-card .icon.line{background:#06C755;}
+.connect-card .icon.x{background:#000;}
+.connect-card .icon.web{background:var(--main);}
+.connect-card .icon.mail{background:var(--accent);}
+.connect-card h3{font-size:1.1rem;margin-bottom:8px;}
+.connect-card p{font-size:.88rem;color:var(--gray);margin-bottom:20px;}
+.connect-btn{display:block;padding:12px 24px;border-radius:50px;font-weight:bold;font-size:.95rem;text-decoration:none;transition:opacity .2s;}
+.connect-btn:hover{opacity:.85;}
+.connect-btn.line{background:#06C755;color:#fff;}
+.connect-btn.x{background:#000;color:#fff;}
+.connect-btn.web{background:var(--main);color:#fff;}
+.connect-btn.mail{background:var(--accent);color:#fff;}
+.recommend{background:#fff;border-radius:16px;padding:32px;margin-bottom:48px;box-shadow:0 2px 12px rgba(0,0,0,.07);}
+.recommend h2{font-size:1.1rem;color:var(--main);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--accent);}
+.flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;}
+.flow-step{background:var(--bg);border-radius:12px;padding:16px 20px;text-align:center;min-width:140px;}
+.flow-step .emoji{font-size:1.8rem;margin-bottom:6px;display:flex;justify-content:center;}
+.flow-step h4{font-size:.88rem;color:var(--dark);margin-bottom:4px;}
+.flow-step p{font-size:.78rem;color:var(--gray);}
+.flow-arrow{font-size:1.5rem;color:var(--accent);flex-shrink:0;}
+.x-guide{background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.07);}
+.x-guide h2{font-size:1.1rem;color:var(--dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #000;}
+.profile-preview{background:#000;border-radius:12px;padding:24px;color:#fff;font-family:monospace;font-size:.88rem;line-height:1.7;margin-bottom:16px;}
+.profile-preview .label{color:#71767b;font-size:.78rem;margin-bottom:4px;}
+footer{background:#0d1f2b;color:#888;text-align:center;padding:32px 24px;font-size:.85rem;}
+footer a{color:#aaa;text-decoration:none;}
+@media(max-width:600px){.flow{flex-direction:column;}.flow-arrow{transform:rotate(90deg);}.nav-links{display:none;}}
+
+.monitor-box{background:linear-gradient(135deg,#eafaf6,#fff);border:2px solid #16a085;border-radius:20px;padding:36px 32px;margin-bottom:48px;}
+.monitor-box .badge{display:inline-block;background:#16a085;color:#fff;font-size:.78rem;font-weight:bold;padding:4px 14px;border-radius:20px;margin-bottom:14px;}
+.monitor-box h2{font-size:1.25rem;color:#138a72;margin-bottom:14px;}
+.monitor-box p{font-size:.92rem;color:var(--dark);margin-bottom:14px;}
+.monitor-box ul{margin:0 0 20px 1.2em;font-size:.88rem;color:var(--dark);}
+.monitor-box ul li{margin-bottom:6px;}
+.monitor-cta{display:inline-flex;align-items:center;gap:8px;background:#16a085;color:#fff!important;padding:14px 30px;border-radius:50px;font-weight:bold;font-size:.95rem;text-decoration:none;margin-right:10px;}
+.monitor-cta.alt{background:#06C755;}
+.monitor-note{font-size:.78rem;color:var(--gray);margin-top:16px;}
+
+/* ハンバーガーメニュー */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-right:-8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:64px;left:0;right:0;background:var(--dark);padding:20px 32px;gap:20px;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .nav-links.open{display:flex!important;}
+  .nav-links a{font-size:1rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav-links .nav-cta{border:none;text-align:center;}
+}
+</style>
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://mimemime.com/og-image.png">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">mime<span>mime</span></a>
+  <div class="nav-links">
+    <a href="index.html">ホーム</a>
+    <a href="learning_system/index.html">学ぶ</a>
+    <a href="blog/index.html">ブログ</a>
+    <a href="jobs.html">求人情報</a>
+    <a href="learning_system/contact.html" class="nav-cta">無料相談</a>
+  </div>
+<button class="hamburger" aria-label="メニューを開く" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="hero">
+  <h1>mimemimeとつながる</h1>
+  <p>LINE・X・メール——あなたが使いやすい方法でご連絡ください。どこからでも気軽にどうぞ。</p>
+</div>
+
+<div class="section">
+
+  <div class="connect-grid">
+    <div class="connect-card">
+      <div class="icon line"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H13l-5 4v-4H9a3 3 0 0 1-3-3z"/></svg></div>
+      <h3>LINE 公式アカウント</h3>
+      <p>最も気軽に相談できます。トーク感覚でやりとりできるので、電話が苦手な方にもおすすめ。</p>
+      <a href="https://lin.ee/XlWTqy1" class="connect-btn line">LINEで友だち追加</a>
+    </div>
+    <div class="connect-card">
+      <div class="icon x">𝕏</div>
+      <h3>X（旧Twitter）</h3>
+      <p>就労支援・障害・介護に関する情報を毎日発信。まずはフォローから。</p>
+      <a href="https://x.com/onozarucamp" class="connect-btn x">Xでフォローする</a>
+    </div>
+    <div class="connect-card">
+      <div class="icon web"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h10l5 5v18a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M19 4v5h5"/><path d="M11 17h10M11 21h10M11 13h5"/></svg></div>
+      <h3>無料相談フォーム</h3>
+      <p>じっくり内容を書いて送りたい方はこちら。24時間受付、1〜2営業日以内に返信。</p>
+      <a href="learning_system/contact.html" class="connect-btn web">相談フォームへ</a>
+    </div>
+    <div class="connect-card">
+      <div class="icon mail"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="2.5"/><path d="M6 9.5 16 17l10-7.5"/></svg></div>
+      <h3>メール</h3>
+      <p>ビジネスのご連絡・取材・提携のご相談はメールでどうぞ。</p>
+      <a href="mailto:info@mimemime.jp" class="connect-btn mail">メールを送る</a>
+    </div>
+  </div>
+
+
+  <div class="monitor-box" id="monitor">
+    <span class="badge">🌱 NEW・モニター募集中</span>
+    <h2>mimemimeを一緒に育ててくれる方を募集しています</h2>
+    <p>mimemimeは現在、サービス開始に向けて準備を進めています。実際にサービスを体験し、率直なご意見をお聞かせいただける「モニターさん」を募集しています。</p>
+    <ul>
+      <li>ご参加は<strong>無料</strong>です</li>
+      <li>「働きたいけれど不安がある」「在宅でできることを探している」——そんな気持ちをお持ちの方ならどなたでもご応募いただけます</li>
+      <li>体験後、簡単なアンケート・ヒアリングにご協力いただきます（10〜15分程度）</li>
+      <li>いただいたご意見は、今後のサービス改善に役立てさせていただきます</li>
+      <li>お預かりする情報は、目的の範囲内で大切に取り扱います</li>
+    </ul>
+    <a href="learning_system/contact.html" class="monitor-cta">モニターに応募する</a>
+    <a href="https://lin.ee/XlWTqy1" class="monitor-cta alt">LINEで気軽に聞いてみる</a>
+    <p class="monitor-note">※ご応募・お問い合わせの際は「モニター希望」とご記載ください。担当者よりご連絡いたします。</p>
+  </div>
+
+  <div class="recommend">
+    <h2>おすすめの使い方（初めての方へ）</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="emoji">𝕏</div>
+        <h4>X をフォロー</h4>
+        <p>日々の情報で<br>mimemimeを知る</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="emoji"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#3A7CA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c3 3 4.5 7 4.5 11s-1.5 8-4.5 11c-3-3-4.5-7-4.5-11S13 8 16 5z"/></svg></div>
+        <h4>HP を見る</h4>
+        <p>サービス・実績で<br>信頼を深める</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="emoji"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#3A7CA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8c-2-1.6-5-2.4-9-2.4v17c4 0 7 .8 9 2.4 2-1.6 5-2.4 9-2.4v-17c-4 0-7 .8-9 2.4z"/><path d="M16 8v17"/></svg></div>
+        <h4>無料で学ぶ</h4>
+        <p>ラーニングで<br>知識をつける</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="emoji"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#3A7CA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H13l-5 4v-4H9a3 3 0 0 1-3-3z"/></svg></div>
+        <h4>LINE で相談</h4>
+        <p>気軽に一歩<br>踏み出す</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="x-guide">
+    <h2>𝕏 Xプロフィール（おのざるさんアカウント向け・推奨テキスト）</h2>
+    <div class="profile-preview">
+      <div class="label">アカウント</div>
+      おのざる（@onozarucamp）<br><br>
+      <div class="label">bio追記案（既存プロフィールに追加）</div>
+      mimemime（まいむまいむ）代表 🌱<br>
+      「働きたいけど不安がある」方のためのオンライン就労支援を準備中 |<br>
+      現役就労移行支援員。障害・介護・メンタル不調を抱える方の「自分らしく働く」を応援 |<br>
+      全国オンライン対応 | 初回相談無料 💬<br><br>
+      <div class="label">固定ポスト案</div>
+      「働きたいけど、通勤や対人関係に不安がある」——そんな方のための場所を作っています。mimemime、近日始動。応援よろしくお願いします🌱<br><br>
+      <div class="label">紹介リンク</div>
+      https://mimemime.com
+    </div>
+    <p style="font-size:.85rem;color:var(--gray);">※ おのざるさんの個人アカウントを活かして発信する方針に合わせ、既存プロフィールに「mimemime代表」の一文を加える形をご提案しています。投稿は個人の発信とmimemime関連を織り交ぜるイメージです。ヘッダー画像はCanvaで作成済み（下記リンク）。</p>
+    <p style="font-size:.85rem;"><a href="https://www.canva.com/d/xj50Tb9CHmCjk6B" target="_blank" rel="noopener" style="color:var(--main);">Xヘッダー画像（Canvaで編集・ダウンロード）</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 株式会社mimemime（まいむまいむ）｜ <a href="learning_system/privacy.html">プライバシーポリシー</a></p>
+</footer>
+</body>
+</html>
