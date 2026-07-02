@@ -118,6 +118,24 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .fill-50up{background:linear-gradient(90deg,var(--accent),#f5c66c);}
 .fill-below50{background:linear-gradient(90deg,var(--red),#e07070);}
 
+/* NEUTRAL CARDS（順位なし・客観情報） */
+.neutral-section{max-width:1100px;margin:56px auto 40px;padding:0 20px;}
+.neutral-section .ns-head{margin-bottom:20px;}
+.neutral-section h2{font-size:1.4rem;font-weight:900;color:var(--dark);margin-bottom:8px;}
+.neutral-section .ns-sub{font-size:.85rem;color:var(--gray);line-height:1.8;background:#f7fafc;border:1px solid #e0eaf2;border-radius:10px;padding:14px 18px;}
+.neutral-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px;}
+.neutral-card{background:#fff;border:1.5px solid #e6edf2;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;}
+.nc-top{display:flex;align-items:center;gap:10px;}
+.nc-emoji{font-size:1.6rem;}
+.nc-name{font-size:1rem;font-weight:900;color:var(--dark);}
+.nc-cat{display:inline-block;font-size:.68rem;font-weight:bold;padding:3px 10px;border-radius:10px;background:#f0f4f8;color:var(--gray);align-self:flex-start;}
+.nc-cat.cat-agent{background:rgba(58,124,165,.1);color:var(--main);}
+.nc-cat.cat-iko{background:rgba(39,174,96,.1);color:var(--green);}
+.nc-cat.cat-gov{background:rgba(242,166,90,.15);color:#c47a00;}
+.nc-cat.cat-portal{background:rgba(142,68,173,.1);color:var(--purple);}
+.nc-desc{font-size:.82rem;color:var(--dark);line-height:1.7;}
+.nc-link{font-size:.78rem;color:var(--main);text-decoration:underline;margin-top:auto;}
+
 /* RADAR CHART */
 .radar-wrap{display:flex;flex-direction:column;align-items:center;}
 .radar-wrap h3{font-size:.85rem;font-weight:bold;color:var(--gray);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;align-self:flex-start;}
@@ -834,14 +852,72 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     </div>
   </div>
 
+  <!-- ── 中立カード（順位なし・客観情報まとめ） ── -->
+  <div class="neutral-section">
+    <div class="ns-head">
+      <h2>📋 客観情報まとめ（順位なし）</h2>
+      <p class="ns-sub">上のランキングはmimemime独自の評価基準によるものです。「点数による優劣」ではなく、まず各サービスの基本的な特徴だけをニュートラルに知りたい方向けに、順位をつけずに一覧化しました。最終的な判断は、必ず公式サイトの最新情報もご確認のうえ行ってください。</p>
+    </div>
+    <div class="neutral-grid">
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🌟</span><span class="nc-name">dodaチャレンジ</span></div>
+        <span class="nc-cat cat-agent">転職エージェント</span>
+        <p class="nc-desc">パーソルグループが運営する転職エージェント。求人数が多く、全国対応・障害種別を問わず利用できる。</p>
+        <a class="nc-link" href="https://doda.jp/challenge/promo/shutoken01.html?utm_source=a8&utm_medium=cpc&utm_campaign=affiliate&argument=y3Oqv7eK&dmai=a605957b1a1b61" target="_blank" rel="noopener sponsored">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🎯</span><span class="nc-name">atGP（アットジーピー）</span></div>
+        <span class="nc-cat cat-agent">転職エージェント</span>
+        <p class="nc-desc">精神・発達障害領域に専門性を持つ転職エージェント。就労移行支援事業所（ジョブトレ）も運営している。</p>
+        <a class="nc-link" href="https://www.atgp.jp/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">💼</span><span class="nc-name">マイナビパートナーズ転職</span></div>
+        <span class="nc-cat cat-agent">転職エージェント</span>
+        <p class="nc-desc">マイナビが運営する転職エージェント。カウンセリングを重視した個別面談が特徴。</p>
+        <a class="nc-link" href="https://tenshoku.mynavi.jp/lp/handicapped/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🔍</span><span class="nc-name">LITALICO仕事ナビ（スナビ）</span></div>
+        <span class="nc-cat cat-portal">求人ポータル</span>
+        <p class="nc-desc">就労移行支援事業所を全国から検索できるポータルサイト。求人の直接紹介ではなく施設検索が中心。登録不要で閲覧できる。</p>
+        <a class="nc-link" href="https://snabi.jp/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🌐</span><span class="nc-name">ランスタッドチャレンジド</span></div>
+        <span class="nc-cat cat-agent">転職エージェント</span>
+        <p class="nc-desc">世界的な人材企業ランスタッドグループの障害者雇用専門サービス。大手・外資系求人を含む全国対応の転職エージェント。</p>
+        <a class="nc-link" href="https://www.randstad.co.jp/challenged/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🏛️</span><span class="nc-name">ハローワーク（公共職業安定所）</span></div>
+        <span class="nc-cat cat-gov">公的機関</span>
+        <p class="nc-desc">国（厚生労働省）が運営する公的機関。完全無料・障害者手帳がなくても相談できる。全国約540か所に窓口がある。</p>
+        <a class="nc-link" href="https://www.hellowork.mhlw.go.jp/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">💻</span><span class="nc-name">manaby（マナビー）</span></div>
+        <span class="nc-cat cat-iko">就労移行支援</span>
+        <p class="nc-desc">IT・Webスキル（プログラミング・動画編集・デザイン等）に特化した就労移行支援事業所。在宅就労を目指す訓練に対応。</p>
+        <a class="nc-link" href="https://manaby.co.jp/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+      <div class="neutral-card">
+        <div class="nc-top"><span class="nc-emoji">🎓</span><span class="nc-name">キズキビジネスカレッジ</span></div>
+        <span class="nc-cat cat-iko">就労移行支援</span>
+        <p class="nc-desc">うつ病・発達障害等への理解を前提にした少人数制の就労移行支援事業所。東京・大阪など都市部中心に展開。</p>
+        <a class="nc-link" href="https://kizuki-corp.com/business-college/" target="_blank" rel="noopener">公式サイトを見る →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ── COMPARISON TABLE ── -->
 
   <!-- dodaチャレンジ アフィリエイトバナー -->
   <div style="background:linear-gradient(135deg,#1F3A4D,#0d5a8a);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
     <div>
-      <div style="font-size:.72rem;font-weight:bold;color:#F2A65A;letter-spacing:.1em;margin-bottom:6px;">🏆 総合スコア83点1位 · mimemime最推薦</div>
+      <div style="font-size:.72rem;font-weight:bold;color:#F2A65A;letter-spacing:.1em;margin-bottom:6px;">📋 サービス紹介</div>
       <div style="font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:8px;">dodaチャレンジに無料登録する</div>
-      <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;">非公開求人80〜90% · 面談サポート無料 · 全国対応<br>まず登録して求人を眺めるだけでもOK。しつこい電話は一切なし。</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;">非公開求人80〜90% · 面談サポート無料 · 全国対応<br>※面談・登録が前提のサービスです。じっくり比較したい方は下のスコア比較表もご確認ください。</div>
     </div>
     <div style="flex-shrink:0;text-align:center;">
       <a href="https://doda.jp/challenge/promo/shutoken01.html?utm_source=a8&utm_medium=cpc&utm_campaign=affiliate&argument=y3Oqv7eK&dmai=a605957b1a1b61" target="_blank" rel="noopener sponsored" style="display:inline-block;background:#F2A65A;color:#fff;font-weight:900;font-size:1rem;padding:14px 28px;border-radius:28px;text-decoration:none;">無料で求人を見る →</a>
@@ -959,7 +1035,7 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
   <!-- CTA -->
   <div class="cta-box">
     <h2>「どこから始めればいいか」<br><em>一緒に考えます</em></h2>
-    <p>比較表を見てもどれが合うかわからない——そんな方は現役支援員に直接相談してください。あなたの状況をじっくり聞きながら、最適な選択肢を整理するお手伝いができます。</p>
+    <p>比較表を見てもどれが合うかわからない。そんな方は現役支援員に直接相談してください。あなたの状況をじっくり聞きながら、最適な選択肢を整理するお手伝いができます。</p>
     <div class="cta-btns">
       <a href="https://lin.ee/XlWTqy1" class="btn-line">LINEで相談する（無料）</a>
       <a href="learning_system/contact.html" class="btn-accent">相談フォームへ</a>

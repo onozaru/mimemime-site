@@ -43,6 +43,18 @@ nav{background:var(--dark);height:60px;display:flex;align-items:center;justify-c
 .editorial-note strong{color:var(--dark);}
 .editorial-note .author{margin-top:8px;font-size:.75rem;color:var(--gray);}
 
+/* 状態から選ぶ */
+.state-picker{max-width:980px;margin:28px auto 0;padding:0 20px;}
+.state-picker h2{font-size:1.05rem;font-weight:900;color:var(--dark);margin-bottom:4px;}
+.state-picker .sp-sub{font-size:.78rem;color:var(--gray);margin-bottom:14px;}
+.state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.state-card{background:#fff;border:1.5px solid #e0eaf2;border-radius:12px;padding:16px 14px;text-align:left;cursor:pointer;transition:all .15s;font-family:inherit;}
+.state-card:hover{border-color:var(--main);box-shadow:0 6px 18px rgba(31,58,77,.1);transform:translateY(-2px);}
+.state-card .sc-icon{font-size:1.4rem;margin-bottom:8px;display:block;}
+.state-card .sc-title{font-size:.85rem;font-weight:bold;color:var(--dark);line-height:1.5;margin-bottom:4px;}
+.state-card .sc-desc{font-size:.72rem;color:var(--gray);line-height:1.6;}
+.state-clear{display:block;margin:12px auto 0;font-size:.76rem;color:var(--main);background:none;border:none;text-decoration:underline;cursor:pointer;}
+
 .filter-outer{background:#fff;border-bottom:2px solid #e0eaf2;position:sticky;top:60px;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.04);}
 .filter-inner{max-width:980px;margin:0 auto;}
 .tab-row-label{padding:6px 20px 0;font-size:.7rem;font-weight:bold;color:var(--gray);letter-spacing:.08em;}
@@ -164,13 +176,47 @@ footer{background:#0d1f2b;color:#777;padding:36px 24px 24px;}
 <div class="editorial-note">
   <strong>📌 このページについて：</strong>掲載している求人は、atGP等に現在公開中の実在求人を独自調査のうえ選定・紹介しています。各求人へのリンクは外部サービス（atGP）に移動します。<br>
   応募・詳細確認はリンク先のサービスでお願いします。mimemimeは就職斡旋を行っておらず、情報提供・相談サポートを行います。
-  <div class="author">編集部：新井雅彦（LITALICOワークス就労支援員・株式会社mimemime代表）</div>
+  <div class="author">編集部：mimemime編集部（現役の就労移行支援員が監修）</div>
+</div>
+
+<!-- 状態から選ぶ -->
+<div class="state-picker">
+  <h2>🧭 今の状態から求人を探す</h2>
+  <p class="sp-sub">当てはまるものを選ぶと、関連する求人だけに絞り込みます（エリア・職種で絞る前に、まずこちらがおすすめです）</p>
+  <div class="state-grid">
+    <button class="state-card" onclick="quickState('未経験')">
+      <span class="sc-icon">🔰</span>
+      <span class="sc-title">障害者雇用が初めての方</span>
+      <span class="sc-desc">未経験歓迎・サポート体制ありの求人</span>
+    </button>
+    <button class="state-card" onclick="quickState('時短')">
+      <span class="sc-icon">🌱</span>
+      <span class="sc-title">ブランクがある・体調に不安がある方</span>
+      <span class="sc-desc">時短勤務・シフト柔軟など無理のない働き方</span>
+    </button>
+    <button class="state-card" onclick="quickState('発達障害')">
+      <span class="sc-icon">🧩</span>
+      <span class="sc-title">発達障害の特性がある方</span>
+      <span class="sc-desc">ASD・ADHD特性への配慮が明記された求人</span>
+    </button>
+    <button class="state-card" onclick="quickState('在宅')">
+      <span class="sc-icon">🏠</span>
+      <span class="sc-title">通勤の負担を減らしたい方</span>
+      <span class="sc-desc">在宅勤務可・在宅配慮ありの求人</span>
+    </button>
+    <button class="state-card" onclick="quickState('大手')">
+      <span class="sc-icon">🏢</span>
+      <span class="sc-title">安定した環境で働きたい方</span>
+      <span class="sc-desc">大手・上場企業など、長く働ける環境</span>
+    </button>
+  </div>
+  <button class="state-clear" onclick="clearQuickState()">条件をリセットしてすべて見る</button>
 </div>
 
 <!-- FILTER -->
 <div class="filter-outer">
   <div class="filter-inner">
-    <div class="tab-row-label">🗺 エリアで絞る</div>
+    <div class="tab-row-label">🗺 さらに絞り込む：エリア</div>
     <div class="tab-row" id="areaRow">
       <button class="ftab act" onclick="filterArea('all',this)">すべて</button>
       <button class="ftab" onclick="filterArea('tokyo',this)">🗼 東京都</button>
@@ -179,7 +225,7 @@ footer{background:#0d1f2b;color:#777;padding:36px 24px 24px;}
       <button class="ftab" onclick="filterArea('chiba',this)">🌿 千葉</button>
       <button class="ftab" onclick="filterArea('remote',this)">🏠 在宅</button>
     </div>
-    <div class="tab-row-label">💼 職種で絞る</div>
+    <div class="tab-row-label">💼 さらに絞り込む：職種</div>
     <div class="tab-row" id="catRow">
       <button class="ftab act" onclick="filterCat('all',this)">すべて</button>
       <button class="ftab" onclick="filterCat('jimu',this)">📋 事務系</button>
@@ -204,9 +250,9 @@ footer{background:#0d1f2b;color:#777;padding:36px 24px 24px;}
 <div style="max-width:980px;margin:24px auto 0;padding:0 20px;">
   <div style="background:linear-gradient(135deg,#1F3A4D 0%,#0d5a8a 100%);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;box-shadow:0 4px 20px rgba(31,58,77,.2);">
     <div>
-      <div style="font-size:.72rem;font-weight:bold;color:#F2A65A;letter-spacing:.1em;margin-bottom:6px;">🏆 mimemime編集部 最強おすすめ</div>
+      <div style="font-size:.72rem;font-weight:bold;color:#F2A65A;letter-spacing:.1em;margin-bottom:6px;">📋 サービス紹介</div>
       <div style="font-size:1.25rem;font-weight:900;color:#fff;margin-bottom:8px;">dodaチャレンジに<br>無料登録してみる</div>
-      <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;">首都圏の障害者雇用求人数No.1クラス。<br>非公開求人が80〜90%・面談サポートつき。<br>求人を一覧するだけでも価値あり。</div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.7;">首都圏の障害者雇用求人を多数掲載。非公開求人が多く、面談サポートつき。<br>※利用には登録・面談が必要で、エリアや障害種別によっては求人数に差があります。</div>
     </div>
     <div style="text-align:center;flex-shrink:0;">
       <a href="https://doda.jp/challenge/promo/shutoken01.html?utm_source=a8&utm_medium=cpc&utm_campaign=affiliate&argument=y3Oqv7eK&dmai=a605957b1a1b61" target="_blank" rel="noopener sponsored" style="display:inline-block;background:#F2A65A;color:#fff;font-weight:900;font-size:1rem;padding:14px 28px;border-radius:28px;text-decoration:none;box-shadow:0 4px 14px rgba(242,166,90,.4);white-space:nowrap;">無料で求人を見る →</a>
@@ -322,6 +368,26 @@ function applyFilter(){
 
 function filterArea(a,btn){curArea=a;document.querySelectorAll('#areaRow .ftab').forEach(t=>t.classList.remove('act'));btn.classList.add('act');applyFilter();}
 function filterCat(c,btn){curCat=c;document.querySelectorAll('#catRow .ftab').forEach(t=>t.classList.remove('act'));btn.classList.add('act');applyFilter();}
+
+function quickState(keyword){
+  curArea='all';curCat='all';
+  document.querySelectorAll('#areaRow .ftab').forEach(t=>t.classList.remove('act'));
+  document.querySelector('#areaRow .ftab').classList.add('act');
+  document.querySelectorAll('#catRow .ftab').forEach(t=>t.classList.remove('act'));
+  document.querySelector('#catRow .ftab').classList.add('act');
+  document.getElementById('searchInput').value=keyword;
+  applyFilter();
+  document.querySelector('.wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function clearQuickState(){
+  curArea='all';curCat='all';
+  document.querySelectorAll('#areaRow .ftab').forEach(t=>t.classList.remove('act'));
+  document.querySelector('#areaRow .ftab').classList.add('act');
+  document.querySelectorAll('#catRow .ftab').forEach(t=>t.classList.remove('act'));
+  document.querySelector('#catRow .ftab').classList.add('act');
+  document.getElementById('searchInput').value='';
+  applyFilter();
+}
 
 async function loadJobs(){
   try{
