@@ -1,6 +1,12 @@
 # Netlify 設定ファイル
 
 [[redirects]]
+  from = "/shindan"
+  to = "/shindan.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 404
