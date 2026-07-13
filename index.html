@@ -197,6 +197,7 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .service-body{padding:24px;background:#fff;}
 .service-body p{font-size:.9rem;color:var(--gray);margin-bottom:16px;}
 .icon-badge{width:48px;height:48px;border-radius:50%;background:#EAF1F7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0;}
+.pain-icon-img{width:76px;height:76px;border-radius:16px;object-fit:cover;margin-bottom:14px;display:block;}
 .icon-badge svg{display:block;}
 .service-icon-badge{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
 .service-icon-badge svg{display:block;}
@@ -209,6 +210,7 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
 .reason-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;}
 .reason-num{font-size:2.5rem;font-weight:900;color:var(--accent);opacity:.6;margin-bottom:8px;}
+.reason-icon-img{width:64px;height:64px;border-radius:12px;object-fit:cover;margin-bottom:14px;display:block;}
 .reason-item h4{color:#fff;font-size:1rem;margin-bottom:8px;}
 .reason-item p{color:#aaa;font-size:.85rem;}
 .message-wrap{max-width:860px;margin:0 auto;background:#fff;border-radius:20px;padding:48px;box-shadow:0 4px 24px rgba(0,0,0,.08);display:flex;gap:40px;align-items:flex-start;}
@@ -221,6 +223,7 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .flow-step::after{content:'';position:absolute;left:23px;top:52px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent);}
 .flow-step:last-child::after{display:none;}
 .step-circle{width:48px;height:48px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1rem;flex-shrink:0;}
+.step-icon-img{width:60px;height:60px;border-radius:12px;object-fit:cover;flex-shrink:0;}
 .step-body{padding-top:10px;}
 .step-body h4{font-size:1rem;margin-bottom:6px;}
 .step-body p{font-size:.88rem;color:var(--gray);}
@@ -230,6 +233,8 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .cta-section p{color:rgba(255,255,255,.75);margin-bottom:36px;position:relative;}
 .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:bold;padding:18px 48px;border-radius:50px;font-size:1.1rem;text-decoration:none;box-shadow:0 6px 32px rgba(242,166,90,0.4);transition:transform .2s,box-shadow .2s;position:relative;}
 .cta-btn:hover{transform:scale(1.03);box-shadow:0 8px 40px rgba(242,166,90,0.5);}
+.cta-image{max-width:520px;margin:0 auto 32px;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative;}
+.cta-image img{width:100%;height:auto;display:block;}
 .cta-note{color:rgba(255,255,255,.5);font-size:.82rem;margin-top:16px;position:relative;}
 footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
 .footer-inner{max-width:1100px;margin:0 auto;}
@@ -367,12 +372,12 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     <h2 class="section-title">就労に悩む方の声</h2>
     <p class="section-sub">あなただけが感じているわけではありません。一緒に解決策を見つけましょう。</p>
     <div class="pain-grid">
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H14l-5 4v-4H9a3 3 0 0 1-3-3z"/><path d="M13 13a3 3 0 1 1 4.2 2.7c-.9.4-1.4 1-1.4 2"/><circle cx="16" cy="20.5" r="0.5" fill="#3A7CA5" stroke="none"/></svg></div><h4>障害があって、どこに相談すればいいかわからない</h4><p>制度が複雑で、何から始めればいいか途方に暮れている方のための窓口があります。</p></div>
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16 16 7l10 9"/><path d="M9 14.5V25h14V14.5"/><path d="M16 24c-2.3-1.6-3.8-2.9-3.8-4.4a2.1 2.1 0 0 1 3.8-1.3 2.1 2.1 0 0 1 3.8 1.3c0 1.5-1.5 2.8-3.8 4.4z" fill="#F2A65A" stroke="none"/></svg></div><h4>家族の介護で、自分のキャリアを諦めかけている</h4><p>介護をしながら働くための制度と支援があります。一人で抱え込まないでください。</p></div>
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18a5 5 0 0 1 .4-10 6.5 6.5 0 0 1 12.4 1.6A4.4 4.4 0 0 1 21 18z"/><path d="M11.5 22.5v2M16 22.5v3M20.5 22.5v2"/></svg></div><h4>うつ・適応障害で休職中、復職が怖い</h4><p>焦らなくていい。あなたのペースで、小さな一歩から始められます。</p></div>
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="16" r="6.5"/><circle cx="19.5" cy="16" r="6.5"/></svg></div><h4>発達障害（ASD/ADHD）で職場になじめない</h4><p>特性を活かせる職場選びと、環境調整のノウハウをお伝えします。</p></div>
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="3"/><path d="M6 24c.4-4.6 2.4-7 5-7s4.6 2.4 5 7"/><circle cx="21.5" cy="11" r="3"/><path d="M16.7 24c.4-4.6 2.4-7 4.8-7s4.6 2.4 5 7"/></svg></div><h4>夫・妻が仕事を辞めて、どうすればいいか</h4><p>夫婦で一緒に考える就労支援。パートナーと一緒に参加できます。</p></div>
-      <div class="pain-card"><div class="icon-badge"><svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="#3A7CA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 27s8-8.4 8-13.7A8 8 0 0 0 8 13.3C8 18.6 16 27 16 27z"/><circle cx="16" cy="13" r="2.6"/></svg></div><h4>地方在住で、近くに支援機関がない</h4><p>全国どこからでも、オンラインで同じ質の支援を受けられます。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern1-soudan.jpg" alt="標識を見て考える人のイラスト。どこに相談すればいいかわからない悩みを象徴" loading="lazy"><h4>障害があって、どこに相談すればいいかわからない</h4><p>制度が複雑で、何から始めればいいか途方に暮れている方のための窓口があります。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern2-kaigo.jpg" alt="親子の手が優しく重なるイラスト。家族の介護とキャリアの両立の悩みを象徴" loading="lazy"><h4>家族の介護で、自分のキャリアを諦めかけている</h4><p>介護をしながら働くための制度と支援があります。一人で抱え込まないでください。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern3-kyushoku.jpg" alt="窓辺で芽吹く小さな植物のイラスト。休職からの小さな一歩を象徴" loading="lazy"><h4>うつ・適応障害で休職中、復職が怖い</h4><p>焦らなくていい。あなたのペースで、小さな一歩から始められます。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern4-hattatsu.jpg" alt="ヘッドホンをつけて落ち着いた空間で過ごす人のイラスト。発達障害の方の心地よい環境を象徴" loading="lazy"><h4>発達障害（ASD/ADHD）で職場になじめない</h4><p>特性を活かせる職場選びと、環境調整のノウハウをお伝えします。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern5-fufu.jpg" alt="夫婦がノートパソコンを一緒に見ているイラスト。夫婦で一緒に考える就労支援を象徴" loading="lazy"><h4>夫・妻が仕事を辞めて、どうすればいいか</h4><p>夫婦で一緒に考える就労支援。パートナーと一緒に参加できます。</p></div>
+      <div class="pain-card"><img class="pain-icon-img" src="/images/concern6-chihou.jpg" alt="ノートパソコンでのビデオ通話と全国地図のイラスト。地方在住でも受けられるオンライン支援を象徴" loading="lazy"><h4>地方在住で、近くに支援機関がない</h4><p>全国どこからでも、オンラインで同じ質の支援を受けられます。</p></div>
     </div>
   </div>
 </section>
@@ -424,10 +429,10 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     <h2 class="section-title">選ばれる4つの理由</h2>
     <p class="section-sub">介護現場で培った「伴走する支援」の哲学が、すべての基盤です</p>
     <div class="reasons-grid">
-      <div class="reason-item"><div class="reason-num">01</div><h4>現役就労移行支援員（介護福祉士）が代表</h4><p>支援の現場で今も動き続けている。「制度」より「人」を見る、実践者の支援です。</p></div>
-      <div class="reason-item"><div class="reason-num">02</div><h4>心理的安全性を最優先</h4><p>「ここにいていい」と感じられる場所から始める。焦らせない、責めない支援。</p></div>
-      <div class="reason-item"><div class="reason-num">03</div><h4>全国オンライン対応</h4><p>地方在住・外出困難・介護中でも安心。場所を選ばずに同じ質の支援を。</p></div>
-      <div class="reason-item"><div class="reason-num">04</div><h4>家族も一緒に支援</h4><p>本人だけでなく、夫婦・家族全体で就労を考える。孤立させない仕組み。</p></div>
+      <div class="reason-item"><img class="reason-icon-img" src="/images/reason1-shienin.jpg" alt="ハートを乗せた手のバッジのイラスト。現役就労移行支援員が代表であることを象徴" loading="lazy"><div class="reason-num">01</div><h4>現役就労移行支援員（介護福祉士）が代表</h4><p>支援の現場で今も動き続けている。「制度」より「人」を見る、実践者の支援です。</p></div>
+      <div class="reason-item"><img class="reason-icon-img" src="/images/reason2-anzen.jpg" alt="巣を守る盾のイラスト。心理的安全性を最優先する姿勢を象徴" loading="lazy"><div class="reason-num">02</div><h4>心理的安全性を最優先</h4><p>「ここにいていい」と感じられる場所から始める。焦らせない、責めない支援。</p></div>
+      <div class="reason-item"><img class="reason-icon-img" src="/images/reason3-online.jpg" alt="日本地図と繋がる点のイラスト。全国オンライン対応を象徴" loading="lazy"><div class="reason-num">03</div><h4>全国オンライン対応</h4><p>地方在住・外出困難・介護中でも安心。場所を選ばずに同じ質の支援を。</p></div>
+      <div class="reason-item"><img class="reason-icon-img" src="/images/reason4-kazoku.jpg" alt="家族が寄り添うイラスト。家族も一緒に支援する姿勢を象徴" loading="lazy"><div class="reason-num">04</div><h4>家族も一緒に支援</h4><p>本人だけでなく、夫婦・家族全体で就労を考える。孤立させない仕組み。</p></div>
     </div>
   </div>
 </section>
@@ -466,16 +471,17 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     <h2 class="section-title">はじめてでも安心の5ステップ</h2>
     <p class="section-sub">まずは気軽に相談から。手続きはスタッフが一緒に進めます。</p>
     <div class="flow-steps">
-      <div class="flow-step"><div class="step-circle">1</div><div class="step-body"><h4>無料相談を申し込む</h4><p>フォームから。24時間受付中。</p></div></div>
-      <div class="flow-step"><div class="step-circle">2</div><div class="step-body"><h4>オンライン面談（60分）</h4><p>現状・お悩み・希望をじっくりお聞きします。</p></div></div>
-      <div class="flow-step"><div class="step-circle">3</div><div class="step-body"><h4>サービス・制度の案内</h4><p>あなたに合った支援の選択肢をわかりやすくご説明。</p></div></div>
-      <div class="flow-step"><div class="step-circle">4</div><div class="step-body"><h4>利用開始・プログラム参加</h4><p>ペースはあなたが決める。週1回からでも大丈夫。</p></div></div>
-      <div class="flow-step"><div class="step-circle">5</div><div class="step-body"><h4>就職・定着・その後のフォロー</h4><p>就職がゴールではありません。働き続けるまで伴走します。</p></div></div>
+      <div class="flow-step"><div class="step-circle">1</div><img class="step-icon-img" src="/images/step1-moshikomi.jpg" alt="ボタンを押す手のイラスト。無料相談の申し込みを象徴" loading="lazy"><div class="step-body"><h4>無料相談を申し込む</h4><p>フォームから。24時間受付中。</p></div></div>
+      <div class="flow-step"><div class="step-circle">2</div><img class="step-icon-img" src="/images/step2-mendan.jpg" alt="時計と吹き出しのイラスト。60分のオンライン面談を象徴" loading="lazy"><div class="step-body"><h4>オンライン面談（60分）</h4><p>現状・お悩み・希望をじっくりお聞きします。</p></div></div>
+      <div class="flow-step"><div class="step-circle">3</div><img class="step-icon-img" src="/images/step3-annai.jpg" alt="書類が入ったフォルダのイラスト。サービス・制度の案内を象徴" loading="lazy"><div class="step-body"><h4>サービス・制度の案内</h4><p>あなたに合った支援の選択肢をわかりやすくご説明。</p></div></div>
+      <div class="flow-step"><div class="step-circle">4</div><img class="step-icon-img" src="/images/step4-riyoukaishi.jpg" alt="足跡と飛び石のイラスト。自分のペースでの利用開始を象徴" loading="lazy"><div class="step-body"><h4>利用開始・プログラム参加</h4><p>ペースはあなたが決める。週1回からでも大丈夫。</p></div></div>
+      <div class="flow-step"><div class="step-circle">5</div><img class="step-icon-img" src="/images/step5-teichaku.jpg" alt="根を張る木のイラスト。就職後の定着と継続的なフォローを象徴" loading="lazy"><div class="step-body"><h4>就職・定着・その後のフォロー</h4><p>就職がゴールではありません。働き続けるまで伴走します。</p></div></div>
     </div>
   </div>
 </section>
 
 <section class="cta-section">
+  <div class="cta-image"><img src="/images/cta-door.jpg" alt="扉から光が差し込む道のイラスト。低いプレッシャーで一歩踏み出せることを象徴" loading="lazy"></div>
   <h2>まず、話してみませんか？</h2>
   <p>「相談するほどのことでもない」と思っているあなたへ。<br>その「もやもや」が、今日変わるかもしれません。</p>
   <a href="learning_system/contact.html" class="cta-btn">無料相談を申し込む（60分・完全無料）</a>
