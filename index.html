@@ -55,9 +55,14 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .nav-links a:hover{color:#fff;}
 .nav-cta{background:var(--accent);color:#fff!important;padding:8px 20px;border-radius:20px;font-weight:bold;}
 
-/* ── ヒーロー：暖かみグロー追加 ── */
+/* ── ヒーロー：イラストを全面背景に ── */
 .hero{
-  background:var(--dark);
+  background:
+    linear-gradient(100deg, rgba(31,58,77,.96) 0%, rgba(31,58,77,.90) 30%, rgba(31,58,77,.62) 58%, rgba(31,58,77,.30) 100%),
+    url('/images/hero-illustration.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
   color:#fff;
   padding:100px 32px 80px;
   min-height:85vh;
@@ -66,38 +71,20 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
   position:relative;
   overflow:hidden;
 }
-/* 右上：アンバーの暖かいグロー */
-.hero::before{
-  content:'';
-  position:absolute;
-  top:-120px; right:-80px;
-  width:520px; height:520px;
-  background:radial-gradient(circle, rgba(242,166,90,0.16) 0%, rgba(242,166,90,0.04) 50%, transparent 70%);
-  pointer-events:none;
-}
-/* 左下：ブルーの深みグロー */
-.hero::after{
-  content:'';
-  position:absolute;
-  bottom:-80px; left:-60px;
-  width:420px; height:420px;
-  background:radial-gradient(circle, rgba(58,124,165,0.22) 0%, rgba(58,124,165,0.06) 50%, transparent 70%);
-  pointer-events:none;
-}
-/* 右下：緑の小さなアクセント */
-.hero-glow-green{
-  position:absolute;
-  bottom:60px; right:80px;
-  width:200px; height:200px;
-  background:radial-gradient(circle, rgba(39,174,96,0.1) 0%, transparent 70%);
-  pointer-events:none;
-}
 
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;display:flex;align-items:center;gap:56px;flex-wrap:wrap;}
-.hero-text{flex:1 1 460px;min-width:0;}
-.hero-image{flex:1 1 380px;min-width:280px;max-width:460px;margin:0 auto;}
-.hero-image img{width:100%;height:auto;display:block;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35);}
-@media(max-width:860px){.hero-inner{flex-direction:column-reverse;gap:36px;}.hero-image{max-width:420px;}}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
+.hero-text{max-width:600px;}
+@media(max-width:860px){
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(31,58,77,.72) 0%, rgba(31,58,77,.93) 55%, rgba(31,58,77,.99) 100%),
+      url('/images/hero-illustration.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    min-height:auto;
+  }
+  .hero-text{max-width:none;}
+}
 .hero-badge{
   display:inline-flex;
   align-items:center;
@@ -214,6 +201,8 @@ nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justif
 .reason-item h4{color:#fff;font-size:1rem;margin-bottom:8px;}
 .reason-item p{color:#aaa;font-size:.85rem;}
 .message-wrap{max-width:860px;margin:0 auto;background:#fff;border-radius:20px;padding:48px;box-shadow:0 4px 24px rgba(0,0,0,.08);display:flex;gap:40px;align-items:flex-start;}
+.message-quote-bubble{width:130px;height:auto;float:left;margin:0 16px 8px 0;border-radius:12px;}
+.message-quote-wrap::after{content:"";display:table;clear:both;}
 .message-body h2{font-size:1.3rem;color:var(--main);margin-bottom:4px;}
 .message-role{font-size:.85rem;color:var(--accent);font-weight:bold;margin-bottom:20px;}
 .message-body p{font-size:.92rem;margin-bottom:12px;line-height:1.85;}
@@ -315,7 +304,6 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
 
 <!-- ② ヒーロー：暖かみグロー＋新コピー＋信頼ピラー -->
 <section class="hero">
-  <div class="hero-glow-green"></div>
   <div class="hero-inner">
     <div class="hero-text">
     <div class="hero-badge">現役就労移行支援員（介護福祉士）による、就労と生活の伴走支援</div>
@@ -359,9 +347,6 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
         </div>
       </div>
     </div>
-    </div>
-    <div class="hero-image">
-      <img src="/images/hero-illustration.jpg" alt="窓辺で温かいお茶を飲みながら静かに過ごす人のイラスト。安心してくつろげる時間を象徴" width="900" height="675" loading="eager">
     </div>
   </div>
 </section>
@@ -437,26 +422,12 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
   </div>
 </section>
 
-<section class="section" style="background:var(--bg);" id="about">
+<section class="section" style="background:linear-gradient(rgba(244,248,251,.94),rgba(244,248,251,.94)),url('/images/message-bg-decoration.jpg');background-size:cover;background-position:center;" id="about">
   <div class="message-wrap">
-    <div class="message-illustration"><svg viewBox="0 0 698 698" width="136" height="136" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="代表 新井雅彦のプロフィールイラスト">
-  <defs><linearGradient id="mm-avatar-grad" x1="349" y1="698" x2="349" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="gray" stop-opacity="0.25"/><stop offset="0.54" stop-color="gray" stop-opacity="0.12"/><stop offset="1" stop-color="gray" stop-opacity="0.1"/></linearGradient></defs>
-  <g opacity="0.5"><circle cx="349" cy="349" r="349" fill="url(#mm-avatar-grad)"/></g>
-  <circle cx="349.68" cy="346.77" r="341.64" fill="#EAF1F7"/>
-  <path d="M601,790.76a340,340,0,0,0,187.79-56.2c-12.59-68.8-60.5-72.72-60.5-72.72H464.09s-45.21,3.71-59.33,67A340.07,340.07,0,0,0,601,790.76Z" transform="translate(-251 -101)" fill="#F2A65A"/>
-  <circle cx="346.37" cy="339.57" r="164.9" fill="#1F3A4D"/>
-  <path d="M293.15,476.92H398.81a0,0,0,0,1,0,0v84.53A52.83,52.83,0,0,1,346,614.28h0a52.83,52.83,0,0,1-52.83-52.83V476.92a0,0,0,0,1,0,0Z" opacity="0.12"/>
-  <path d="M296.5,473h99a3.35,3.35,0,0,1,3.35,3.35v81.18A52.83,52.83,0,0,1,346,610.37h0a52.83,52.83,0,0,1-52.83-52.83V476.35A3.35,3.35,0,0,1,296.5,473Z" fill="#fdb797"/>
-  <path d="M544.34,617.82a152.07,152.07,0,0,0,105.66.29v-13H544.34Z" transform="translate(-251 -101)" opacity="0.1"/>
-  <circle cx="346.37" cy="372.44" r="151.45" fill="#fdb797"/>
-  <path d="M489.49,333.78s63.83,129.56,243.88,54.3l-41.92-65.73-74.31-26.67Z" transform="translate(-251 -101)" fill="#1F3A4D"/>
-  <path d="M488.93,325a87.49,87.49,0,0,1,21.69-35.27c29.79-29.45,78.63-35.66,103.68-69.24,6,9.32,1.36,23.65-9,27.65,24-.16,51.81-2.26,65.38-22a44.89,44.89,0,0,1-7.57,47.4c21.27,1,44,15.4,45.34,36.65.92,14.16-8,27.56-19.59,35.68s-25.71,11.85-39.56,14.9C608.86,369.7,462.54,407.07,488.93,325Z" transform="translate(-251 -101)" fill="#1F3A4D"/>
-  <ellipse cx="194.86" cy="372.3" rx="14.09" ry="26.42" fill="#fdb797"/>
-  <ellipse cx="497.8" cy="372.3" rx="14.09" ry="26.42" fill="#fdb797"/>
-</svg></div>
+    <div class="message-illustration"><img src="/images/profile-onozaru.jpg" alt="代表 おのざるのプロフィールアイコン" width="136" height="136" style="border-radius:50%;object-fit:cover;display:block;"></div>
     <div class="message-body">
-      <p style="font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.6;margin-bottom:6px;">「相談するほどのことでもないかな」<br>そう思っていませんか？</p>
-      <div class="message-role" style="margin-bottom:20px;">新井 雅彦 ／ 代表取締役・現役就労移行支援員（介護福祉士）</div>
+      <div class="message-quote-wrap"><img class="message-quote-bubble" src="/images/message-quote-bubble.jpg" alt="オレンジとブルーの吹き出しが重なるイラスト。対話と共感を象徴" loading="lazy"><p style="font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.6;margin-bottom:6px;">「相談するほどのことでもないかな」<br>そう思っていませんか？</p></div>
+      <div class="message-role" style="margin-bottom:20px;">おのざる ／ 代表取締役・現役就労移行支援員（介護福祉士）</div>
       <p>私のところに来る方のほとんどが、最初はそう思っています。「うまく話せるか不安」「何を話せばいいかわからない」「こんなことで連絡していいのか」。そういう気持ちを抱えながら来てくれた人と、私はずっと話してきました。</p>
       <p>現役の就労移行支援員として気づいたのは、「うまく話せない人」ほど、本当に大切なものを抱えているということ。</p>
       <p style="font-weight:600;color:var(--dark);">だから、うまく説明できなくて大丈夫です。<br>気持ちだけ持ってきてください。整理するのは、私の仕事です。</p>
