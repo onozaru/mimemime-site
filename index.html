@@ -499,13 +499,12 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
 </section>
 
 
-<!-- ブログ最新記事プレビュー -->
+<!-- ブログ最新記事プレビュー（blog/index.htmlから自動取得） -->
 <section style="background:#F4F8FB;padding:60px 24px;">
   <div style="max-width:900px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:2rem;">
       <span style="font-size:.78rem;letter-spacing:.12em;color:#E86F2C;font-weight:700;">BLOG</span>
       <h2 style="font-size:clamp(1.4rem,2.5vw,1.9rem);color:#1F3A4D;margin:.4rem 0 .6rem;">最新のコラム</h2>
-      <p style="color:#7F8C8D;font-size:.9rem;">全115記事 ── 就労支援・障害・メンタルを当事者目線で</p>
     </div>
     <style>
     .blog-preview-card{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.75rem;text-decoration:none;color:#1F3A4D;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;}
@@ -513,43 +512,51 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     .bpc-num{font-size:.72rem;color:#3A7CA5;font-weight:700;min-width:2.8rem;}
     .bpc-title{flex:1;font-size:.9rem;font-weight:600;line-height:1.45;}
     .bpc-arrow{color:#E86F2C;font-weight:700;}
+    .blog-preview-loading{text-align:center;color:#7F8C8D;font-size:.9rem;padding:1rem 0;}
     </style>
-    
-      <a href="/blog/blog_115_ptsd_flashback_shokuba.html" class="blog-preview-card">
-        <span class="bpc-num">#115</span>
-        <span class="bpc-title">「その音が聞こえた瞬間、仕事どころじゃなくなる」PTSDのフラッシュバックと、職場でのやり過ごし方</span>
-        <span class="bpc-arrow">→</span>
-      </a>
-      <a href="/blog/blog_114_ibs_toire_fuan_shigoto.html" class="blog-preview-card">
-        <span class="bpc-num">#114</span>
-        <span class="bpc-title">「次の駅まで持つかな」過敏性腸症候群と、すぐ動けない場所への不安について</span>
-        <span class="bpc-arrow">→</span>
-      </a>
-      <a href="/blog/blog_113_houtei_koyoritsu_kigyou_taisaku.html" class="blog-preview-card">
-        <span class="bpc-num">#113</span>
-        <span class="bpc-title">2026年7月の法定雇用率2.7%引き上げ、企業の人事担当者が今から準備しておきたいこと</span>
-        <span class="bpc-arrow">→</span>
-      </a>
-      <a href="/blog/blog_112_tenshoku_agent_hikaku_shiten.html" class="blog-preview-card">
-        <span class="bpc-num">#112</span>
-        <span class="bpc-title">障がいのある方向け転職エージェント、何を基準に選べばいい？比較の視点まとめ</span>
-        <span class="bpc-arrow">→</span>
-      </a>
-      <a href="/blog/blog_111_mansei_hirou_zaiakukan.html" class="blog-preview-card">
-        <span class="bpc-num">#111</span>
-        <span class="bpc-title">慢性疲労症候群と「働きたいのに働けない」罪悪感、その重さの正体について</span>
-        <span class="bpc-arrow">→</span>
-      </a>
-      <a href="/blog/blog_110_senikinitsusho_shigoto_itami.html" class="blog-preview-card">
-        <span class="bpc-num">#110</span>
-        <span class="bpc-title">線維筋痛症・原因不明の体の痛みと仕事、「大袈裟だと思われたくない」気持ちとどう向き合うか</span>
-        <span class="bpc-arrow">→</span>
-      </a>
+
+    <div id="blog-preview-list"><p class="blog-preview-loading">最新記事を読み込み中…</p></div>
+
     <div style="text-align:center;margin-top:1.5rem;">
-      <a href="/blog/" style="display:inline-block;border:2px solid #3A7CA5;color:#3A7CA5;padding:.7rem 2rem;border-radius:30px;font-weight:700;text-decoration:none;font-size:.9rem;">記事一覧を見る（全115本）→</a>
+      <a href="/blog/" id="blog-preview-all-link" style="display:inline-block;border:2px solid #3A7CA5;color:#3A7CA5;padding:.7rem 2rem;border-radius:30px;font-weight:700;text-decoration:none;font-size:.9rem;">記事一覧を見る →</a>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var LIST_COUNT = 6;
+  fetch('/blog/index.html')
+    .then(function(r){ return r.text(); })
+    .then(function(html){
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var cards = doc.querySelectorAll('article.card');
+      var listEl = document.getElementById('blog-preview-list');
+      var allLinkEl = document.getElementById('blog-preview-all-link');
+      if (!cards.length) { listEl.innerHTML = ''; return; }
+      var out = '';
+      for (var i = 0; i < Math.min(LIST_COUNT, cards.length); i++) {
+        var card = cards[i];
+        var a = card.querySelector('a');
+        if (!a) continue;
+        var href = a.getAttribute('href');
+        var numEl = card.querySelector('.card-num');
+        var titleEl = card.querySelector('.card-title');
+        var num = numEl ? numEl.textContent : '';
+        var title = titleEl ? titleEl.textContent : (card.getAttribute('data-title') || '');
+        out += '<a href="' + href + '" class="blog-preview-card">'
+             + '<span class="bpc-num">' + num + '</span>'
+             + '<span class="bpc-title">' + title + '</span>'
+             + '<span class="bpc-arrow">→</span></a>';
+      }
+      listEl.innerHTML = out;
+      if (allLinkEl) allLinkEl.textContent = '記事一覧を見る（全' + cards.length + '本）→';
+    })
+    .catch(function(){
+      var listEl = document.getElementById('blog-preview-list');
+      if (listEl) listEl.innerHTML = '';
+    });
+})();
+</script>
 
 <footer>
   <div class="footer-inner">
