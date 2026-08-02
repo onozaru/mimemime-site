@@ -1,24 +1,13 @@
 #!/bin/sh
-# mimemime-site: コミット前にsite_audit.pyでコンテンツ監査を実行する。
-#
-# 監査スクリプトの実体は OneDrive 側の Claude Projects フォルダにある
-# （このリポジトリには含まれていないため絶対パスで参照する）。
-# 誤検知が多くて急いでコミットしたい場合は、このチェックを一時的にスキップできる:
-#   git commit --no-verify
+# mimemime サイト監査フック（2026-08-02更新: 変更ファイルのみ監査するよう調整）
+SITE_AUDIT="C:/Users/新井雅彦/OneDrive/ドキュメント/Claude/Projects/mimemime/admin/scripts/site_audit.py"
 
-AUDIT_SCRIPT="C:/Users/新井雅彦/OneDrive/ドキュメント/Claude/Projects/mimemime/admin/scripts/site_audit.py"
+python "$SITE_AUDIT" . --changed
+STATUS=$?
 
-if [ ! -f "$AUDIT_SCRIPT" ]; then
-  echo "★ site_audit.py が見つかりません（$AUDIT_SCRIPT）。監査をスキップして続行します。"
-  exit 0
-fi
-
-python "$AUDIT_SCRIPT" .
-status=$?
-
-if [ $status -ne 0 ]; then
+if [ $STATUS -ne 0 ]; then
   echo ""
-  echo "★ site_audit.py が問題を検出したため、コミットを中止しました。"
+  echo "* site_audit.py が問題を検出したため、コミットを中止しました。"
   echo "  上記の内容を確認・修正してから再度コミットしてください。"
   echo "  誤検知等でどうしても急ぐ場合は 'git commit --no-verify' でスキップできます。"
   exit 1
