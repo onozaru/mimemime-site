@@ -94,8 +94,10 @@ footer{background:#111;color:#888;text-align:center;padding:24px;font-size:.85re
       <p>入力いただいた情報は、相談対応のみに使用します。勧誘・営業連絡は一切行いません。断っていただいても全く問題ありません。</p>
     </div>
     <!-- ★修正: action属性追加、data-netlify=true、全フィールドにname属性 -->
-    <form name="contact" method="POST" action="/contact-thanks.html" data-netlify="true">
+    <!-- 2026-08-08 追加: ハニーポットでスパム対策 -->
+    <form name="contact" method="POST" action="/contact-thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true"><label>入力しないでください<input name="bot-field"></label></p>
       <div class="form-group">
         <label for="f-name">お名前（ニックネームでもOK）<span class="req">必須</span></label>
         <input id="f-name" type="text" name="name" placeholder="例：田中　または　たーちゃん" required>
