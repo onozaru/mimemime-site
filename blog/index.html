@@ -1831,4 +1831,82 @@ footer a:hover{color:#fff;}
     <p class="card-desc">「障害者雇用で就職することは、一般雇用より劣るのか」「恥ずかしいと感じてしまう自分は間違っているのか」正直に、丁寧に向き合います。</p>
   </a>
 </article>
-�
+  </div>
+  <div class="no-result" id="noResult">
+    <p>該当する記事が見つかりませんでした。</p>
+    <p style="font-size:.85rem;margin-top:.5rem;">別のキーワードやカテゴリでお試しください。</p>
+  </div>
+
+  <div class="cta">
+    <h2>まずは話してみませんか</h2>
+    <p>どんな小さなことでも大丈夫です。オンラインで60分、無料相談を行っています。</p>
+    <a href="/learning_system/contact.html" class="cta-btn">無料相談を申し込む</a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 mimemime（まいむまいむ）　<a href="/">トップページへ戻る</a></p>
+</footer>
+
+<script>
+(function(){
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function(){
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  var searchInput = document.getElementById('searchInput');
+  var catFilter = document.getElementById('catFilter');
+  var grid = document.getElementById('grid');
+  var resultCount = document.getElementById('resultCount');
+  var noResult = document.getElementById('noResult');
+  if (!grid) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+  var totalCount = cards.length;
+  var activeCat = 'すべて';
+
+  function applyFilter(){
+    var keyword = (searchInput && searchInput.value || '').trim().toLowerCase();
+    var visibleCount = 0;
+    cards.forEach(function(card){
+      var cat = card.getAttribute('data-cat') || '';
+      var title = (card.getAttribute('data-title') || '').toLowerCase();
+      var matchesCat = (activeCat === 'すべて' || cat === activeCat);
+      var matchesKeyword = (keyword === '' || title.indexOf(keyword) !== -1);
+      var visible = matchesCat && matchesKeyword;
+      card.style.display = visible ? '' : 'none';
+      if (visible) visibleCount++;
+    });
+    if (resultCount) {
+      resultCount.textContent = (keyword || activeCat !== 'すべて')
+        ? visibleCount + '件の記事が見つかりました'
+        : ('全' + totalCount + '記事を表示');
+    }
+    if (noResult) {
+      noResult.classList.toggle('show', visibleCount === 0);
+    }
+  }
+
+  if (catFilter) {
+    catFilter.addEventListener('click', function(e){
+      var btn = e.target.closest('.cat-btn');
+      if (!btn) return;
+      catFilter.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat');
+      applyFilter();
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilter);
+  }
+})();
+</script>
+</body>
+</html>
