@@ -1,5 +1,8 @@
 # Netlify 設定ファイル
 
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
   from = "/shindan"
   to = "/shindan.html"
