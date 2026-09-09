@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はじめての模擬面接（無料・何度でも）| mimemime</title>
+<meta name="description" content="点数をつけない、比較しない模擬面接。障害者雇用枠の面接で不安になりやすい場面を、何度でも安心して練習できます。">
+<meta property="og:title" content="はじめての模擬面接｜mimemime">
+<meta property="og:description" content="点数をつけない、比較しない模擬面接。何度でも安心して練習できます。">
+<!-- og:image は「アトリエの午後」トーンの専用画像を別途用意（要対応・現状は未設定） -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F3E6D6;
+    --surface:#FBF5EA;
+    --surface-tan:#F1E2CC;
+    --ink:#4A3B2E;
+    --ink-soft:#8B7A65;
+    --wood:#A9805A;
+    --wood-hair:#DCC7A6;
+    --sage:#7E9470;
+    --sage-tint:#E7ECDF;
+    --sage-deep:#66795A;
+    --pink-brand:#E8899F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.9;
+  }
+  h1,h2{font-family:'Zen Maru Gothic','Hiragino Kaku Gothic ProN',sans-serif;}
+
+  nav{background:var(--ink);padding:0 24px;display:flex;align-items:center;height:56px;}
+  nav a{color:var(--surface);text-decoration:none;font-weight:700;font-size:15px;font-family:'Zen Maru Gothic',sans-serif;}
+  main{max-width:440px;margin:0 auto;padding:28px 16px 90px;}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;background:var(--sage-tint);color:var(--sage-deep);
+    font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:16px;
+  }
+  .badge::before{content:"○";font-size:9px;}
+
+  h1{font-size:23px;margin-bottom:12px;text-wrap:balance;}
+  .lead{color:var(--ink-soft);font-size:15px;margin-bottom:24px;}
+
+  .rules{list-style:none;background:var(--surface-tan);border-radius:16px;padding:22px 20px;margin-bottom:24px;}
+  .rules li{display:flex;gap:10px;font-size:14px;margin-bottom:12px;}
+  .rules li:last-child{margin-bottom:0;}
+  .rules li .mark{
+    flex-shrink:0;width:18px;height:18px;border:1.5px solid var(--wood);border-radius:5px;
+    display:flex;align-items:center;justify-content:center;color:var(--wood);font-size:11px;margin-top:1px;
+  }
+
+  .company-block{background:var(--surface-tan);border-radius:16px;padding:20px 20px 18px;margin-bottom:24px;}
+  .company-block .opt-label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .company-block .opt-label .tag{font-size:11px;font-weight:700;color:var(--sage-deep);background:var(--sage-tint);padding:2px 9px;border-radius:999px;}
+  .company-block .opt-desc{font-size:12.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .company-block .field{margin-bottom:12px;}
+  .company-block .field:last-child{margin-bottom:0;}
+  .company-block label{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:5px;}
+  .company-block input,.company-block textarea{
+    width:100%;border:1px solid var(--wood-hair);border-radius:12px;padding:10px 12px;
+    font-size:14px;font-family:inherit;background:var(--surface);color:var(--ink);
+  }
+  .company-block textarea{min-height:64px;resize:vertical;}
+
+  .fine-print{font-size:12.5px;color:var(--ink-soft);margin-bottom:24px;}
+
+  .btn{
+    display:block;width:100%;background:var(--sage);color:var(--surface);border:none;border-radius:14px;
+    padding:16px;font-size:15.5px;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;
+    cursor:pointer;text-align:center;letter-spacing:.02em;
+  }
+  .btn:hover{opacity:.9;}
+  .btn:disabled{opacity:.5;cursor:not-allowed;}
+  .btn.secondary{background:transparent;color:var(--wood);border:1.5px solid var(--wood);}
+
+  #chatArea{display:none;}
+  .progress{font-size:13px;color:var(--ink-soft);margin-bottom:12px;font-variant-numeric:tabular-nums;}
+  .bubble{border-radius:20px;padding:16px 18px;margin-bottom:14px;font-size:14.5px;white-space:pre-wrap;max-width:90%;}
+  .bubble.ai{background:var(--surface);border-left:3px solid var(--wood);color:var(--ink);border-radius:6px 20px 20px 20px;}
+  .bubble.note{background:var(--surface-tan);color:var(--ink-soft);font-size:13px;margin-left:21px;}
+  .bubble.user{background:var(--sage);color:var(--surface);margin-left:auto;border-radius:20px 6px 20px 20px;}
+  #answerBox{
+    width:100%;min-height:88px;border:1px solid var(--wood-hair);border-radius:16px;padding:14px;
+    font-size:14.5px;font-family:inherit;resize:vertical;margin-top:6px;background:var(--surface);color:var(--ink);
+  }
+  #answerBox::placeholder{color:var(--ink-soft);}
+  #sendBtn{margin-top:10px;}
+
+  #feedbackArea{display:none;}
+  .fb-title{font-size:21px;margin-bottom:18px;}
+  .feedback-card{background:var(--surface);border-radius:20px;border:1px solid var(--wood-hair);padding:24px 22px;margin-bottom:18px;white-space:pre-wrap;font-size:14.5px;}
+  .feedback-card .signature{margin-top:16px;font-size:12.5px;color:var(--wood);font-family:'Zen Maru Gothic',sans-serif;}
+  .loading{color:var(--ink-soft);font-size:14px;text-align:center;padding:24px 0;}
+  .error{background:#F6E6DE;color:#8A4B33;border-radius:12px;padding:14px 16px;font-size:14px;margin-bottom:16px;}
+
+  /* ---- 音声練習カード ---- */
+  .voice-card{background:var(--surface);border-radius:20px;border:1px solid var(--wood-hair);padding:24px 22px;margin-bottom:18px;}
+  .voice-card h2{font-size:15.5px;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+  .voice-card h2 .tag{font-size:11px;font-weight:700;color:var(--sage-deep);background:var(--sage-tint);padding:2px 9px;border-radius:999px;font-family:'Noto Sans JP',sans-serif;}
+  .voice-card .consent{font-size:12.5px;color:var(--ink-soft);margin-bottom:18px;}
+  .recorder-row{display:flex;align-items:center;gap:12px;background:var(--surface-tan);border-radius:14px;padding:12px 14px;margin-bottom:12px;}
+  .rec-btn{width:36px;height:36px;border-radius:50%;background:var(--sage);border:none;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .rec-btn.recording{background:#B25B4A;}
+  .rec-btn svg{width:14px;height:14px;}
+  .rec-time{font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;flex-shrink:0;margin-left:auto;}
+  .rec-hint{font-size:12.5px;color:var(--ink-soft);}
+  #recPlayerWrap{display:none;margin-bottom:12px;}
+  #recPlayerWrap audio{width:100%;}
+  .redo-link{background:none;border:none;color:var(--wood);font-size:12.5px;text-decoration:underline;cursor:pointer;padding:0 0 14px;display:block;}
+  #voiceAnalysisNote{display:none;background:var(--surface-tan);border-radius:12px;padding:14px 16px;font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  #voiceAnalysisNote.show{display:block;}
+
+  .metric-row{margin-bottom:14px;}
+  .metric-row:last-child{margin-bottom:0;}
+  .metric-label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--ink);font-weight:700;margin-bottom:6px;}
+  .metric-label .metric-note{font-size:12px;color:var(--ink-soft);font-weight:400;}
+  .metric-track{height:10px;border-radius:999px;background:var(--wood-hair);opacity:.6;overflow:hidden;}
+  .metric-fill{height:100%;border-radius:999px;background:var(--sage);}
+  .chart-caption{font-size:11.5px;color:var(--ink-soft);margin:14px 0 0;}
+  .chart-text{font-size:14px;color:var(--ink);margin:14px 0 0;padding-top:14px;border-top:1px solid var(--wood-hair);white-space:pre-wrap;}
+
+  .email-optin{background:var(--surface-tan);border-radius:18px;padding:22px 20px;margin-bottom:18px;}
+  .email-optin label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+  .email-optin .row{display:flex;gap:10px;}
+  .email-optin input{flex:1;border:1px solid var(--wood-hair);border-radius:12px;padding:11px 13px;font-size:14px;font-family:inherit;background:var(--surface);color:var(--ink);}
+  .email-optin .btn-inline{background:var(--sage);color:var(--surface);border:none;border-radius:12px;padding:0 18px;font-size:13.5px;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;flex-shrink:0;}
+  .email-optin .note{font-size:11.5px;color:var(--ink-soft);margin-top:10px;}
+  #optinDone{display:none;font-size:13.5px;color:var(--sage-deep);}
+
+  /* --- 「本物の人と練習する」導線（mimen） --- */
+  .mimen-card{background:var(--surface-tan);border-radius:20px;padding:26px 22px;margin-bottom:18px;}
+  .mimen-avatar{width:44px;height:44px;border-radius:50%;background:var(--pink-brand);opacity:.9;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-bottom:12px;font-family:'Zen Maru Gothic',sans-serif;}
+  .mimen-card h2{font-size:16.5px;margin-bottom:8px;color:var(--ink);}
+  .mimen-card p{font-size:14px;color:var(--ink);opacity:.85;margin-bottom:16px;}
+  .mimen-card p.small{font-size:12px;color:var(--ink-soft);margin-top:14px;margin-bottom:0;}
+
+  #mimenForm{display:none;background:var(--surface);border-radius:20px;border:1px solid var(--wood-hair);padding:22px 20px;margin-bottom:18px;}
+  #mimenForm.open{display:block;}
+  #mimenForm .form-group{margin-bottom:16px;}
+  #mimenForm label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  #mimenForm label .req{color:var(--pink-brand);font-size:12px;margin-left:4px;}
+  #mimenForm input[type=text],#mimenForm input[type=email],#mimenForm textarea{width:100%;padding:11px 13px;border:1px solid var(--wood-hair);border-radius:10px;font-size:14.5px;font-family:inherit;background:var(--surface);color:var(--ink);}
+  #mimenForm textarea{min-height:80px;resize:vertical;}
+  .checkbox-group{display:flex;flex-direction:column;gap:8px;}
+  .checkbox-label{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);}
+  .checkbox-label input{width:auto;}
+
+  .link-row{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .text-link-btn{background:none;border:none;color:var(--wood);font-size:13px;text-decoration:underline;cursor:pointer;padding:4px 0;text-align:left;}
+
+  footer{text-align:center;color:var(--ink-soft);font-size:12px;margin-top:40px;display:flex;align-items:center;justify-content:center;gap:8px;}
+  footer .mark{width:14px;height:14px;border-radius:50%;background:var(--pink-brand);opacity:.85;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<nav><a href="/">mimemime</a></nav>
+
+<main>
+
+  <!-- 導入画面 -->
+  <div id="introArea">
+    <span class="badge">無料・何度でも</span>
+    <h1>はじめての模擬面接</h1>
+    <p class="lead">障害者雇用枠の面接で、多くの方が不安に感じる場面を集めた練習です。点数はつきません。誰かと比べることもありません。</p>
+
+    <ul class="rules">
+      <li><span class="mark">✓</span>評価・点数・合否判定は一切ありません</li>
+      <li><span class="mark">✓</span>他の人と比較することもありません</li>
+      <li><span class="mark">✓</span>何度でも、途中からでもやり直せます</li>
+      <li><span class="mark">✓</span>入力した内容はこの端末（ブラウザ）だけに保存されます（会社名を入れた場合の質問準備と、最後のフィードバックをまとめるときだけ、外部に送信されます）</li>
+    </ul>
+
+    <div class="company-block">
+      <div class="opt-label">受けたい会社について<span class="tag">任意</span></div>
+      <p class="opt-desc">入れておくと、その会社に近い質問で練習できます。空欄のままでも、よくある質問で練習を始められます。</p>
+      <div class="field">
+        <label for="companyName">会社名</label>
+        <input id="companyName" type="text" placeholder="例：〇〇株式会社">
+      </div>
+      <div class="field">
+        <label for="companyMemo">その会社について知っていること</label>
+        <textarea id="companyMemo" placeholder="例：事務職・障害者雇用枠での募集。落ち着いた職場だと聞いている、など"></textarea>
+      </div>
+    </div>
+
+    <p class="fine-print">※ この模擬面接は練習のためのものです。実際の採用結果を保証するものではありません。</p>
+
+    <button class="btn" id="startBtn" onclick="startInterview()">模擬面接をはじめる（約10分）</button>
+  </div>
+
+  <!-- チャット画面 -->
+  <div id="chatArea">
+    <div class="progress" id="progressLabel"></div>
+    <div id="messages"></div>
+    <textarea id="answerBox" placeholder="ここに答えを入力してください（短くても大丈夫です）"></textarea>
+    <button class="btn" id="sendBtn" onclick="submitAnswer()">この内容で答える</button>
+  </div>
+
+  <!-- フィードバック画面 -->
+  <div id="feedbackArea">
+    <h1 class="fb-title">お疲れさまでした</h1>
+    <div id="feedbackBody"></div>
+
+    <!-- 音声練習・分析 -->
+    <div class="voice-card">
+      <h2>声に出しても練習できます<span class="tag">任意</span></h2>
+      <p class="consent">録音は分析が終わり次第、自動で削除されます。この端末以外には保存されません。</p>
+
+      <div class="recorder-row">
+        <button class="rec-btn" id="recBtn" onclick="toggleRecording()" aria-label="録音する">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" stroke="#FBF5EA" stroke-width="2"/><path d="M6 11a6 6 0 0012 0M12 19v3" stroke="#FBF5EA" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <span class="rec-hint" id="recHint">マイクのボタンを押すと録音がはじまります</span>
+        <span class="rec-time" id="recTime"></span>
+      </div>
+
+      <div id="recPlayerWrap">
+        <audio id="recPlayer" controls></audio>
+      </div>
+      <button class="redo-link" id="redoLink" style="display:none;" onclick="redoRecording()">録り直す</button>
+
+      <button class="btn" id="analyzeBtn" style="display:none;" onclick="requestVoiceAnalysis()">この音声を送って分析する</button>
+      <div id="voiceAnalysisNote"></div>
+      <div id="voiceResult" style="display:none;"></div>
+    </div>
+
+    <!-- 案内メール受け取り（Web模擬面接を行った人だけの任意案内） -->
+    <div class="email-optin">
+      <label>感想と、対面練習のご案内をメールで受け取る（任意）</label>
+      <form id="notifyOptinForm" name="mimen_notify_optin" method="POST" data-netlify="true" onsubmit="return submitOptin(event)">
+        <input type="hidden" name="form-name" value="mimen_notify_optin">
+        <div class="row" id="optinRow">
+          <input id="optinEmail" name="email" type="email" placeholder="メールアドレス" required>
+          <button type="submit" class="btn-inline">受け取る</button>
+        </div>
+      </form>
+      <p id="optinDone">ありがとうございます。ご案内をお送りします。</p>
+      <p class="note">案内が必要なくなったら、いつでも配信を停止できます。</p>
+    </div>
+
+    <!-- mimen: 実際の人との模擬面接練習への導線 -->
+    <div class="mimen-card">
+      <div class="mimen-avatar">おの</div>
+      <h2>次は、人と話してみませんか</h2>
+      <p>もしよければ、実際に人と話してみませんか。今は元就労移行支援員の「おのざる」が、一対一でゆっくり模擬面接の練習に付き合います。評価の場ではなく、あなたが本来どう話したいかを一緒に探す時間です。</p>
+      <button class="btn secondary" onclick="toggleMimenForm()">実際の面接練習に申し込む</button>
+      <p class="small">※ 現在は少人数での試験提供中です。日程調整のご連絡までお時間をいただく場合があります。</p>
+    </div>
+
+    <!-- Netlify Forms: mimen申し込みフォーム -->
+    <form id="mimenForm" name="mimen_apply" method="POST" action="/ai-mensetsu-mvp/mimen-thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="mimen_apply">
+      <input type="hidden" name="source" value="mensetsu-ai">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true"><label>入力しないでください<input name="bot-field"></label></p>
+
+      <div class="form-group">
+        <label for="m-name">お名前（ニックネームでもOK）<span class="req">必須</span></label>
+        <input id="m-name" type="text" name="name" placeholder="例：たーちゃん" required>
+      </div>
+      <div class="form-group">
+        <label for="m-email">連絡先メールアドレス<span class="req">必須</span></label>
+        <input id="m-email" type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="m-scene">練習したい職種・場面（任意）</label>
+        <input id="m-scene" type="text" name="scene" placeholder="例：一般事務・障害者雇用枠">
+      </div>
+      <div class="form-group">
+        <label for="m-worry">特に練習したいこと・不安なこと（任意）</label>
+        <textarea id="m-worry" name="worry" placeholder="練習の中で気づいたことがあれば、それも教えてください"></textarea>
+      </div>
+      <div class="form-group">
+        <label>ご都合のよい時間帯（複数選択可）</label>
+        <div class="checkbox-group">
+          <label class="checkbox-label"><input type="checkbox" name="time[]" value="平日午前"> 平日午前</label>
+          <label class="checkbox-label"><input type="checkbox" name="time[]" value="平日夕方〜夜"> 平日夕方〜夜</label>
+          <label class="checkbox-label"><input type="checkbox" name="time[]" value="土日祝"> 土日祝</label>
+        </div>
+      </div>
+      <button type="submit" class="btn">この内容で申し込む</button>
+    </form>
+
+    <div class="link-row">
+      <button class="text-link-btn" onclick="restartInterview()">もう一度練習する</button>
+      <button class="text-link-btn" onclick="location.href='/connect.html'">まずは支援員に無料相談する（初回60分無料）</button>
+    </div>
+  </div>
+
+  <footer><span class="mark"></span>mimemime — 対話で「本当に働きたい」に向き合う障がい者サポート</footer>
+</main>
+
+<script>
+// ============ 質問セット（既定・障害者雇用枠 / 一般事務職 想定） ============
+const QUESTIONS_DEFAULT = [
+  "まずは簡単に自己紹介をお願いします。お名前は言わなくても大丈夫です。今の状況や、これまでのお仕事について少し教えてください。",
+  "これまでの仕事や生活の中で、大変だったことをどう乗り越えてきましたか？",
+  "ここ最近の期間、どのように過ごされていましたか？（お休みされていた期間がある場合も、そのままお答えください）",
+  "ご自身の障害について、面接ではどのように伝えたいと考えていますか？",
+  "働くうえで、どのような配慮があると安心して力を発揮できそうですか？",
+  "なぜこの仕事、この職場を選ばれたのですか？（架空の設定で構いません）",
+  "長く働き続けるために、ご自身で意識していること・工夫していることはありますか？",
+  "最後に、面接官へ何か質問はありますか？"
+];
+
+// 各質問の後に表示する、外部呼び出しを伴わない静的な相づち（コスト・待ち時間を抑えるため）
+const ACKS = [
+  "ありがとうございます。落ち着いて話していただけましたね。",
+  "率直に答えていただき、ありがとうございます。",
+  "この質問、答えにくいと感じる方も多いです。よく言葉にしてくださいました。",
+  "自分の言葉で伝えようとする姿勢が伝わってきます。",
+  "具体的に考えていただけると、次に活かしやすくなります。",
+  "ここまでで半分以上です。あと少しです。",
+  "続ける工夫を言葉にするのは、実は難しいことです。",
+  "最後の質問です。ここまでお疲れさまでした。"
+];
+
+let current = 0;
+let qaLog = [];
+let activeQuestions = QUESTIONS_DEFAULT;
+let notifyEmail = null;
+
+async function startInterview(){
+  const companyName = document.getElementById('companyName').value.trim();
+  const companyMemo = document.getElementById('companyMemo').value.trim();
+  const startBtn = document.getElementById('startBtn');
+
+  current = 0;
+  qaLog = [];
+  activeQuestions = QUESTIONS_DEFAULT;
+
+  if (companyName || companyMemo) {
+    startBtn.disabled = true;
+    startBtn.textContent = '質問を準備しています…';
+    try {
+      const res = await fetch('/.netlify/functions/mensetsu-questions', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ companyName, companyMemo }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data.questions) && data.questions.length === 8) {
+          activeQuestions = data.questions;
+        }
+      }
+      // 取得に失敗した場合は既定の質問セットのまま進める（無音のフォールバック）
+    } catch (e) { /* ネットワークエラー時も既定の質問セットで進める */ }
+    startBtn.disabled = false;
+    startBtn.textContent = '模擬面接をはじめる（約10分）';
+  }
+
+  document.getElementById('introArea').style.display = 'none';
+  document.getElementById('chatArea').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  document.getElementById('progressLabel').textContent = `質問 ${current + 1} / ${activeQuestions.length}`;
+  const messages = document.getElementById('messages');
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble ai';
+  bubble.textContent = activeQuestions[current];
+  messages.appendChild(bubble);
+  document.getElementById('answerBox').value = '';
+  document.getElementById('answerBox').focus();
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function submitAnswer(){
+  const box = document.getElementById('answerBox');
+  const answer = box.value.trim();
+  if(!answer){ box.focus(); return; }
+
+  const messages = document.getElementById('messages');
+  const userBubble = document.createElement('div');
+  userBubble.className = 'bubble user';
+  userBubble.textContent = answer;
+  messages.appendChild(userBubble);
+
+  qaLog.push({ question: activeQuestions[current], answer });
+
+  const ackBubble = document.createElement('div');
+  ackBubble.className = 'bubble note';
+  ackBubble.textContent = ACKS[current] || '';
+  messages.appendChild(ackBubble);
+
+  current++;
+  if(current < activeQuestions.length){
+    renderQuestion();
+  } else {
+    saveLog();
+    finishInterview();
+  }
+}
+
+function saveLog(){
+  try{
+    const history = JSON.parse(localStorage.getItem('mensetsu_history') || '[]');
+    history.push({ date: new Date().toISOString(), qaLog });
+    localStorage.setItem('mensetsu_history', JSON.stringify(history));
+  }catch(e){ /* localStorageが使えない環境は静かに無視 */ }
+}
+
+async function finishInterview(){
+  document.getElementById('chatArea').style.display = 'none';
+  document.getElementById('feedbackArea').style.display = 'block';
+  const body = document.getElementById('feedbackBody');
+  body.innerHTML = '<div class="loading">回答をもとに、フィードバックをまとめています…</div>';
+
+  try{
+    const res = await fetch('/.netlify/functions/mensetsu-chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ qaList: qaLog })
+    });
+
+    if(!res.ok){ throw new Error('server error ' + res.status); }
+    const data = await res.json();
+
+    body.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'feedback-card';
+    card.textContent = data.feedback || 'フィードバックの取得に失敗しました。もう一度お試しください。';
+    const sig = document.createElement('div');
+    sig.className = 'signature';
+    sig.textContent = '— おのざる（mimemime）';
+    card.appendChild(sig);
+    body.appendChild(card);
+
+    notifyIfOptedIn();
+  }catch(e){
+    body.innerHTML = `
+      <div class="error">
+        フィードバックの生成でエラーが発生しました。準備中の可能性があります。<br>
+        回答内容はこの端末に保存されているので、あとでもう一度お試しいただけます。
+      </div>`;
+  }
+}
+
+// ---- 音声練習 ----
+let mediaRecorder = null;
+let audioChunks = [];
+let recordStartTime = null;
+let recordTimerInterval = null;
+let recordedBlob = null;
+
+async function toggleRecording(){
+  const btn = document.getElementById('recBtn');
+  if (mediaRecorder && mediaRecorder.state === 'recording') {
+    mediaRecorder.stop();
+    return;
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioChunks = [];
+    mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      const blob = new Blob(audioChunks, { type: 'audio/webm' });
+      recordedBlob = blob;
+      const url = URL.createObjectURL(blob);
+      document.getElementById('recPlayer').src = url;
+      document.getElementById('recPlayerWrap').style.display = 'block';
+      document.getElementById('redoLink').style.display = 'block';
+      document.getElementById('analyzeBtn').style.display = 'block';
+      btn.classList.remove('recording');
+      document.getElementById('recHint').textContent = '録音できました。聞き直せます';
+      clearInterval(recordTimerInterval);
+    };
+    mediaRecorder.start();
+    recordStartTime = Date.now();
+    btn.classList.add('recording');
+    document.getElementById('recHint').textContent = '録音中です。もう一度押すと終わります';
+    document.getElementById('recPlayerWrap').style.display = 'none';
+    document.getElementById('redoLink').style.display = 'none';
+    document.getElementById('analyzeBtn').style.display = 'none';
+    document.getElementById('voiceAnalysisNote').style.display = 'none';
+    recordTimerInterval = setInterval(() => {
+      const sec = Math.floor((Date.now() - recordStartTime) / 1000);
+      document.getElementById('recTime').textContent =
+        String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0');
+    }, 500);
+  } catch (e) {
+    alert('マイクを使用できませんでした。ブラウザの設定でマイクへのアクセスを許可してください。');
+  }
+}
+
+function redoRecording(){
+  document.getElementById('recPlayerWrap').style.display = 'none';
+  document.getElementById('redoLink').style.display = 'none';
+  document.getElementById('analyzeBtn').style.display = 'none';
+  document.getElementById('voiceAnalysisNote').className = '';
+  document.getElementById('voiceResult').style.display = 'none';
+  document.getElementById('recTime').textContent = '';
+  document.getElementById('recHint').textContent = 'マイクのボタンを押すと録音がはじまります';
+  recordedBlob = null;
+}
+
+async function requestVoiceAnalysis(){
+  const note = document.getElementById('voiceAnalysisNote');
+  const result = document.getElementById('voiceResult');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+
+  if (!recordedBlob) return;
+
+  result.style.display = 'none';
+  note.className = 'show';
+  note.textContent = '声を分析しています…';
+  analyzeBtn.disabled = true;
+
+  try {
+    const audioBase64 = await blobToBase64(recordedBlob);
+    const res = await fetch('/.netlify/functions/mensetsu-voice-analyze', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ audio: audioBase64, mimeType: recordedBlob.type || 'audio/webm' }),
+    });
+
+    if (!res.ok) {
+      // 未設定（環境変数なし等）の場合もここに来る。準備中である旨を正直に伝える。
+      note.textContent = '声の分析は、現在まだ準備中です。録音してご自身で聞き直す練習には、そのままお使いいただけます。';
+      analyzeBtn.disabled = false;
+      return;
+    }
+
+    const data = await res.json();
+    note.className = '';
+    note.textContent = '';
+    renderVoiceResult(data);
+    analyzeBtn.disabled = false;
+  } catch (e) {
+    note.textContent = '通信でエラーが発生しました。もう一度お試しください。';
+    analyzeBtn.disabled = false;
+  }
+}
+
+function renderVoiceResult(data){
+  const result = document.getElementById('voiceResult');
+  const m = data.metrics || {};
+  result.innerHTML = '';
+
+  if (m.pace) result.appendChild(metricRow('話す速さ', m.pace.note, m.pace.score));
+  if (m.pause) result.appendChild(metricRow('間の取り方', m.pause.note, m.pause.score));
+  if (m.filler) result.appendChild(metricRow('「えーと」「あの」の多さ', m.filler.note, m.filler.score));
+
+  const caption = document.createElement('p');
+  caption.className = 'chart-caption';
+  caption.textContent = '※ 数値は今回の録音から実際に計算した値です（目安の範囲は今後調整予定）。';
+  result.appendChild(caption);
+
+  if (data.feedbackText) {
+    const text = document.createElement('p');
+    text.className = 'chart-text';
+    text.textContent = data.feedbackText;
+    result.appendChild(text);
+  }
+
+  result.style.display = 'block';
+}
+
+function metricRow(label, note, score){
+  const row = document.createElement('div');
+  row.className = 'metric-row';
+  const clamped = Math.max(0, Math.min(100, score));
+  row.innerHTML = `
+    <div class="metric-label">${label}<span class="metric-note">${note}</span></div>
+    <div class="metric-track"><div class="metric-fill" style="width:${clamped}%"></div></div>
+  `;
+  return row;
+}
+
+function blobToBase64(blob){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(String(reader.result).split(',')[1] || '');
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+// ---- 案内メールの受け取り（任意） ----
+function submitOptin(e){
+  e.preventDefault();
+  const email = document.getElementById('optinEmail').value.trim();
+  if(!email){ return false; }
+
+  const form = e.target;
+  const body = new URLSearchParams(new FormData(form)).toString();
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  }).catch(() => { /* Netlify Formsへの記録に失敗しても体験は止めない */ });
+
+  notifyEmail = email;
+  document.getElementById('optinRow').style.display = 'none';
+  document.getElementById('optinDone').style.display = 'block';
+  return false;
+}
+
+function notifyIfOptedIn(){
+  if (!notifyEmail) return;
+  fetch('/.netlify/functions/mensetsu-notify', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ email: notifyEmail }),
+  }).catch(() => { /* 未設定・失敗時も画面には影響させない */ });
+}
+
+function toggleMimenForm(){
+  const form = document.getElementById('mimenForm');
+  form.classList.toggle('open');
+  if(form.classList.contains('open')){
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function restartInterview(){
+  document.getElementById('feedbackArea').style.display = 'none';
+  document.getElementById('introArea').style.display = 'block';
+  document.getElementById('messages').innerHTML = '';
+  document.getElementById('companyName').value = '';
+  document.getElementById('companyMemo').value = '';
+  document.getElementById('optinRow').style.display = 'flex';
+  document.getElementById('optinDone').style.display = 'none';
+  document.getElementById('optinEmail').value = '';
+  notifyEmail = null;
+  redoRecording();
+}
+</script>
+
+</body>
+</html>

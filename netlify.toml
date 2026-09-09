@@ -1,0 +1,22 @@
+# Netlify 設定ファイル
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/shindan"
+  to = "/shindan.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "frame-ancestors 'self'"

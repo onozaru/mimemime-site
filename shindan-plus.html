@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51S65JTC2F');
+</script>
+  <meta charset="UTF-8">
+  <meta name="description" content="6つの質問で、今のあなたに合う一歩のペースが見えてくる、mimemimeのはたらき方タイプ診断。医学的な診断ではなく、自己理解のための参考情報です。">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://mimemime.com/shindan-plus.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://mimemime.com/"},{"@type":"ListItem","position":2,"name":"はたらき方タイプ診断","item":"https://mimemime.com/shindan-plus.html"}]}</script>
+  <title>はたらき方タイプ診断 — mimemime｜6つの質問でわかる、今のあなたに合うペース</title>
+<meta property="og:title" content="はたらき方タイプ診断 — mimemime｜6つの質問でわかる、今のあなたに合うペース">
+<meta property="og:description" content="6つの質問で、今のあなたに合う一歩のペースが見えてくる診断です。正解はありません、直感でどうぞ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mimemime.com/shindan-plus.html">
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mimemime.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:   #1F3A4D;
+      --main:   #3A7CA5;
+      --accent: #EC7C95;
+      --green:  #27AE60;
+      --bg:     #F5F1EC;
+      --white:  #FFFFFF;
+      --text:   #2C3E50;
+      --sub:    #7F8C8D;
+      --border: #E2D9CE;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 460px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 8px 32px rgba(31,58,77,0.10), 0 1px 4px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--main), var(--accent));
+    }
+
+    /* ── Steps ── */
+    .step { display: none; }
+    .step.active { display: block; animation: up .35s cubic-bezier(.22,.84,.44,1) both; }
+    @keyframes up { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── Logo ── */
+    .logo {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--main);
+      letter-spacing: .15em;
+      text-transform: lowercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Progress dots ── */
+    .progress { display: flex; gap: 4px; margin-bottom: 1.75rem; }
+    .pd {
+      height: 4px; flex: 1; border-radius: 2px;
+      background: var(--border); transition: background .4s;
+    }
+    .pd.done   { background: var(--main); }
+    .pd.active { background: var(--accent); }
+
+    /* ── Question headings ── */
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .12em;
+      color: var(--sub); text-transform: uppercase; margin-bottom: .5rem;
+    }
+    h1, h2 {
+      font-size: 21px; font-weight: 700; color: var(--dark);
+      line-height: 1.55; margin-bottom: .5rem;
+    }
+    .hint { font-size: 12px; color: var(--sub); margin-bottom: 1.5rem; line-height: 1.6; }
+
+    /* ── Options ── */
+    .options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 1.5rem; }
+    .option {
+      display: flex; align-items: center; gap: 12px;
+      border: 1.5px solid var(--border); border-radius: 14px;
+      padding: 13px 15px; cursor: pointer;
+      background: none; width: 100%; text-align: left;
+      font-family: inherit; font-size: 14px; color: var(--text);
+      line-height: 1.4; transition: border-color .2s, background .2s, transform .15s;
+    }
+    .option:hover {
+      border-color: var(--main); background: #EBF4FA;
+      transform: translateX(3px);
+    }
+    .option.selected {
+      border-color: var(--main); background: #EBF4FA;
+      color: var(--dark); font-weight: 500;
+    }
+    .option .icon { font-size: 22px; flex-shrink: 0; }
+    .option .icon-img {
+      width: 34px; height: 34px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0; background: var(--bg);
+    }
+    .option .icon-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .option .label { flex: 1; }
+
+    /* ── Buttons ── */
+    .btn-next {
+      width: 100%; border: none; border-radius: 14px;
+      background: var(--dark); color: var(--white);
+      padding: 14px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background .2s, transform .15s;
+    }
+    .btn-next:hover:not(:disabled) { background: #2A4D66; transform: translateY(-1px); }
+    .btn-next:disabled { opacity: .35; cursor: not-allowed; }
+    .btn-back {
+      display: block; width: 100%; text-align: center;
+      background: none; border: none; font-family: inherit;
+      font-size: 12px; color: var(--sub); cursor: pointer;
+      margin-top: 12px; padding: 4px 0;
+    }
+
+    /* ── Privacy note ── */
+    .privacy {
+      font-size: 11px; color: var(--sub); line-height: 1.7;
+      background: #F9F6F2; border-radius: 10px;
+      padding: 10px 13px; margin-bottom: 1.5rem;
+    }
+
+    /* ── Welcome ── */
+    .hero { font-size: 52px; margin-bottom: 1rem; }
+    .tagline {
+      font-size: 13px; color: var(--sub); line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Result ── */
+    .result-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      color: var(--accent); letter-spacing: .1em;
+      background: #FEF5EA; padding: 4px 11px;
+      border-radius: 20px; margin-bottom: .75rem;
+    }
+    .result-title {
+      font-size: 22px; font-weight: 700; color: var(--dark);
+      line-height: 1.5; margin-bottom: 1rem;
+    }
+    .result-body {
+      font-size: 14px; color: var(--text); line-height: 1.9;
+      background: var(--bg); border-radius: 14px;
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .insight {
+      font-size: 13px; color: var(--text); line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .insight b { color: var(--dark); }
+    .chart-block {
+      margin-bottom: 1.5rem;
+    }
+    .chart-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      color: var(--sub); margin-bottom: .75rem;
+    }
+    .chart-wrap {
+      position: relative; height: 190px;
+    }
+    .next-steps {
+      background: #EBF4FA; border-radius: 14px;
+      padding: 1.1rem 1.25rem; margin-bottom: 1.5rem;
+    }
+    .next-steps-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      color: var(--main); margin-bottom: .6rem;
+    }
+    .next-steps ul { list-style: none; }
+    .next-steps li {
+      font-size: 13px; color: var(--text); line-height: 1.7;
+      padding-left: 1.3rem; position: relative; margin-bottom: .4rem;
+    }
+    .next-steps li:last-child { margin-bottom: 0; }
+    .next-steps li::before {
+      content: '→'; position: absolute; left: 0; color: var(--main); font-weight: 700;
+    }
+    .cta-label {
+      font-size: 12px; font-weight: 700; color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .btn-cta {
+      width: 100%; border: none; border-radius: 14px;
+      background: var(--accent); color: var(--dark);
+      padding: 14px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background .2s, transform .15s;
+      margin-bottom: 9px;
+    }
+    .btn-cta:hover { background: #e89242; transform: translateY(-1px); }
+    .btn-secondary {
+      width: 100%; border: 1.5px solid var(--border); border-radius: 14px;
+      background: none; color: var(--sub);
+      padding: 12px; font-size: 14px; cursor: pointer;
+      font-family: inherit; transition: border-color .2s;
+      margin-bottom: 0;
+    }
+    .btn-secondary:hover { border-color: var(--main); color: var(--main); }
+    .result-meta {
+      font-size: 11px; color: var(--border);
+      margin-top: 1.25rem; padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 8px; line-height: 1.6;
+    }
+    .meta-pill {
+      background: var(--bg); border-radius: 20px;
+      padding: 2px 10px; color: var(--sub); font-size: 11px;
+    }
+    .btn-retry {
+      display: block; margin: 1rem auto 0;
+      background: none; border: none; font-family: inherit;
+      font-size: 12px; color: var(--main);
+      text-decoration: underline; cursor: pointer;
+    }
+    .disclaimer {
+      font-size: 10.5px; color: var(--sub); line-height: 1.7;
+      margin-top: 1rem; text-align: center;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      body { padding: 1rem .75rem 3rem; }
+      .card { padding: 1.5rem 1.25rem; border-radius: 18px; }
+      h1, h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- ─── STEP 0: Welcome ─── -->
+  <div class="step active" id="s0">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="hero">🧭</div>
+    <h1>今のあなたに合う<br>一歩のペースを、探してみませんか</h1>
+    <p class="tagline">6つの質問に答えるだけ。3分ほどで終わります。<br>正解はありません、直感でどうぞ。</p>
+    <div class="privacy">
+      🔒 回答は保存されず、個人を特定する情報もいただきません。<br>この診断は医学的な診断ではなく、自己理解のための参考情報です。
+    </div>
+    <button class="btn-next" onclick="go(1)">はじめる →</button>
+  </div>
+
+  <!-- ─── STEP 1: Q1 生活リズム ─── -->
+  <div class="step" id="s1">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="1"></div>
+    <p class="eyebrow">Question 1 / 6</p>
+    <h2>生活リズムについて、<br>今のあなたに近いのは？</h2>
+    <p class="hint">直感でどうぞ。正解はありません。</p>
+    <div class="options">
+      <button class="option" onclick="pick(1,'A',this)"><span class="icon-img"><img src="images/shindan-icon-q1a-v2.png" alt=""></span><span class="label">朝も夜もわりと決まった時間に動けている</span></button>
+      <button class="option" onclick="pick(1,'B',this)"><span class="icon-img"><img src="images/shindan-icon-q1b-v2.png" alt=""></span><span class="label">整う日と乱れる日が半々くらい</span></button>
+      <button class="option" onclick="pick(1,'E',this)"><span class="icon-img"><img src="images/shindan-icon-q1e-v2.png" alt=""></span><span class="label">正直、あまり整っていない</span></button>
+    </div>
+    <button class="btn-next" id="b1" onclick="go(2)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(0)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 2: Q2 今の気持ち ─── -->
+  <div class="step" id="s2">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="2"></div>
+    <p class="eyebrow">Question 2 / 6</p>
+    <h2>「働くこと」に対して、<br>今の気持ちに一番近いのは？</h2>
+    <p class="hint">一番しっくりくるものを選んでください。</p>
+    <div class="options">
+      <button class="option" onclick="pick(2,'A',this)"><span class="icon">🏃</span><span class="label">なるべく早く一歩を踏み出したい</span></button>
+      <button class="option" onclick="pick(2,'C',this)"><span class="icon">🗣️</span><span class="label">話せる相手がいれば前向きになれそう</span></button>
+      <button class="option" onclick="pick(2,'D',this)"><span class="icon">💭</span><span class="label">気持ちの整理がまだついていない</span></button>
+      <button class="option" onclick="pick(2,'E',this)"><span class="icon">😮‍💨</span><span class="label">考えるだけで疲れてしまう</span></button>
+    </div>
+    <button class="btn-next" id="b2" onclick="go(3)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(1)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 3: Q3 人との関わり ─── -->
+  <div class="step" id="s3">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="3"></div>
+    <p class="eyebrow">Question 3 / 6</p>
+    <h2>人との関わりで、<br>今のあなたが欲しいものは？</h2>
+    <p class="hint">一番しっくりくるものを選んでください。</p>
+    <div class="options">
+      <button class="option" onclick="pick(3,'A',this)"><span class="icon">📋</span><span class="label">具体的なアドバイスや情報</span></button>
+      <button class="option" onclick="pick(3,'C',this)"><span class="icon">👂</span><span class="label">じっくり話を聞いてくれる人</span></button>
+      <button class="option" onclick="pick(3,'D',this)"><span class="icon">🤝</span><span class="label">同じような経験をした人の話</span></button>
+      <button class="option" onclick="pick(3,'E',this)"><span class="icon">🙏</span><span class="label">そっとしておいてほしい時もある</span></button>
+    </div>
+    <button class="btn-next" id="b3" onclick="go(4)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(2)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 4: Q4 得意・不得意 ─── -->
+  <div class="step" id="s4">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="4"></div>
+    <p class="eyebrow">Question 4 / 6</p>
+    <h2>自分の得意・不得意について、<br>今のあなたに近いのは？</h2>
+    <p class="hint">一番しっくりくるものを選んでください。</p>
+    <div class="options">
+      <button class="option" onclick="pick(4,'A',this)"><span class="icon">✅</span><span class="label">ある程度わかっている</span></button>
+      <button class="option" onclick="pick(4,'D',this)"><span class="icon">🌀</span><span class="label">なんとなくわかるけど言葉にできない</span></button>
+      <button class="option" onclick="pick(4,'B',this)"><span class="icon">❓</span><span class="label">あまり考えたことがない</span></button>
+      <button class="option" onclick="pick(4,'E',this)"><span class="icon">😔</span><span class="label">考えると落ち込んでしまう</span></button>
+    </div>
+    <button class="btn-next" id="b4" onclick="go(5)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(3)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 5: Q5 一番の不安 ─── -->
+  <div class="step" id="s5">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="5"></div>
+    <p class="eyebrow">Question 5 / 6</p>
+    <h2>今、一番不安に<br>感じていることは？</h2>
+    <p class="hint">一番しっくりくるものを選んでください。</p>
+    <div class="options">
+      <button class="option" onclick="pick(5,'A',this)"><span class="icon">😌</span><span class="label">特に不安はない</span></button>
+      <button class="option" onclick="pick(5,'B',this)"><span class="icon">⏳</span><span class="label">続けられるかどうか</span></button>
+      <button class="option" onclick="pick(5,'C',this)"><span class="icon">👀</span><span class="label">周りにどう思われるか</span></button>
+      <button class="option" onclick="pick(5,'D',this)"><span class="icon">🧩</span><span class="label">自分に合う仕事があるか</span></button>
+      <button class="option" onclick="pick(5,'E',this)"><span class="icon">🚪</span><span class="label">そもそも動き出せるかどうか</span></button>
+    </div>
+    <button class="btn-next" id="b5" onclick="go(6)" disabled>次へ →</button>
+    <button class="btn-back" onclick="go(4)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 6: Q6 今したいこと ─── -->
+  <div class="step" id="s6">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="6"></div>
+    <p class="eyebrow">Question 6 / 6</p>
+    <h2>今、一番したいことは？</h2>
+    <p class="hint">最後の質問です。直感でどうぞ。</p>
+    <div class="options">
+      <button class="option" onclick="pick(6,'A',this)"><span class="icon">🏃</span><span class="label">具体的に動き出したい</span></button>
+      <button class="option" onclick="pick(6,'B',this)"><span class="icon">🛌</span><span class="label">生活リズムを整えたい</span></button>
+      <button class="option" onclick="pick(6,'C',this)"><span class="icon">🗣️</span><span class="label">誰かに話してみたい</span></button>
+      <button class="option" onclick="pick(6,'D',this)"><span class="icon">📖</span><span class="label">情報を集めたい</span></button>
+      <button class="option" onclick="pick(6,'E',this)"><span class="icon">🌙</span><span class="label">少し休みたい</span></button>
+    </div>
+    <button class="btn-next" id="b6" onclick="showResult()" disabled>結果を見る →</button>
+    <button class="btn-back" onclick="go(5)">← 戻る</button>
+  </div>
+
+  <!-- ─── STEP 7: Result ─── -->
+  <div class="step" id="s7">
+    <div class="logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:24px;width:24px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mimemime</div>
+    <div class="progress" data-step="7"></div>
+    <div id="r-tag" class="result-tag"></div>
+    <div id="r-title" class="result-title"></div>
+    <div id="r-body" class="result-body"></div>
+    <p id="r-insight" class="insight"></p>
+    <div class="chart-block">
+      <div class="chart-label">6つの回答から見えたバランス</div>
+      <div class="chart-wrap"><canvas id="scoreChart"></canvas></div>
+    </div>
+    <div class="next-steps">
+      <div class="next-steps-label">今日できる小さな一歩</div>
+      <ul id="r-steps"></ul>
+    </div>
+    <p class="cta-label">あなたに合うペースを、一緒に見つけませんか。</p>
+    <button class="btn-cta" onclick="location.href='connect.html'">
+      無料で話してみる ↗
+    </button>
+    <button class="btn-secondary" onclick="location.href='learning_system/contact.html'">
+      モニターに応募する
+    </button>
+    <div id="r-meta" class="result-meta"></div>
+    <button class="btn-retry" onclick="restart()">もう一度やり直す</button>
+    <p class="disclaimer">※この診断は医学的・専門的な診断ではありません。あくまで自己理解のきっかけとしてご利用ください。</p>
+  </div>
+
+</div><!-- /card -->
+
+<script>
+/* ── State ── */
+const TOTAL_STEPS = 8; // s0(welcome) + s1..s6(questions) + s7(result)
+const S = { 1:null, 2:null, 3:null, 4:null, 5:null, 6:null };
+
+/* ── Type profiles ── */
+const P = {
+  A: {
+    tag: '準備完了型',
+    title: 'あとは、一緒に走る相手を見つけるだけかもしれません',
+    body: '動き出したい気持ちが、今のあなたの中心にあるようです。\n\n必要な情報は、動きながら集まっていくことも多いものです。まずは「一緒に進める人」を見つけることが、次の一歩になるかもしれません。\n\nmimemimeは、あなたのペースに合わせて横に並んで進む対話の場所です。無理のない範囲で、話してみませんか。',
+    steps: ['気になっている求人や制度を1つだけ調べてみる', 'mimemimeに無料で話してみる']
+  },
+  B: {
+    tag: 'じっくり土台づくり型',
+    title: 'まずは生活のリズムを整えることが、次への近道かもしれません',
+    body: '今は、大きく動くよりも、日々のリズムを整える時期なのかもしれません。\n\n無理に前に進もうとすると、かえって続かなくなることもあります。焦らず、今の生活を少しずつ整えることも、立派な準備のひとつです。\n\nmimemimeは、急かさない対話の場所です。今の状態のまま、話しに来てもらって大丈夫です。',
+    steps: ['今日の睡眠・食事のどちらか1つだけ意識してみる', '無理のないタイミングでmimemimeに相談してみる']
+  },
+  C: {
+    tag: '対話から始めたい型',
+    title: '話すことから、少しずつ整理されていくタイプかもしれません',
+    body: '「誰かに話してみたい」という気持ちが、今のあなたにとって大事なサインかもしれません。\n\nうまく話せなくても大丈夫です。正解を持ってこなくても大丈夫です。話しながら考えが整理されていくことは、よくあります。\n\nmimemimeの対話は、答えを急がせるためのものではありません。あなたの言葉をそのまま受け取る場所です。',
+    steps: ['今の気持ちをメモに1行だけ書き出してみる', 'mimemimeに無料で話してみる']
+  },
+  D: {
+    tag: '自己理解を深めたい型',
+    title: '自分を知ることが、次の一歩につながるタイプかもしれません',
+    body: '自分の得意・不得意や、合う環境について、もう少し言葉にしたい気持ちがあるようです。\n\nそれは焦って結論を出すことではなく、時間をかけて確かめていくものだと思います。同じような経験をした人の話に触れることも、ヒントになるかもしれません。\n\nmimemimeは、あなたが自分の言葉を見つけるまで、一緒に付き合います。',
+    steps: ['最近「疲れた」「楽だった」と感じた場面を思い出してみる', 'mimemimeに無料で話してみる']
+  },
+  E: {
+    tag: '立ち止まって整える型',
+    title: '今は、無理に動かなくていい時期かもしれません',
+    body: '今のあなたにとって、まず大切なのは「動くこと」よりも「休むこと」なのかもしれません。\n\n不安な気持ちや、考えるだけで疲れてしまう感覚は、決して珍しいものではありません。無理に前向きにならなくて大丈夫です。\n\nmimemimeは、そのままの状態で来てもらえる場所です。何も決めなくていいので、まずは話すだけでも構いません。',
+    steps: ['今日は「何もしない時間」を少しだけ確保してみる', '気持ちに余裕が出てきたら、mimemimeに話してみる']
+  }
+};
+
+/* ── Short trait phrases, used to build the secondary-insight sentence ── */
+const TRAIT = {
+  A: 'すぐにでも動ける身軽さ',
+  B: '生活の土台を大事にする落ち着き',
+  C: '話すことで力を得る性質',
+  D: '自分を丁寧に理解しようとする姿勢',
+  E: '無理をしないことを大切にする感覚'
+};
+
+const CHART_COLORS = {
+  A: '#3A7CA5', B: '#27AE60', C: '#EC7C95', D: '#1F3A4D', E: '#B0A99F'
+};
+
+let chartInstance = null;
+
+const LABELS = {
+  1: { A:'朝も夜もわりと決まった時間に動けている', B:'整う日と乱れる日が半々くらい', E:'正直、あまり整っていない' },
+  2: { A:'なるべく早く一歩を踏み出したい', C:'話せる相手がいれば前向きになれそう', D:'気持ちの整理がまだついていない', E:'考えるだけで疲れてしまう' },
+  3: { A:'具体的なアドバイスや情報', C:'じっくり話を聞いてくれる人', D:'同じような経験をした人の話', E:'そっとしておいてほしい時もある' },
+  4: { A:'ある程度わかっている', D:'なんとなくわかるけど言葉にできない', B:'あまり考えたことがない', E:'考えると落ち込んでしまう' },
+  5: { A:'特に不安はない', B:'続けられるかどうか', C:'周りにどう思われるか', D:'自分に合う仕事があるか', E:'そもそも動き出せるかどうか' },
+  6: { A:'具体的に動き出したい', B:'生活リズムを整えたい', C:'誰かに話してみたい', D:'情報を集めたい', E:'少し休みたい' }
+};
+
+/* ── Progress dots (auto-render) ── */
+function renderProgress() {
+  document.querySelectorAll('.progress[data-step]').forEach(el => {
+    const cur = parseInt(el.dataset.step, 10);
+    let html = '';
+    for (let i = 1; i <= TOTAL_STEPS; i++) {
+      if (i < cur) html += '<div class="pd done"></div>';
+      else if (i === cur) html += '<div class="pd active"></div>';
+      else html += '<div class="pd"></div>';
+    }
+    el.innerHTML = html;
+  });
+}
+
+/* ── Navigation ── */
+function go(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* ── Pick an option for question qNum ── */
+function pick(qNum, val, el) {
+  S[qNum] = val;
+  document.querySelectorAll('#s'+qNum+' .option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('b'+qNum).disabled = false;
+}
+
+/* ── Tally & show result ── */
+function showResult() {
+  if (Object.values(S).some(v => v === null)) return;
+
+  const priority = ['A','C','D','B','E'];
+  const tally = { A:0, B:0, C:0, D:0, E:0 };
+  Object.values(S).forEach(v => tally[v]++);
+
+  let best = priority[0];
+  priority.forEach(k => { if (tally[k] > tally[best]) best = k; });
+
+  const p = P[best];
+  document.getElementById('r-tag').textContent   = p.tag;
+  document.getElementById('r-title').textContent = p.title;
+  document.getElementById('r-body').innerHTML    = p.body.replace(/\n/g, '<br>');
+  document.getElementById('r-steps').innerHTML   = p.steps.map(s => `<li>${s}</li>`).join('');
+
+  // ── 2位タイプを踏まえた一言（外部AI連携なしで完結する簡易分析） ──
+  const ranked = Object.keys(tally).sort((a, b) => tally[b] - tally[a]);
+  const second = ranked.find(k => k !== best && tally[k] > 0);
+  const insightEl = document.getElementById('r-insight');
+  if (second) {
+    insightEl.innerHTML = `一番強く出たのは「<b>${p.tag}</b>」でしたが、回答の中には「<b>${TRAIT[second]}</b>」の傾向も見られました。ひとつのタイプに決めつけず、両方の面があるかもしれない、くらいの気持ちで読んでみてください。`;
+  } else {
+    insightEl.innerHTML = `6つの回答すべてが「<b>${p.tag}</b>」の傾向にまとまりました。今のあなたの気持ちが、わりとはっきりしているのかもしれません。`;
+  }
+
+  const metaPills = Object.keys(S).map(q => `<span class="meta-pill">Q${q}：${LABELS[q][S[q]]}</span>`).join('');
+  document.getElementById('r-meta').innerHTML = metaPills;
+
+  renderChart(tally);
+
+  // 将来のデータ収集用（Googleフォーム送信などをここに追加）
+  console.log('[mimemime診断plus]', { answers: S, type: p.tag, tally });
+  if (typeof gtag === 'function') {
+    gtag('event', 'shindan_plus_complete', { result_type: p.tag });
+  }
+
+  go(7);
+}
+
+/* ── Render score-breakdown bar chart ── */
+function renderChart(tally) {
+  if (typeof Chart === 'undefined') return; // CDN読み込み失敗時は静かにスキップ
+  const ctx = document.getElementById('scoreChart');
+  if (!ctx) return;
+
+  const order = ['A','C','D','B','E'];
+  const labels = order.map(k => P[k].tag);
+  const data   = order.map(k => tally[k]);
+  const colors = order.map(k => CHART_COLORS[k]);
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{ data: data, backgroundColor: colors, borderRadius: 6, maxBarThickness: 22 }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, max: 6, ticks: { stepSize: 1, font: { size: 10 } } },
+        y: { ticks: { font: { size: 11 }, color: '#2C3E50' } }
+      }
+    }
+  });
+}
+
+/* ── Restart ── */
+function restart() {
+  Object.keys(S).forEach(k => S[k] = null);
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  for (let i = 1; i <= 6; i++) document.getElementById('b'+i).disabled = true;
+  go(0);
+}
+
+renderProgress();
+</script>
+</body>
+</html>

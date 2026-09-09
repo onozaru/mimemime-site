@@ -1,0 +1,164 @@
+# Decap CMS 設定ファイル
+# mimemime.com 管理画面
+
+backend:
+  name: git-gateway
+  branch: main
+
+# 日本語UI
+locale: 'ja'
+
+# メディアファイルの保存先
+media_folder: "images"
+public_folder: "/images"
+
+# ===== コレクション設定 =====
+collections:
+
+  # ---- ブログ記事 ----
+  - name: "blog"
+    label: "📝 ブログ記事"
+    label_singular: "ブログ記事"
+    files:
+      - label: "記事1: 就労移行支援とは"
+        name: "post1"
+        file: "blog/post1.html"
+        fields:
+          - label: "ページHTML全体"
+            name: "body"
+            widget: "code"
+            default_language: "html"
+            output_code_only: true
+
+      - label: "記事2: 働きたいのかわからない"
+        name: "post2"
+        file: "blog/post2.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事3: オープン・クローズ就労"
+        name: "post3"
+        file: "blog/post3.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事4: ADHDの仕事が続かない"
+        name: "post4"
+        file: "blog/post4.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事5: ADHDの遅刻・忘れ物"
+        name: "post5"
+        file: "blog/post5.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事6: ADHDのマルチタスク"
+        name: "post6"
+        file: "blog/post6.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事7: ASDの空気が読めない"
+        name: "post7"
+        file: "blog/post7.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事8: 発達障害×職場カミングアウト"
+        name: "post8"
+        file: "blog/post8.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "記事9: うつ病×復職の怖さ"
+        name: "post9"
+        file: "blog/post9.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+  # ---- 求人データ ----
+  - name: "jobs_data"
+    label: "💼 求人データ"
+    files:
+      - label: "求人一覧 (jobs-data.json)"
+        name: "jobs"
+        file: "jobs-data.json"
+        fields:
+          - label: "更新日"
+            name: "updated"
+            widget: "string"
+            hint: "例: 2026-06-14"
+          - label: "出典・注記"
+            name: "note"
+            widget: "string"
+          - label: "求人リスト"
+            name: "jobs"
+            widget: "list"
+            label_singular: "求人"
+            fields:
+              - {label: "ID", name: "id", widget: "number"}
+              - label: "エリア"
+                name: "area"
+                widget: "select"
+                options:
+                  - {label: "東京都", value: "tokyo"}
+                  - {label: "神奈川", value: "kanagawa"}
+                  - {label: "埼玉", value: "saitama"}
+                  - {label: "千葉", value: "chiba"}
+                  - {label: "在宅・リモート", value: "remote"}
+              - label: "職種カテゴリ"
+                name: "cat"
+                widget: "select"
+                options:
+                  - {label: "事務系", value: "jimu"}
+                  - {label: "作業系", value: "sagyou"}
+                  - {label: "IT系", value: "it"}
+                  - {label: "サービス系", value: "service"}
+                  - {label: "福祉・介護", value: "fukushi"}
+              - {label: "新着フラグ", name: "isNew", widget: "boolean", default: false}
+              - {label: "会社名", name: "company", widget: "string"}
+              - {label: "求人タイトル", name: "title", widget: "string"}
+              - {label: "サブタイトル", name: "subtitle", widget: "string", required: false}
+              - {label: "給与", name: "pay", widget: "string"}
+              - {label: "勤務地", name: "location", widget: "string"}
+              - {label: "最寄り駅", name: "station", widget: "string", required: false}
+              - {label: "雇用形態", name: "employment", widget: "string"}
+              - {label: "タグ（カンマ区切り）", name: "tags", widget: "list"}
+              - {label: "タグ色（green/blue/orange/purple/red）", name: "tagColors", widget: "list"}
+              - {label: "エリア表示ラベル", name: "areaLabel", widget: "string"}
+              - {label: "mimemimeコメント", name: "mimemimeComment", widget: "text"}
+              - {label: "おすすめ対象", name: "recommend", widget: "string", required: false}
+              - {label: "採用難易度", name: "difficulty", widget: "string", required: false}
+              - {label: "詳細URL（atGP等）", name: "url", widget: "string"}
+              - {label: "ボタンラベル", name: "urlLabel", widget: "string"}
+              - {label: "検索キーワード", name: "kw", widget: "string", required: false}
+
+  # ---- メインページ ----
+  - name: "pages"
+    label: "🌐 メインページ"
+    files:
+      - label: "トップページ (index.html)"
+        name: "index"
+        file: "index.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "求人ページ (jobs.html)"
+        name: "jobs_page"
+        file: "jobs.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "サービス比較 (compare.html)"
+        name: "compare"
+        file: "compare.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
+
+      - label: "特定商取引法 (tokushoho.html)"
+        name: "tokushoho"
+        file: "tokushoho.html"
+        fields:
+          - {label: "ページHTML全体", name: "body", widget: "code", default_language: "html", output_code_only: true}
