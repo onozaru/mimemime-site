@@ -6,10 +6,10 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-51S65JTC2F');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ブログ一覧（全234記事）| mimemime 就労支援コラム</title>
-<meta name="description" content="就労支援・障害・メンタル・働き方について、現役就労移行支援員の代表が当事者の声をもとに執筆するブログ。全234記事を公開中。">
-<meta property="og:title" content="ブログ一覧（全234記事）| mimemime 就労支援コラム">
-<meta property="og:description" content="障害・メンタル不調・復職など当事者の声をもとにした記事を全115本公開中。">
+<title>ブログ一覧（全235記事）| mimemime 就労支援コラム</title>
+<meta name="description" content="就労支援・障害・メンタル・働き方について、現役就労移行支援員の代表が当事者の声をもとに執筆するブログ。全235記事を公開中。">
+<meta property="og:title" content="ブログ一覧（全235記事）| mimemime 就労支援コラム">
+<meta property="og:description" content="障害・メンタル不調・復職など当事者の声をもとにした記事を全234本公開中。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mimemime.com/blog/">
 <meta property="og:image" content="https://mimemime.com/og-image.png">
@@ -18,63 +18,120 @@
 <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
-:root{--main:#3A7CA5;--accent:#EC7C95;--dark:#1F3A4D;--gray:#7F8C8D;--bg:#F4F8FB;}
+:root{
+  --pink:#EC7C95;--pink-deep:#D45F7B;--pink-pale:#FBE7EC;
+  --brown:#BA8478;--brown-deep:#8A5F55;
+  --cream:#FFF9F4;--cream-2:#FFF2E8;
+  --ink:#3A2E2B;--ink-soft:#7A6F6B;--ink-mute:#9C8F89;
+  --green:#8FB996;
+  --cat-dev:#EC7C95;--cat-mental:#9B7EBD;--cat-career:#5B8C7B;
+  --cat-disease:#5B87A8;--cat-money:#D9A441;--cat-life:#8FB996;--cat-other:#BA8478;
+  --radius-lg:24px;--radius-md:16px;
+  --shadow:0 10px 30px rgba(122,88,80,.14);
+}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans JP','Hiragino Sans',sans-serif;background:var(--bg);color:var(--dark);line-height:1.7;}
-nav{background:var(--dark);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;}
-.nav-logo{color:#fff;font-size:1.15rem;font-weight:700;text-decoration:none;}
-.nav-logo span{color:var(--accent);}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP','Hiragino Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+nav{background:rgba(255,249,244,.94);backdrop-filter:blur(8px);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(122,88,80,.12);}
+.nav-logo{color:var(--brown-deep);font-size:1.1rem;font-weight:900;text-decoration:none;display:flex;align-items:center;}
+.nav-logo span{color:var(--pink);}
 .nav-links{display:flex;gap:1.5rem;align-items:center;}
-.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;}
-.nav-links a:hover{color:#fff;}
-.nav-cta{background:var(--accent);color:#fff!important;padding:7px 18px;border-radius:20px;font-weight:700;font-size:.85rem!important;}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem;font-weight:bold;transition:color .2s;}
+.nav-links a:hover{color:var(--pink-deep);}
+.nav-cta{background:var(--pink);color:#fff!important;padding:8px 20px;border-radius:20px;font-weight:900;font-size:.85rem!important;box-shadow:0 6px 16px rgba(236,124,149,.35);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block;transition:.3s;}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;display:block;transition:.3s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.hero{background:linear-gradient(135deg,var(--dark),#2c5f7a);color:#fff;padding:3.5rem 1.5rem 3rem;text-align:center;}
-.hero h1{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:.6rem;}
-.hero p{color:rgba(255,255,255,.75);font-size:.95rem;max-width:520px;margin:0 auto;}
-.hero-count{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.8rem;padding:3px 14px;border-radius:20px;margin-bottom:1rem;}
+.hero{background:linear-gradient(160deg,var(--brown-deep),var(--brown));color:#fff;padding:3.5rem 1.5rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08);}
+.hero h1{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:.6rem;position:relative;}
+.hero p{color:rgba(255,255,255,.8);font-size:.95rem;max-width:520px;margin:0 auto;position:relative;}
+.hero-count{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-weight:900;font-size:.8rem;padding:4px 16px;border-radius:20px;margin-bottom:1rem;position:relative;}
 .main{max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem;}
-/* 検索バー */
-.search-wrap{margin-bottom:1.5rem;position:relative;}
-.search-input{width:100%;padding:.8rem 1rem .8rem 2.8rem;border:2px solid #dce6f0;border-radius:10px;font-size:.95rem;outline:none;background:#fff;color:var(--dark);transition:border-color .2s;}
-.search-input:focus{border-color:var(--main);}
-.search-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--gray);font-size:1rem;pointer-events:none;}
-.result-count{font-size:.85rem;color:var(--gray);margin-bottom:1rem;}
+/* 検索・フィルタ（スクロールしても追従） */
+.filter-bar{position:sticky;top:60px;z-index:90;background:var(--cream);padding:.5rem 0;}
+.search-wrap{margin-bottom:1rem;position:relative;}
+.search-input{width:100%;padding:.85rem 1rem .85rem 2.8rem;border:2px solid var(--cream-2);border-radius:50px;font-size:.95rem;outline:none;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s;}
+.search-input:focus{border-color:var(--pink);box-shadow:0 0 0 4px var(--pink-pale);}
+.search-icon{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);color:var(--ink-mute);font-size:1rem;pointer-events:none;}
+.result-count{font-size:.85rem;color:var(--ink-soft);padding-top:.6rem;}
 /* カテゴリフィルタ */
-.cat-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;}
-.cat-btn{padding:.45rem 1rem;border:2px solid #dce6f0;border-radius:20px;background:#fff;color:var(--gray);font-size:.82rem;cursor:pointer;transition:all .2s;font-weight:600;white-space:nowrap;}
-.cat-btn:hover{border-color:var(--main);color:var(--main);}
-.cat-btn.active{background:var(--main);border-color:var(--main);color:#fff;}
+.cat-filter{display:flex;flex-wrap:wrap;gap:.5rem;}
+.cat-btn{padding:.5rem 1.1rem;border:2px solid var(--cream-2);border-radius:20px;background:#fff;color:var(--ink-soft);font-size:.82rem;cursor:pointer;transition:all .2s;font-weight:bold;white-space:nowrap;}
+.cat-btn:hover{border-color:var(--pink);color:var(--pink-deep);transform:translateY(-1px);}
+.cat-btn:active{transform:scale(.96);}
+.cat-btn.active{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:0 6px 16px rgba(236,124,149,.3);}
 .cat-btn .cnt{font-size:.72rem;opacity:.8;margin-left:2px;}
 /* グリッド */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
-.card{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;transition:transform .2s,box-shadow .2s;}
-.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12);}
-.card a{display:block;padding:1.25rem;text-decoration:none;color:inherit;height:100%;}
-.card-cat{display:inline-block;color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:.5rem;letter-spacing:.04em;}
-.card-num{font-size:.75rem;color:var(--gray);margin-bottom:.4rem;}
-.card-title{font-size:.95rem;font-weight:700;line-height:1.5;color:var(--dark);margin-bottom:.6rem;}
-.card-desc{font-size:.82rem;color:var(--gray);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-.no-result{display:none;text-align:center;padding:4rem 1rem;color:var(--gray);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem;}
+.card{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;opacity:0;animation:cardIn .5s ease forwards;}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(122,88,80,.22);}
+.card:hover .card-thumb img{transform:scale(1.06);}
+.card.card-hidden{display:none;}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes filterIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.card.just-shown{animation:filterIn .35s ease;}
+.card:nth-child(n+13){animation:none;opacity:1;}
+.card:nth-child(1){animation-delay:.02s;}
+.card:nth-child(2){animation-delay:.06s;}
+.card:nth-child(3){animation-delay:.10s;}
+.card:nth-child(4){animation-delay:.14s;}
+.card:nth-child(5){animation-delay:.18s;}
+.card:nth-child(6){animation-delay:.22s;}
+.card:nth-child(7){animation-delay:.26s;}
+.card:nth-child(8){animation-delay:.30s;}
+.card:nth-child(9){animation-delay:.34s;}
+.card:nth-child(10){animation-delay:.38s;}
+.card:nth-child(11){animation-delay:.42s;}
+.card:nth-child(12){animation-delay:.46s;}
+.card a{display:block;padding:0;text-decoration:none;color:inherit;height:100%;}
+.card-thumb{position:relative;aspect-ratio:40/21;overflow:hidden;background:var(--cream-2);}
+.card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.card-thumb.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
+  background-image:repeating-linear-gradient(45deg,rgba(122,88,80,.05) 0 10px,rgba(122,88,80,.09) 10px 20px);}
+.card-thumb.placeholder svg{width:32px;height:32px;opacity:.55;}
+.card-thumb.placeholder span{font-size:.7rem;font-weight:bold;opacity:.65;}
+.card-cat{display:inline-block;color:#fff;font-size:.7rem;font-weight:900;padding:4px 12px;border-radius:20px;letter-spacing:.03em;margin:16px 20px 6px;}
+.card[data-cat="発達障害"] .card-cat{background:var(--cat-dev)!important;}
+.card[data-cat="精神・メンタル"] .card-cat{background:var(--cat-mental)!important;}
+.card[data-cat="就職・転職・就活"] .card-cat{background:var(--cat-career)!important;}
+.card[data-cat="障害・特性別"] .card-cat{background:var(--cat-disease)!important;}
+.card[data-cat="お金・年金・制度"] .card-cat{background:var(--cat-money)!important;}
+.card[data-cat="生活・家族・住まい"] .card-cat{background:var(--cat-life)!important;}
+.card[data-cat="その他・コラム"] .card-cat{background:var(--cat-other)!important;}
+.card[data-cat="発達障害"] .card-thumb.placeholder{color:var(--cat-dev);background-color:var(--pink-pale);}
+.card[data-cat="精神・メンタル"] .card-thumb.placeholder{color:var(--cat-mental);background-color:#EFE9F5;}
+.card[data-cat="就職・転職・就活"] .card-thumb.placeholder{color:var(--cat-career);background-color:#E7EFEA;}
+.card[data-cat="障害・特性別"] .card-thumb.placeholder{color:var(--cat-disease);background-color:#E9F0F5;}
+.card[data-cat="お金・年金・制度"] .card-thumb.placeholder{color:var(--cat-money);background-color:#FBF1DD;}
+.card[data-cat="生活・家族・住まい"] .card-thumb.placeholder{color:var(--cat-life);background-color:#EDF4EE;}
+.card[data-cat="その他・コラム"] .card-thumb.placeholder{color:var(--cat-other);background-color:var(--cream-2);}
+.card-num{font-size:.75rem;color:var(--ink-mute);font-weight:bold;margin:0 20px 4px;}
+.card-title{font-size:.95rem;font-weight:bold;line-height:1.55;color:var(--ink);margin:0 20px .6rem;}
+.card-desc{font-size:.82rem;color:var(--ink-soft);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0 20px 20px;}
+.no-result{display:none;text-align:center;padding:4rem 1rem;color:var(--ink-soft);}
 .no-result.show{display:block;}
 /* CTA */
-.cta{background:linear-gradient(135deg,var(--dark),#2c5170);color:#fff;border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:3rem 0;}
+.cta{background:linear-gradient(160deg,var(--ink),#4a3a35);color:#fff;border-radius:var(--radius-lg);padding:2.5rem 2rem;text-align:center;margin:3rem 0;}
 .cta h2{font-size:1.2rem;margin-bottom:.7rem;}
 .cta p{color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:1.5rem;}
-.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:.85rem 2.5rem;border-radius:40px;text-decoration:none;font-size:.95rem;}
-footer{background:#0d1f2b;color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;margin-top:3rem;}
-footer a{color:rgba(255,255,255,.5);text-decoration:none;}
+.cta-btn{display:inline-block;background:var(--pink);color:#fff;font-weight:900;padding:.85rem 2.5rem;border-radius:40px;text-decoration:none;font-size:.95rem;box-shadow:0 8px 22px rgba(236,124,149,.35);transition:transform .15s;}
+.cta-btn:active{transform:scale(.97);}
+footer{background:var(--ink);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;margin-top:3rem;}
+footer a{color:rgba(255,255,255,.6);text-decoration:none;}
 footer a:hover{color:#fff;}
+.back-to-top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--pink);color:#fff;border:none;box-shadow:0 8px 20px rgba(236,124,149,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s;z-index:150;}
+.back-to-top.show{opacity:1;transform:translateY(0);pointer-events:auto;}
 @media(max-width:768px){
-  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:60px;left:0;right:0;background:var(--dark);padding:1.25rem 1.5rem;gap:1.25rem;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:60px;left:0;right:0;background:var(--cream);padding:1.25rem 1.5rem;gap:1.25rem;z-index:199;box-shadow:0 10px 26px rgba(122,88,80,.18);border-bottom:1px solid var(--cream-2);}
   .nav-links.open{display:flex!important;}
   .nav-links .nav-cta{text-align:center;}
   .hamburger{display:flex;}
   .grid{grid-template-columns:1fr;}
+  .filter-bar{top:60px;}
 }
 </style>
 </head>
@@ -92,17 +149,18 @@ footer a:hover{color:#fff;}
   </button>
 </nav>
 <div class="hero">
-  <div class="hero-count">全234記事</div>
+  <div class="hero-count">全235記事</div>
   <h1>就労支援・障害・働き方コラム</h1>
   <p>現役就労移行支援員の代表が、当事者の声をもとに書いた記事を無料公開中。</p>
 </div>
 <div class="main">
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input class="search-input" id="searchInput" type="text" placeholder="キーワードで記事を検索…（例：ADHD、復職、障害年金）">
-  </div>
-  <div class="cat-filter" id="catFilter">
-<button class="cat-btn active" data-cat="すべて">すべて <span class="cnt">234</span></button>
+  <div class="filter-bar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="searchInput" type="text" placeholder="キーワードで記事を検索…（例：ADHD、復職、障害年金）">
+    </div>
+    <div class="cat-filter" id="catFilter">
+<button class="cat-btn active" data-cat="すべて">すべて <span class="cnt">235</span></button>
 <button class="cat-btn" data-cat="発達障害">発達障害 <span class="cnt">18</span></button>
 <button class="cat-btn" data-cat="精神・メンタル">精神・メンタル <span class="cnt">37</span></button>
 <button class="cat-btn" data-cat="就職・転職・就活">就職・転職・就活 <span class="cnt">35</span></button>
@@ -110,9 +168,19 @@ footer a:hover{color:#fff;}
 <button class="cat-btn" data-cat="お金・年金・制度">お金・年金・制度 <span class="cnt">19</span></button>
 <button class="cat-btn" data-cat="生活・家族・住まい">生活・家族・住まい <span class="cnt">8</span></button>
 <button class="cat-btn" data-cat="その他・コラム">その他・コラム <span class="cnt">42</span></button>
+    </div>
+    <div class="result-count" id="resultCount">全235記事を表示</div>
   </div>
-  <div class="result-count" id="resultCount">全234記事を表示</div>
   <div class="grid" id="grid">
+<article class="card" data-cat="精神・メンタル" data-title="「叱られてないのに、涙が出てくる」仕事中に涙がにじむ特性との付き合い方">
+  <a href="/blog/blog_186_namida_tomaranai.html">
+    <div class="card-cat" style="background:#8e44ad">精神・メンタル</div>
+    <div class="card-num">#186</div>
+    <h2 class="card-title">「叱られてないのに、涙が出てくる」仕事中に涙がにじむ特性との付き合い方</h2>
+    <p class="card-desc">上司や同僚からの軽い指摘だけで涙があふれてしまう、仕事中の涙腺コントロールに悩む方へ。周囲との気まずさ、その場でできる対処法、感情表現の特性について当事者の声をもとに整理しました（2026年9月時点の情報です）。</p>
+  </a>
+</article>
+
 <article class="card" data-cat="障害・特性別" data-title="満員電車でぶつかられるたび、無意識に胸をかばっていた。心臓ペースメーカーと仕事、見えない障害が見える瞬間との付き合い方">
   <a href="/blog/blog_185_pacemaker_shigoto.html">
     <div class="card-cat" style="background:#3A7CA5">障害・特性別</div>
@@ -2037,6 +2105,8 @@ footer a:hover{color:#fff;}
   <p>&copy; 2026 mimemime（まいむまいむ）　<a href="/">トップページへ戻る</a></p>
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="先頭に戻る">↑</button>
+
 <script>
 (function(){
   var hamburger = document.getElementById('hamburger');
@@ -2053,11 +2123,133 @@ footer a:hover{color:#fff;}
   var grid = document.getElementById('grid');
   var resultCount = document.getElementById('resultCount');
   var noResult = document.getElementById('noResult');
+  var heroCount = document.querySelector('.hero-count');
   if (!grid) return;
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
   var totalCount = cards.length;
   var activeCat = 'すべて';
+
+  // ---- カテゴリ別件数を実データから数え直す（表示ボタンの数字とのズレを解消） ----
+  var catCounts = {};
+  cards.forEach(function(card){
+    var cat = card.getAttribute('data-cat') || '';
+    catCounts[cat] = (catCounts[cat] || 0) + 1;
+  });
+  if (catFilter) {
+    catFilter.querySelectorAll('.cat-btn').forEach(function(btn){
+      var cat = btn.getAttribute('data-cat');
+      var cntEl = btn.querySelector('.cnt');
+      if (!cntEl) return;
+      cntEl.textContent = (cat === 'すべて') ? totalCount : (catCounts[cat] || 0);
+    });
+  }
+  if (heroCount) heroCount.textContent = '全' + totalCount + '記事';
+
+  // ---- アイキャッチ画像。用意がある記事は実画像、ない記事はカテゴリ別プレースホルダー ----
+  var EYECATCH = {
+    'blog_018_jororiiko_nani.html':'blog_018_jororiiko_nani-eyecatch.png',
+    'blog_019_goriteki_hairyo_tanomikata.html':'blog_019_goriteki_hairyo_tanomikata-eyecatch.png',
+    'blog_020_shintai_shogai_shigoto_sagashi.html':'blog_020_shintai_shogai_shigoto_sagashi-eyecatch.png',
+    'blog_021_asd_kodawari_tsuyosa.html':'blog_021_asd_kodawari_tsuyosa-eyecatch.png',
+    'blog_022_utsu_sainen_fuan.html':'blog_022_utsu_sainen_fuan-eyecatch.png',
+    'blog_023_utsu_kaifukuki_shigoto.html':'blog_023_utsu_kaifukuki_shigoto-eyecatch.png',
+    'blog_024_fukuyaku_shigoto_ryoritsu.html':'blog_024_fukuyaku_shigoto_ryoritsu-eyecatch.png',
+    'blog_025_yametai_yamerarenai.html':'blog_025_yametai_yamerarenai-eyecatch.png',
+    'blog_026_joshi_kowai.html':'blog_026_joshi_kowai-eyecatch.png',
+    'blog_027_zaitaku_work_shogai.html':'blog_027_zaitaku_work_shogai-eyecatch.png',
+    'blog_029_kyushoku_ake_saisho.html':'blog_029_kyushoku_ake_saisho-eyecatch.png',
+    'blog_123_sesshoku_shogai_shokuba_lunch.html':'blog_123_sesshoku-shogai-shokuba-lunch-eyecatch.png',
+    'blog_124_shukei_kyofusho_online_kaigi.html':'blog_124_shukei_kyofusho_online_kaigi-eyecatch-final.png',
+    'blog_125_panic_shogai_hossa_kimazusa.html':'blog_125_panic-shogai-hossa-kimazusa-eyecatch.png',
+    'blog_126_shinzou_kinou_shogai_daijoubu_sou.html':'blog_126_shinzou-kinou-shogai-daijoubu-sou-eyecatch-v2.png',
+    'blog_127_tounyoubyou_teiketto_kaigichuu.html':'blog_127_tounyoubyou-teiketto-kaigichuu-eyecatch.png',
+    'blog_128_migraine_shigoto.html':'blog_128_migraine_shigoto-eyecatch.png',
+    'blog_129_basedowbyou_seikaku_gokai.html':'blog_129_basedowbyou-seikaku-gokai-eyecatch.png',
+    'blog_130_kounenki_shigoto_ryoritsu.html':'blog_130_kounenki_shigoto_ryoritsu-eyecatch.png',
+    'blog_131_pmdd_kanjou_shigoto.html':'blog_131_pmdd_kanjou_shigoto-eyecatch.png',
+    'blog_132_ibd_nyuin_kekkin_kimazusa.html':'blog_132_ibd-eyecatch.png',
+    'blog_133_shakoufuan_shigoto.html':'blog_133_shakoufuan-eyecatch.png',
+    'blog_134_kansetsu_ryumachi_asa_kowabari_shigoto.html':'blog_134_kansetsu_ryumachi-eyecatch.png',
+    'blog_135_narcolepsy_shigoto_nemuke.html':'blog_135_narcolepsy_shigoto_nemuke-eyecatch.png',
+    'blog_136_kitsuon_shigoto_denwa.html':'blog_136_kitsuon_shigoto_denwa-eyecatch.png',
+    'blog_137_enkei_datsumou_shigoto.html':'blog_137_enkei_datsumou-eyecatch.png',
+    'blog_138_shikyunaimakushou_shigoto.html':'blog_138_shikyunaimakushou-eyecatch.png',
+    'blog_139_hashimotobyou_shigoto.html':'blog_139_hashimoto_eyecatch.png',
+    'blog_140_adhd_shorui_katadzukerarenai.html':'blog_140_adhd_eyecatch.png',
+    'blog_141_adhd_sakinobashi_shigoto.html':'blog_141_adhd_sakinobashi_shigoto-eyecatch.png',
+    'blog_142_apd_kikitori_konnan_shigoto.html':'blog_142_apd_shigoto-eyecatch.png',
+    'blog_143_asd_aimai_shiji_shigoto.html':'blog_143_asd-eyecatch.png',
+    'blog_144_utsu_kimerarenai.html':'blog_144_utsu_kimerarenai-eyecatch.png',
+    'blog_145_tekiou_shogai_shigoto.html':'blog_145_tekiou_shogai_shigoto-eyecatch.png',
+    'blog_146_kankaku_kabin_shigoto.html':'blog_146_kankaku_kabin_shigoto-eyecatch.png',
+    'blog_147_takanshou_tehan_shigoto.html':'blog_147_kyouhakusei_shogai_kakunin_shigoto-eyecatch.png',
+    'blog_148_meniere_memai_shigoto.html':'blog_148_meniere_eyecatch.png',
+    'blog_149_tic_tourette_shigoto.html':'blog_149_tic_tourette_shigoto-eyecatch.png',
+    'blog_150_kansen_shigoto.html':'blog_150_kansen_shigoto-eyecatch.png',
+    'blog_151_adhd_hanashi_saegiru_shigoto.html':'blog_151_adhd_hanashi_saegiru_shigoto-eyecatch.png',
+    'blog_152_togoshitcho_inseishoujou_shigoto.html':'blog_152_togoshitcho_inseishoujou_shigoto-eyecatch.png',
+    'blog_153_gad_fuan_tomaranai_shigoto.html':'blog_153_gad_fuan_tomaranai-eyecatch.png',
+    'blog_154_adhd_rsd_kyohi_binkan_shigoto.html':'blog_154_adhd_rsd_kyohi_binkan-eyecatch.png',
+    'blog_155_dcd_bukiyousa_shigoto.html':'blog_155_dcd_bukiyousa_shigoto-eyecatch.png',
+    'blog_156_sas_inemuri_gokai_shigoto.html':'blog_156_sas_inemuri_gokai_shigoto-eyecatch.png',
+    'blog_157_jinzou_touseki_shigoto.html':'blog_157_jinzou_touseki_shigoto-eyecatch.png',
+    'blog_158_disukarikyuria_keisan_shigoto.html':'blog_158_dyscalculia-eyecatch.png',
+    'blog_159_dyslexia_yomikaki_shigoto.html':'blog_159_dyslexia_yomikaki_shigoto-eyecatch.png',
+    'blog_160_sle_shigoto.html':'blog_160_sle_shigoto-eyecatch.png',
+    'blog_161_shoji_shogai_kaki_shigoto.html':'blog_161_shoji_shogai-eyecatch.png',
+    'blog_162_muzumuzu_ashi_shigoto_kaigi.html':'blog_162_muzumuzu_ashi_shigoto_kaigi-eyecatch.png',
+    'blog_163_bpd_shigoto.html':'blog_163_bpd_shigoto-eyecatch.png',
+    'blog_164_josei_asd_camouflage_shigoto.html':'blog_164_josei_asd_camouflage_shigoto-eyecatch.png',
+    'blog_165_kyouhaku_kakunin_shigoto.html':'blog_165_kyouhaku_kakunin_shigoto-eyecatch.png',
+    'blog_166_koujinou_kioku_shigoto.html':'blog_166_koujinou_kioku_shigoto-eyecatch.png',
+    'blog_167_kokyuki_kinou_shigoto.html':'blog_167_kokyuki_kinou_shigoto-eyecatch.png',
+    'blog_168_bouko_hinyou_shigoto.html':'blog_168_bouko_hinyou_shigoto-eyecatch.png',
+    'blog_169_kibun_henchosho_shigoto.html':'blog_169_kibun_henchosho-eyecatch.png',
+    'blog_170_ms_taion_shigoto.html':'blog_170_ms_taion_shigoto-eyecatch.png',
+    'blog_171_atopii_hifuen_shigoto.html':'blog_171_atopii_hifuen_shigoto-eyecatch.png',
+    'blog_172_naitei_shien_teichaku.html':'blog_172_naitei_shien_teichaku-eyecatch.png',
+    'blog_173_chinmoku_matsu.html':'blog_173_chinmoku_matsu-eyecatch.png',
+    'blog_174_kashi_tsue_shigoto.html':'blog_174_kashi_tsue_shigoto-eyecatch.png',
+    'blog_175_bamen_kanmoku.html':'blog_175_bamen_kanmoku-eyecatch.png',
+    'blog_176_parkinson_shoji_shigoto.html':'blog_176_parkinson_shoji_shigoto-eyecatch.png',
+    'blog_177_asd_yotei_henkou.html':'blog_177_asd_yotei_henkou-eyecatch.png',
+    'blog_178_fukushoku_mendan.html':'blog_178_fukushoku_mendan-eyecatch.png',
+    'blog_179_kyushoku_kyujitsu.html':'blog_179_kyushoku_kyujitsu-eyecatch.png',
+    'blog_180_nancho_shigoto.html':'blog_180_nancho_shigoto-eyecatch.png',
+    'blog_181_jinjosei_hakuhan_shigoto.html':'blog_181_jinjosei_hakuhan-eyecatch.png',
+    'blog_182_ganbare_iwanai.html':'blog_182_ganbare_iwanai-eyecatch.png',
+    'blog_183_junchou_shinjita.html':'blog_183_junchou_shinjita-eyecatch.png',
+    'blog_184_kaisha_tsuchi_kincho.html':'blog_184_kaisha_tsuchi_kincho-eyecatch.png',
+    'blog_185_pacemaker_shigoto.html':'blog_185_pacemaker_shigoto-eyecatch.png'
+  };
+  var placeholderSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13H7l-3 3V4z"/><path d="M8 9h8M8 12.5h5"/></svg>';
+
+  cards.forEach(function(card){
+    var link = card.querySelector('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var filename = href.split('/').pop();
+    var cat = card.getAttribute('data-cat') || '';
+    var eyecatch = EYECATCH[filename];
+    var thumb = document.createElement('div');
+    thumb.className = 'card-thumb';
+    if (eyecatch) {
+      var img = document.createElement('img');
+      img.src = 'images/' + eyecatch;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.onerror = function(){
+        thumb.classList.add('placeholder');
+        thumb.innerHTML = placeholderSVG + '<span>' + cat + '</span>';
+      };
+      thumb.appendChild(img);
+    } else {
+      thumb.classList.add('placeholder');
+      thumb.innerHTML = placeholderSVG + '<span>' + cat + '</span>';
+    }
+    link.insertBefore(thumb, link.firstChild);
+  });
 
   function applyFilter(){
     var keyword = (searchInput && searchInput.value || '').trim().toLowerCase();
@@ -2068,8 +2260,18 @@ footer a:hover{color:#fff;}
       var matchesCat = (activeCat === 'すべて' || cat === activeCat);
       var matchesKeyword = (keyword === '' || title.indexOf(keyword) !== -1);
       var visible = matchesCat && matchesKeyword;
-      card.style.display = visible ? '' : 'none';
-      if (visible) visibleCount++;
+      var wasHidden = card.classList.contains('card-hidden');
+      if (visible) {
+        visibleCount++;
+        if (wasHidden) {
+          card.classList.remove('card-hidden');
+          card.classList.remove('just-shown');
+          void card.offsetWidth;
+          card.classList.add('just-shown');
+        }
+      } else if (!wasHidden) {
+        card.classList.add('card-hidden');
+      }
     });
     if (resultCount) {
       resultCount.textContent = (keyword || activeCat !== 'すべて')
@@ -2094,6 +2296,17 @@ footer a:hover{color:#fff;}
 
   if (searchInput) {
     searchInput.addEventListener('input', applyFilter);
+  }
+
+  // ---- 先頭に戻るボタン ----
+  var backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', function(){
+      backToTop.classList.toggle('show', window.scrollY > 600);
+    });
+    backToTop.addEventListener('click', function(){
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
   }
 })();
 </script>

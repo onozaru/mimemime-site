@@ -30,270 +30,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="mimemime｜障害のある方の就労支援">
 <meta name="twitter:description" content="障害があっても、就労が難しくても、mimemimeは障がいのある方の就労をサポートする対話型サービスです。現役支援員があなたの次の一歩に伴走します。">
-<style>
-:root{--main:#3A7CA5;--accent:#EC7C95;--dark:#1F3A4D;--gray:#7F8C8D;--green:#27AE60;--bg:#F4F8FB;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Helvetica Neue',Arial,'Hiragino Sans','Meiryo',sans-serif;background:#fff;color:var(--dark);line-height:1.7;}
-
-/* ── 1本にまとめたアナウンスバー ── */
-.announce-bar{
-  background:rgba(236,124,149,0.13);
-  border-bottom:1px solid rgba(236,124,149,0.25);
-  color:rgba(255,255,255,0.92);
-  text-align:center;
-  font-size:.82rem;
-  padding:9px 16px;
-  background-color:#17303f;
-}
-.announce-bar a{color:var(--accent);text-decoration:none;font-weight:bold;border-bottom:1px solid rgba(236,124,149,0.5);}
-.announce-bar a:hover{border-bottom-color:var(--accent);}
-
-nav{background:var(--dark);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3);}
-.nav-logo{color:#fff;font-size:1.3rem;font-weight:bold;text-decoration:none;}
-.nav-logo span{color:var(--accent);}
-.nav-links{display:flex;gap:24px;align-items:center;}
-.nav-links a{color:#ccc;text-decoration:none;font-size:.9rem;transition:color .2s;}
-.nav-links a:hover{color:#fff;}
-.nav-cta{background:var(--accent);color:#fff!important;padding:8px 20px;border-radius:20px;font-weight:bold;}
-
-/* ── ヒーロー：イラストを全面背景に ── */
-.hero{
-  background:
-    linear-gradient(100deg, rgba(31,58,77,.96) 0%, rgba(31,58,77,.90) 30%, rgba(31,58,77,.62) 58%, rgba(31,58,77,.30) 100%),
-    url('/images/hero-illustration.jpg');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-  color:#fff;
-  padding:100px 32px 80px;
-  min-height:85vh;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
-.hero-text{max-width:600px;}
-.hero-mobile-image{display:none;}
-@media(max-width:860px){
-  .hero{
-    background:var(--dark);
-    min-height:auto;
-    padding-top:48px;
-    padding-bottom:48px;
-  }
-  .hero-text{max-width:none;}
-  .hero-mobile-image{
-    display:block;
-    margin:0 0 28px;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 12px 40px rgba(0,0,0,.35);
-  }
-  .hero-mobile-image img{width:100%;height:auto;display:block;}
-}
-.hero-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(236,124,149,0.15);
-  border:1px solid rgba(236,124,149,0.35);
-  border-radius:50px;
-  padding:6px 16px;
-  font-size:.85rem;
-  color:rgba(236,124,149,0.95);
-  margin-bottom:28px;
-  letter-spacing:.03em;
-}
-.hero h1{
-  font-size:clamp(1.9rem,4.5vw,3.4rem);
-  font-weight:900;
-  line-height:1.25;
-  margin-bottom:22px;
-  letter-spacing:-.01em;
-}
-.hero h1 em{color:var(--accent);font-style:normal;}
-.hero-lead{
-  font-size:clamp(1.05rem,1.8vw,1.15rem);
-  color:rgba(255,255,255,.85);
-  max-width:520px;
-  margin-bottom:44px;
-  line-height:1.85;
-}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent);color:#fff;font-weight:bold;
-  padding:15px 32px;border-radius:50px;font-size:1rem;
-  text-decoration:none;
-  box-shadow:0 4px 24px rgba(236,124,149,0.38);
-  transition:transform .2s,box-shadow .2s;
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(236,124,149,0.48);}
-.btn-secondary{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.25);
-  color:rgba(255,255,255,.9);font-weight:bold;
-  padding:15px 28px;border-radius:50px;font-size:.95rem;
-  text-decoration:none;transition:background .2s;
-}
-.btn-secondary:hover{background:rgba(255,255,255,.15);}
-
-/* ── 統計 → 信頼ピラー 3つ ── */
-.hero-trust{
-  display:flex;
-  gap:0;
-  border-top:1px solid rgba(255,255,255,.1);
-  padding-top:36px;
-  flex-wrap:wrap;
-}
-.trust-item{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:0 40px 0 0;
-  margin-right:40px;
-  border-right:1px solid rgba(255,255,255,.1);
-  flex-shrink:0;
-}
-.trust-item:last-child{border-right:none;margin-right:0;padding-right:0;}
-.trust-icon-wrap{
-  width:44px;height:44px;
-  border-radius:50%;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.trust-main{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.2;}
-.trust-sub{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:3px;}
-
-/* ── 以下セクション共通 ── */
-.section{padding:80px 32px;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-label{font-size:.8rem;color:var(--accent);font-weight:bold;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
-.section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--dark);margin-bottom:12px;}
-.section-sub{color:var(--gray);font-size:.95rem;margin-bottom:48px;}
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.pain-card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-left:4px solid var(--accent);}
-.pain-card h4{font-size:1rem;margin-bottom:8px;}
-.pain-card p{font-size:.88rem;color:var(--gray);}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;}
-.service-card{border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.09);transition:transform .2s;}
-.service-card:hover{transform:translateY(-4px);}
-.service-header{padding:28px;color:#fff;}
-.service-header.blue{background:linear-gradient(135deg,var(--main),#2d6d99);}
-.service-header.orange{background:linear-gradient(135deg,#BA8478,var(--accent));}
-.service-header.green{background:linear-gradient(135deg,#1e8449,var(--green));}
-.service-tag{font-size:.75rem;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
-.service-header h3{font-size:1.15rem;}
-.service-body{padding:24px;background:#fff;}
-.service-body p{font-size:.9rem;color:var(--gray);margin-bottom:16px;}
-.icon-badge{width:48px;height:48px;border-radius:50%;background:#EAF1F7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0;}
-.pain-icon-img{width:76px;height:76px;border-radius:16px;object-fit:cover;margin-bottom:14px;display:block;}
-.icon-badge svg{display:block;}
-.service-icon-badge{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-.service-icon-badge svg{display:block;}
-.message-illustration{flex-shrink:0;}
-.service-price{font-size:.85rem;color:var(--main);font-weight:bold;background:var(--bg);padding:8px 12px;border-radius:6px;}
-.dark-section{background:var(--dark);padding:80px 32px;}
-.dark-section .section-label{color:var(--accent);}
-.dark-section .section-title{color:#fff;}
-.dark-section .section-sub{color:#999;}
-.reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
-.reason-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;}
-.reason-num{font-size:2.5rem;font-weight:900;color:var(--accent);opacity:.6;margin-bottom:8px;}
-.reason-icon-img{width:64px;height:64px;border-radius:12px;object-fit:cover;margin-bottom:14px;display:block;}
-.reason-item h4{color:#fff;font-size:1rem;margin-bottom:8px;}
-.reason-item p{color:#aaa;font-size:.85rem;}
-.message-wrap{max-width:860px;margin:0 auto;background:#fff;border-radius:20px;padding:48px;box-shadow:0 4px 24px rgba(0,0,0,.08);display:flex;gap:40px;align-items:flex-start;}
-.message-quote-bubble{width:130px;height:auto;float:left;margin:0 16px 8px 0;border-radius:12px;}
-.message-quote-wrap::after{content:"";display:table;clear:both;}
-.message-body h2{font-size:1.3rem;color:var(--main);margin-bottom:4px;}
-.message-role{font-size:.85rem;color:var(--accent);font-weight:bold;margin-bottom:20px;}
-.message-body p{font-size:.92rem;margin-bottom:12px;line-height:1.85;}
-.flow-steps{display:flex;flex-direction:column;max-width:680px;margin:0 auto;}
-.flow-step{display:flex;gap:24px;position:relative;padding-bottom:32px;}
-.flow-step:last-child{padding-bottom:0;}
-.flow-step::after{content:'';position:absolute;left:23px;top:52px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent);}
-.flow-step:last-child::after{display:none;}
-.step-circle{width:48px;height:48px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1rem;flex-shrink:0;}
-.step-icon-img{width:60px;height:60px;border-radius:12px;object-fit:cover;flex-shrink:0;}
-.step-body{padding-top:10px;}
-.step-body h4{font-size:1rem;margin-bottom:6px;}
-.step-body p{font-size:.88rem;color:var(--gray);}
-.cta-section{
-  background:
-    linear-gradient(180deg, rgba(31,58,77,.55) 0%, rgba(31,58,77,.88) 55%, rgba(31,58,77,.97) 100%),
-    url('/images/cta-door.jpg');
-  background-size:cover;
-  background-position:center 40%;
-  background-repeat:no-repeat;
-  padding:140px 32px 80px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-.cta-section h2{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:12px;position:relative;}
-.cta-section p{color:rgba(255,255,255,.85);font-size:1.02rem;margin-bottom:36px;position:relative;}
-.cta-mobile-image{display:none;}
-@media(max-width:700px){
-  .cta-section{
-    background:var(--dark);
-    padding:64px 24px 56px;
-  }
-  .cta-mobile-image{
-    display:block;
-    max-width:320px;
-    margin:0 auto 28px;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 12px 40px rgba(0,0,0,.35);
-  }
-  .cta-mobile-image img{width:100%;height:auto;display:block;}
-}
-.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:bold;padding:18px 48px;border-radius:50px;font-size:1.1rem;text-decoration:none;box-shadow:0 6px 32px rgba(236,124,149,0.4);transition:transform .2s,box-shadow .2s;position:relative;}
-.cta-btn:hover{transform:scale(1.03);box-shadow:0 8px 40px rgba(236,124,149,0.5);}
-
-.cta-note{color:rgba(255,255,255,.5);font-size:.82rem;margin-top:16px;position:relative;}
-footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
-.footer-inner{max-width:1100px;margin:0 auto;}
-.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px;}
-.footer-logo{color:#fff;font-size:1.2rem;font-weight:bold;text-decoration:none;display:block;margin-bottom:12px;}
-.footer-logo span{color:var(--accent);}
-.footer-brand p{font-size:.85rem;line-height:1.7;max-width:280px;}
-.footer-links h4{color:#fff;font-size:.9rem;margin-bottom:14px;}
-.footer-links a{display:block;color:#888;text-decoration:none;font-size:.85rem;margin-bottom:8px;}
-.footer-links a:hover{color:#fff;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-.footer-bottom a{color:#888;text-decoration:none;}
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .hero{padding:60px 20px;min-height:auto;}
-  .hero::before,.hero::after,.hero-glow-green{display:none;}
-  .hero-trust{gap:20px;}
-  .trust-item{border-right:none;margin-right:0;padding-right:0;}
-  .message-wrap{flex-direction:column;align-items:center;text-align:center;padding:32px 24px;}
-  .footer-top{flex-direction:column;}
-}
-
-/* ハンバーガーメニュー */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin-right:-8px;background:none;border:none;}
-.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;display:block;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-@media(max-width:768px){
-  .hamburger{display:flex;}
-  .nav-links{display:none!important;flex-direction:column!important;position:fixed;top:64px;left:0;right:0;background:var(--dark);padding:20px 32px;gap:20px;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.4);}
-  .nav-links.open{display:flex!important;}
-  .nav-links a{font-size:1rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1);}
-  .nav-links .nav-cta{border:none;text-align:center;}
-}
-</style>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -310,273 +46,657 @@ footer{background:#0d1f2b;color:#888;padding:48px 32px 32px;}
     "name": "Japan"
   },
   "priceRange": "無料相談あり",
-  "sameAs": ["https://www.threads.com/@arizaru_ono", "https://lin.ee/XlWTqy1"]
+  "sameAs": ["https://www.threads.com/@arizaru_ono", "https://lin.ee/zDHGzvx"]
 }
 </script>
+<style>
+:root{
+  --pink:#EC7C95;
+  --pink-deep:#D45F7B;
+  --pink-pale:#FBE7EC;
+  --brown:#BA8478;
+  --brown-deep:#8A5F55;
+  --cream:#FFF9F4;
+  --cream-2:#FFF2E8;
+  --ink:#3A2E2B;
+  --ink-soft:#7A6F6B;
+  --green:#8FB996;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --shadow:0 10px 30px rgba(122,88,80,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.8;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+h1,h2,h3{line-height:1.4;}
+
+/* ==== LINE相談フローティングカード ==== */
+.line-float{
+  position:fixed;right:14px;bottom:14px;z-index:150;
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border:1px solid rgba(122,88,80,.15);
+  border-radius:50px;padding:8px 18px 8px 8px;
+  box-shadow:var(--shadow);
+  font-size:.78rem;font-weight:bold;color:var(--brown-deep);
+  transition:transform .2s;
+}
+.line-float:active{transform:scale(.96);}
+.line-float .line-icon{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:var(--pink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.line-float .line-icon svg{width:19px;height:19px;}
+.line-float .line-label{line-height:1.35;}
+.line-float .line-label small{display:block;font-size:.66rem;font-weight:normal;color:var(--ink-soft);}
+@media(min-width:860px){
+  .line-float{
+    flex-direction:column;text-align:center;border-radius:var(--radius-lg);
+    padding:18px 18px 16px;gap:10px;width:118px;right:24px;bottom:24px;
+  }
+  .line-float .line-icon{width:46px;height:46px;}
+  .line-float .line-icon svg{width:23px;height:23px;}
+  .line-float .line-label{font-size:.74rem;}
+  .line-float .line-label small{margin-top:2px;}
+}
+
+/* ==== トップバー ==== */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,249,244,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(122,88,80,.12);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px;height:56px;
+}
+.topbar-logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:1.05rem;color:var(--brown-deep);}
+.topbar-logo span{color:var(--pink);}
+.topbar-logo-img{height:28px;width:auto;display:block;}
+.hamburger{width:32px;height:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:none;border:none;cursor:pointer;position:relative;z-index:210;}
+.hamburger i{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s ease,opacity .2s ease;}
+.hamburger.open i:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open i:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open i:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ==== ハンバーガーメニュー：ハンバーガー位置から円形に展開 ==== */
+.menu-overlay{
+  position:fixed;inset:0;background:var(--cream);z-index:200;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  -webkit-clip-path:circle(4% at calc(100% - 34px) 32px);
+  clip-path:circle(4% at calc(100% - 34px) 32px);
+  opacity:0;
+  transition:clip-path .55s cubic-bezier(.65,0,.35,1), opacity .1s linear .1s;
+  pointer-events:none;
+  overflow:hidden;
+}
+.menu-overlay::before{
+  content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;
+  border-radius:50%;background:var(--pink-pale);opacity:.7;z-index:-1;
+}
+.menu-overlay::after{
+  content:'';position:absolute;bottom:-100px;left:-60px;width:200px;height:200px;
+  border-radius:50%;background:var(--cream-2);opacity:.9;z-index:-1;
+}
+.menu-overlay.open{
+  -webkit-clip-path:circle(150% at calc(100% - 34px) 32px);
+  clip-path:circle(150% at calc(100% - 34px) 32px);
+  opacity:1;
+  pointer-events:auto;
+  transition:clip-path .55s cubic-bezier(.65,0,.35,1);
+}
+.menu-close{position:absolute;top:16px;right:18px;font-size:1.6rem;background:none;border:none;color:var(--ink);z-index:210;}
+body.menu-open{overflow:hidden;}
+
+.menu-inner{width:100%;max-width:340px;padding:20px;display:flex;flex-direction:column;align-items:center;}
+.menu-mascot{
+  width:56px;height:56px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px;
+  opacity:0;transform:translateY(-8px);transition:opacity .4s ease,transform .4s ease;
+}
+.menu-mascot img{width:100%;height:100%;object-fit:cover;}
+.menu-overlay.open .menu-mascot{opacity:1;transform:translateY(0);transition-delay:.15s;}
+
+.menu-links{display:flex;flex-direction:column;align-items:stretch;gap:2px;width:100%;margin-bottom:26px;}
+.menu-link{
+  display:flex;align-items:baseline;gap:10px;
+  font-size:1.18rem;font-weight:900;color:var(--brown-deep);
+  padding:11px 6px;border-bottom:1px solid rgba(122,88,80,.1);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .4s ease,transform .4s ease,color .2s;
+}
+.menu-link .menu-link-num{font-size:.68rem;font-weight:bold;color:var(--pink);letter-spacing:.05em;}
+.menu-link:active{color:var(--pink-deep);}
+.menu-overlay.open .menu-link{opacity:1;transform:translateY(0);}
+.menu-overlay.open .menu-link:nth-child(1){transition-delay:.20s;}
+.menu-overlay.open .menu-link:nth-child(2){transition-delay:.26s;}
+.menu-overlay.open .menu-link:nth-child(3){transition-delay:.32s;}
+.menu-overlay.open .menu-link:nth-child(4){transition-delay:.38s;}
+.menu-overlay.open .menu-link:nth-child(5){transition-delay:.44s;}
+.menu-overlay.open .menu-link:nth-child(6){transition-delay:.50s;}
+
+.menu-cta-group{display:flex;flex-direction:column;gap:10px;width:100%;opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease;}
+.menu-overlay.open .menu-cta-group{opacity:1;transform:translateY(0);transition-delay:.56s;}
+.menu-line-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#06C755;color:#fff;font-weight:bold;font-size:.9rem;
+  padding:13px;border-radius:50px;box-shadow:0 8px 20px rgba(6,199,85,.3);
+}
+.menu-line-btn svg{width:18px;height:18px;}
+.menu-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--pink);color:#fff;font-weight:900;font-size:.92rem;
+  padding:14px;border-radius:50px;box-shadow:0 8px 20px rgba(236,124,149,.35);
+}
+
+/* ==== ヒーロー（フル画面・背景写真） ==== */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px 20px 40px;
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+  height:78%;
+}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:0 0 var(--radius-lg) var(--radius-lg);}
+.hero-media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(58,46,43,0) 30%, var(--cream) 96%);
+}
+.hero-badge{
+  position:relative;z-index:1;
+  display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  background:#fff;border:1px solid rgba(186,132,120,.3);
+  border-radius:50px;padding:6px 14px;font-size:.74rem;font-weight:bold;color:var(--brown-deep);
+  margin-bottom:14px;box-shadow:var(--shadow);
+}
+.hero h1{
+  position:relative;z-index:1;
+  font-size:clamp(1.7rem,7vw,2.4rem);
+  font-weight:900;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:14px;
+}
+.hero h1 em{color:var(--pink);font-style:normal;}
+.hero-lead{
+  position:relative;z-index:1;
+  font-size:.95rem;color:var(--ink-soft);max-width:34em;margin-bottom:22px;
+}
+.hero-btns{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--pink);color:#fff;font-weight:bold;
+  padding:15px 26px;border-radius:50px;font-size:.98rem;
+  box-shadow:0 6px 20px rgba(236,124,149,.4);
+  transition:transform .2s;
+}
+.btn-primary:active{transform:scale(.97);}
+.btn-secondary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:#fff;border:1.5px solid var(--brown);color:var(--brown-deep);font-weight:bold;
+  padding:14px 26px;border-radius:50px;font-size:.92rem;
+}
+.hero-mascot{
+  position:absolute;right:14px;bottom:120px;z-index:1;
+  width:78px;height:78px;
+}
+.scroll-cue{
+  position:relative;z-index:1;align-self:center;
+  font-size:.68rem;color:var(--ink-soft);
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  animation:bob 1.8s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ==== 共通セクション枠 ==== */
+section{padding:56px 20px;}
+.section-head{text-align:center;margin-bottom:28px;}
+.eyebrow{
+  display:inline-block;font-size:.7rem;font-weight:bold;color:var(--pink-deep);
+  background:var(--pink-pale);border-radius:20px;padding:4px 14px;margin-bottom:10px;letter-spacing:.05em;
+}
+.section-head h2{font-size:clamp(1.25rem,5vw,1.7rem);font-weight:900;color:var(--ink);}
+.section-head p{font-size:.85rem;color:var(--ink-soft);margin-top:8px;}
+
+/* 出現アニメーション */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ==== 共感カード：横スワイプ ==== */
+.swipe-row{
+  display:flex;gap:14px;overflow-x:auto;padding:6px 20px 14px;margin:0 -20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.swipe-row::-webkit-scrollbar{display:none;}
+.empathy-card{
+  scroll-snap-align:start;flex:0 0 78%;max-width:290px;
+  background:#fff;border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow);
+}
+.empathy-card .icon{font-size:1.6rem;margin-bottom:10px;}
+.empathy-card h3{font-size:1rem;font-weight:bold;margin-bottom:8px;}
+.empathy-card p{font-size:.82rem;color:var(--ink-soft);margin-bottom:14px;}
+.mame-bubble{
+  display:flex;gap:8px;align-items:flex-start;
+  background:var(--pink-pale);border-radius:var(--radius-md);padding:10px 12px;
+}
+.mame-bubble img{width:28px;height:28px;border-radius:50%;flex-shrink:0;object-fit:cover;}
+.mame-bubble p{font-size:.76rem;color:var(--brown-deep);margin:0;}
+.swipe-hint{text-align:center;font-size:.7rem;color:var(--ink-soft);margin-top:2px;}
+
+/* ==== 選ばれる理由：カウントアップ ==== */
+.reason-grid{display:flex;flex-direction:column;gap:16px;}
+.reason-card{
+  background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);
+  display:flex;gap:16px;align-items:center;
+}
+.reason-num{font-size:2.2rem;font-weight:900;color:var(--pink);min-width:70px;}
+.reason-num span{font-size:1rem;}
+.reason-card h3{font-size:.95rem;margin-bottom:4px;}
+.reason-card p{font-size:.8rem;color:var(--ink-soft);}
+
+/* ==== 代表プロフィールへの導線 ==== */
+.team-mini{display:flex;flex-direction:column;gap:16px;margin-top:16px;}
+.team-person{
+  background:#fff;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);
+  text-align:center;
+}
+.team-person h4{font-size:1rem;font-weight:bold;margin-bottom:8px;}
+.team-person p{font-size:.8rem;color:var(--ink-soft);margin-bottom:14px;text-align:left;}
+.team-more{font-size:.82rem;font-weight:bold;color:var(--pink-deep);}
+
+/* ==== 診断バナー ==== */
+.quiz-banner{display:block;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s;}
+.quiz-banner:active{transform:scale(.98);}
+.quiz-banner img{width:100%;height:auto;display:block;}
+
+/* ==== はたらく仲間たち：写真ギャラリー横スクロール ==== */
+.voice-card{
+  scroll-snap-align:start;flex:0 0 66%;max-width:230px;
+}
+.photo-card{aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);}
+.photo-card img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+.voice-card .cap{font-size:.76rem;color:var(--ink-soft);margin-top:8px;text-align:center;font-weight:bold;}
+
+/* ==== まめざるひとこと帯：自動流れる ==== */
+.mame-strip{overflow:hidden;padding:36px 0;background:var(--cream-2);margin:0 -20px;}
+.mame-track{display:flex;gap:14px;width:max-content;animation:scrollx 70s linear infinite;padding:0 20px;}
+.mame-card{
+  width:160px;min-height:150px;flex-shrink:0;
+  border-radius:var(--radius-md);box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:center;padding:18px;
+}
+.mame-card p{font-size:.8rem;font-weight:bold;line-height:1.7;text-align:center;}
+.mame-card.c1{background:var(--pink-pale);}
+.mame-card.c1 p{color:var(--pink-deep);}
+.mame-card.c2{background:#E9F2EC;}
+.mame-card.c2 p{color:#3F6B4D;}
+.mame-card.c3{background:#F6EBDD;}
+.mame-card.c3 p{color:var(--brown-deep);}
+.mame-card.c4{background:#EEE9F5;}
+.mame-card.c4 p{color:#5B4F8A;}
+@keyframes scrollx{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ==== サービス ==== */
+.service-grid{display:flex;flex-direction:column;gap:14px;}
+.service-card{
+  background:#fff;border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow);
+  border-top:4px solid var(--pink);
+}
+.service-card h3{font-size:1rem;font-weight:bold;margin-bottom:6px;}
+.service-card p{font-size:.82rem;color:var(--ink-soft);margin-bottom:10px;}
+.service-card a{font-size:.8rem;font-weight:bold;color:var(--pink-deep);}
+.service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.service-tags .tag{
+  display:inline-block;font-size:.72rem;font-weight:bold;color:var(--brown-deep);
+  background:var(--cream-2);border:1px solid rgba(186,132,120,.25);border-radius:20px;
+  padding:6px 12px;transition:background .2s,border-color .2s;
+}
+.service-tags .tag:hover{background:var(--pink-pale);border-color:var(--pink);}
+
+/* ==== よくある質問 ==== */
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:16px 44px 16px 18px;position:relative;
+  font-size:.88rem;font-weight:bold;color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:1.3rem;color:var(--pink-deep);font-weight:bold;
+}
+.faq-item[open] summary::after{content:'\2212';}
+.faq-item .faq-a{padding:0 18px 18px;font-size:.82rem;color:var(--ink-soft);}
+
+/* ==== 最終CTA ==== */
+.final-cta{
+  background:var(--ink);color:#fff;border-radius:var(--radius-lg);
+  padding:32px 22px;text-align:center;
+}
+.final-cta img{margin-bottom:20px;}
+.final-cta h2{font-size:1.3rem;font-weight:900;margin-bottom:10px;}
+.final-cta p{font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:22px;}
+.final-cta .hero-btns{align-items:center;}
+
+/* ==== フッター ==== */
+footer{padding:32px 20px 90px;text-align:center;}
+footer .topbar-logo{justify-content:center;margin-bottom:14px;}
+footer .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:14px;}
+footer .foot-links a{font-size:.78rem;color:var(--ink-soft);}
+footer .copyright{font-size:.68rem;color:var(--ink-soft);opacity:.7;}
+
+/* ==== デスクトップ以降（モバイル基準からの後追い調整） ==== */
+@media(min-width:860px){
+  .topbar{padding:14px 40px;}
+  .hero{padding:0 40px;flex-direction:row;align-items:center;justify-content:space-between;}
+  .hero-media{position:absolute;inset:0;height:100%;width:52%;left:auto;right:0;}
+  .hero-media img,.hero-media video{border-radius:var(--radius-lg) 0 0 var(--radius-lg);}
+  .hero-media::after{background:linear-gradient(90deg, var(--cream) 2%, rgba(255,249,244,0) 42%);}
+  .hero-content{max-width:520px;padding-top:60px;}
+  .hero-btns{flex-direction:row;}
+  .hero-mascot{right:auto;left:44%;bottom:60px;width:100px;height:100px;}
+  section{padding:88px 40px;}
+  .reason-grid,.service-grid,.team-mini{flex-direction:row;}
+  .reason-card,.service-card,.team-person{flex:1;}
+  .empathy-card{flex:0 0 320px;}
+  .voice-card{flex:0 0 240px;}
+}
+@media(min-width:1200px){
+  .hero-content,section > *{max-width:1080px;margin-left:auto;margin-right:auto;}
+  .hero{padding:0 60px;}
+}
+</style>
 </head>
 <body>
 
-<!-- ① アナウンスバー 1本に統合 -->
-<div class="announce-bar">
-  ✨ 2分でわかる「今のあなたに合うサポート」→ <a href="shindan.html">気持ちスキャン診断をやってみる</a>
+<a href="https://lin.ee/zDHGzvx" class="line-float" aria-label="LINEで無料相談" target="_blank" rel="noopener">
+  <span class="line-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+  <span class="line-label">ご相談は<br>LINEから<small>友だち追加で気軽に</small></span>
+</a>
+
+<!-- ===== トップバー ===== -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="assets/mimemime-logo-horizontal.png" alt="mimemime" class="topbar-logo-img">
+  </a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" onclick="toggleMenu()">
+    <i></i><i></i><i></i>
+  </button>
+</div>
+<div class="menu-overlay" id="menu">
+  <button class="menu-close" aria-label="メニューを閉じる" onclick="toggleMenu()">×</button>
+  <div class="menu-inner">
+    <div class="menu-mascot"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"></div>
+    <nav class="menu-links">
+      <a href="#service" class="menu-link" onclick="toggleMenu()"><span class="menu-link-num">01</span>サービス</a>
+      <a href="shindan_v2.html" class="menu-link"><span class="menu-link-num">02</span>気持ちスキャン診断</a>
+      <a href="learning_system/index.html" class="menu-link"><span class="menu-link-num">03</span>学ぶ</a>
+      <a href="blog/index.html" class="menu-link"><span class="menu-link-num">04</span>ブログ</a>
+      <a href="jobs.html" class="menu-link"><span class="menu-link-num">05</span>求人情報</a>
+      <a href="#about" class="menu-link" onclick="toggleMenu()"><span class="menu-link-num">06</span>会社について</a>
+    </nav>
+    <div class="menu-cta-group">
+      <a href="https://lin.ee/zDHGzvx" class="menu-line-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        LINEで相談する
+      </a>
+      <a href="connect.html" class="menu-cta-btn">無料で話してみる →</a>
+    </div>
+  </div>
 </div>
 
-<nav>
-  <a href="index.html" class="nav-logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:26px;width:26px;vertical-align:-7px;margin-right:6px;border-radius:50%;">mime<span>mime</span></a>
-  <div class="nav-links">
-    <a href="#services">サービス</a>
-    <a href="learning_system/index.html">学ぶ</a>
-    <a href="blog/index.html">ブログ</a>
-    <a href="jobs.html">求人情報</a>
-    <a href="#about">会社について</a>
-    <a href="https://lin.ee/XlWTqy1" style="background:#06C755;color:#fff;padding:8px 16px;border-radius:20px;font-weight:bold;font-size:.85rem;text-decoration:none;">LINE相談</a>
-    <a href="learning_system/contact.html" class="nav-cta">無料相談</a>
+<!-- ===== ヒーロー ===== -->
+<div class="hero">
+  <div class="hero-media">
+    <video src="assets/hero-bg-test.mp4" autoplay muted loop playsinline></video>
   </div>
-<button class="hamburger" aria-label="メニューを開く" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- ② ヒーロー：暖かみグロー＋新コピー＋信頼ピラー -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-    <div class="hero-badge">現役就労移行支援員（介護福祉士）による、就労と生活の伴走支援</div>
-    <div class="hero-mobile-image"><img src="/images/hero-illustration.jpg" alt="窓辺で温かいお茶を飲みながら静かに過ごす人のイラスト" loading="eager"></div>
-    <h1>一人で抱え込まなくて<br><em>大丈夫です。</em></h1>
-    <p class="hero-lead">障害、介護、休職明けの不安。<br>どんな状況でも、まずはオンラインで無料相談できます。</p>
+  <div class="hero-content">
+    <div class="hero-badge">休職中のご相談も、オンラインで</div>
+    <h1>「<em>本当に働きたい</em>」に、<br>ちゃんと向き合う。</h1>
+    <p class="hero-lead">支援の現場を知る一人が、あなたのペースで話を聞きます。休職中の方も、情報より先に、気持ちから。</p>
     <div class="hero-btns">
-      <a href="shindan.html" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        気持ちスキャン診断（2問・無料）
-      </a>
-      <a href="learning_system/contact.html" class="btn-secondary">無料相談を申し込む</a>
+      <a href="#cta" class="btn-primary">無料で話してみる</a>
+      <a href="shindan_v2.html" class="btn-secondary">はたらく気持ち みつめ直しシート</a>
     </div>
+  </div>
+  <div class="scroll-cue">▼ すこしスクロール</div>
+</div>
 
-    <!-- ③ 信頼ピラー（フェイク統計を廃止） -->
-    <div class="hero-trust">
-      <div class="trust-item">
-        <div class="trust-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(236,124,149,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div>
-          <div class="trust-main">現役就労移行支援員</div>
-          <div class="trust-sub">の代表が直接対話</div>
-        </div>
+<!-- ===== 共感ゾーン：横スワイプ ===== -->
+<section class="reveal">
+  <div class="section-head">
+    <span class="eyebrow">あるある</span>
+    <h2>こんなこと、ありませんか？</h2>
+  </div>
+  <div class="swipe-row">
+    <div class="empathy-card">
+      <h3>休職したまま、次が決められない</h3>
+      <p>復帰も転職も、まだどちらも選べずにいる。</p>
+      <div class="mame-bubble"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"><p>今は決めなくて大丈夫。まず状況だけ整理しよう。</p></div>
+    </div>
+    <div class="empathy-card">
+      <h3>面接で「大丈夫です」しか言えない</h3>
+      <p>本音を話す前に、面接が終わってしまう。</p>
+      <div class="mame-bubble"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"><p>それ、すごくわかる。まずは私に話してみて。</p></div>
+    </div>
+    <div class="empathy-card">
+      <h3>職場に配慮を伝えるのが怖い</h3>
+      <p>「わがまま」だと思われそうで言えない。</p>
+      <div class="mame-bubble"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"><p>伝え方だけ、一緒に練習してみようか。</p></div>
+    </div>
+    <div class="empathy-card">
+      <h3>何から始めればいいか分からない</h3>
+      <p>制度も情報も多すぎて、逆に動けない。</p>
+      <div class="mame-bubble"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"><p>大丈夫、順番はこっちで一緒に整理するよ。</p></div>
+    </div>
+    <div class="empathy-card">
+      <h3>誰にも本音を話せていない</h3>
+      <p>家族にも、支援員にも、少し遠慮してしまう。</p>
+      <div class="mame-bubble"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"><p>ここでは、遠慮しなくて大丈夫。</p></div>
+    </div>
+  </div>
+  <p class="swipe-hint">← スワイプできます →</p>
+</section>
+
+<!-- ===== 選ばれる理由 ===== -->
+<section class="reveal" id="about">
+  <div class="section-head">
+    <span class="eyebrow">mimemimeが選ばれる理由</span>
+    <h2>情報より先に、対話から。</h2>
+  </div>
+  <div class="reason-grid">
+    <div class="reason-card">
+      <div class="reason-num" data-count="100">0<span>%</span></div>
+      <div><h3>オンライン完結</h3><p>通所が難しくても、自宅から。顔出しなし・アイコン参加もOKです。</p></div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num" data-count="30">0<span>名+</span></div>
+      <div><h3>支援実績30名超</h3><p>これまでに30名を超える方の就労・復職をサポートしてきました。</p></div>
+    </div>
+  </div>
+
+  <div class="team-mini">
+    <div class="team-person">
+      <div style="width:88px;height:88px;border-radius:50%;margin:0 auto 12px;overflow:hidden;"><img src="assets/onozaru-dog.jpg" alt="代表おのざるのアイコン" style="width:100%;height:100%;object-fit:cover;object-position:top center;"></div>
+      <h4>代表（おのざる）</h4>
+      <p>障害者雇用・面接官としての経験あり。企業休職の困りごとや、働きたいのに自己理解や体調が追いつかない方を支援してきました。</p>
+      <a href="about-daihyo.html" class="team-more">もっと見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== はたらく気持ち診断（ゲート） ===== -->
+<section class="reveal">
+  <a href="shindan_v2.html" class="quiz-banner">
+    <img src="assets/quiz-cta-banner.png" alt="mimemime あなたの「今」を、そっと見つめる。気軽に診断してみる？">
+  </a>
+</section>
+
+<!-- ===== はたらく仲間たち（写真ギャラリー方式） ===== -->
+<section class="reveal" id="voice">
+  <div class="section-head">
+    <span class="eyebrow">はたらく仲間たち</span>
+    <h2>それぞれのペースで、それぞれの仕事を。</h2>
+    <p>働き方の多様さを写真で伝える構成。※写真はイメージです。</p>
+  </div>
+  <div class="swipe-row">
+    <div class="voice-card">
+      <div class="photo-card"><img src="assets/staff-1-desk-calculator.png" alt="経理・事務の仕事をする様子"></div>
+      <p class="cap">経理・事務のお仕事</p>
+    </div>
+    <div class="voice-card">
+      <div class="photo-card"><img src="assets/staff-2-pc-work.png" alt="パソコンでの在宅ワークの様子"></div>
+      <p class="cap">在宅・PC事務のお仕事</p>
+    </div>
+    <div class="voice-card">
+      <div class="photo-card"><img src="assets/staff-3-warehouse-scan.png" alt="検品・軽作業の様子"></div>
+      <p class="cap">検品・軽作業のお仕事</p>
+    </div>
+    <div class="voice-card">
+      <div class="photo-card"><img src="assets/staff-4-table-cleaning.png" alt="清掃・軽作業の様子"></div>
+      <p class="cap">清掃・接客のお仕事</p>
+    </div>
+  </div>
+  <p class="swipe-hint">← スワイプできます →</p>
+</section>
+
+<!-- ===== 感謝のひとこと帯 ===== -->
+<div class="mame-strip">
+  <div class="mame-track" id="mameTrack">
+    <div class="mame-card c1"><p>人と話すのが怖かった私が、初めて長く働けています。</p></div>
+    <div class="mame-card c2"><p>休職で消えていた自信が、少しずつ戻ってきました。</p></div>
+    <div class="mame-card c3"><p>面接で言葉に詰まっていた私が、今は自分から話せます。</p></div>
+    <div class="mame-card c4"><p>誰にも言えなかった不安を、初めて話せました。</p></div>
+    <div class="mame-card c1"><p>3ヶ月で辞めた前の職場のことを、初めて誰かに話せました。</p></div>
+    <div class="mame-card c2"><p>診断書を出すのが怖かったけど、話したら少し楽になりました。</p></div>
+    <div class="mame-card c3"><p>復職か転職か決められなかった私が、今は前を向けています。</p></div>
+    <div class="mame-card c4"><p>配慮をお願いするのが苦手だった私が、伝え方を覚えました。</p></div>
+    <div class="mame-card c1"><p>発作が怖くて外に出られなかった私が、通所できています。</p></div>
+    <div class="mame-card c2"><p>家族に分かってもらえないと思っていたけど、話し方を一緒に考えてもらえました。</p></div>
+    <div class="mame-card c3"><p>面接の練習を重ねて、「大丈夫です」以外の言葉が出ました。</p></div>
+    <div class="mame-card c4"><p>長くひきこもっていた私が、少しずつ外に出られています。</p></div>
+    <div class="mame-card c1"><p>障害者雇用に踏み切れなかった私が、自分に合う働き方を見つけました。</p></div>
+    <div class="mame-card c2"><p>感情のコントロールが苦手な私に、根気よく付き合ってもらえました。</p></div>
+    <div class="mame-card c3"><p>休職中ずっと1人だったけど、話せる相手ができました。</p></div>
+    <div class="mame-card c4"><p>早期離職を繰り返していた私が、初めて長く続けられています。</p></div>
+    <div class="mame-card c1"><p>人と話すのが怖かった私が、初めて長く働けています。</p></div>
+    <div class="mame-card c2"><p>休職で消えていた自信が、少しずつ戻ってきました。</p></div>
+    <div class="mame-card c3"><p>面接で言葉に詰まっていた私が、今は自分から話せます。</p></div>
+    <div class="mame-card c4"><p>誰にも言えなかった不安を、初めて話せました。</p></div>
+    <div class="mame-card c1"><p>3ヶ月で辞めた前の職場のことを、初めて誰かに話せました。</p></div>
+    <div class="mame-card c2"><p>診断書を出すのが怖かったけど、話したら少し楽になりました。</p></div>
+    <div class="mame-card c3"><p>復職か転職か決められなかった私が、今は前を向けています。</p></div>
+    <div class="mame-card c4"><p>配慮をお願いするのが苦手だった私が、伝え方を覚えました。</p></div>
+    <div class="mame-card c1"><p>発作が怖くて外に出られなかった私が、通所できています。</p></div>
+    <div class="mame-card c2"><p>家族に分かってもらえないと思っていたけど、話し方を一緒に考えてもらえました。</p></div>
+    <div class="mame-card c3"><p>面接の練習を重ねて、「大丈夫です」以外の言葉が出ました。</p></div>
+    <div class="mame-card c4"><p>長くひきこもっていた私が、少しずつ外に出られています。</p></div>
+    <div class="mame-card c1"><p>障害者雇用に踏み切れなかった私が、自分に合う働き方を見つけました。</p></div>
+    <div class="mame-card c2"><p>感情のコントロールが苦手な私に、根気よく付き合ってもらえました。</p></div>
+    <div class="mame-card c3"><p>休職中ずっと1人だったけど、話せる相手ができました。</p></div>
+    <div class="mame-card c4"><p>早期離職を繰り返していた私が、初めて長く続けられています。</p></div>
+  </div>
+</div>
+
+<!-- ===== サービス ===== -->
+<section class="reveal" id="service">
+  <div class="section-head">
+    <span class="eyebrow">サービス</span>
+    <h2>すべて、オンラインで。</h2>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>相談（オンライン）</h3>
+      <p>制度の説明や支援計画ではなく、まず「今の気持ち」を話す場所です。</p>
+      <div class="service-tags">
+        <a href="service-shurou-iko.html#uc-note" class="tag">配慮の言語化</a>
+        <a href="service-shurou-iko.html#uc-branch" class="tag">オープン/クローズ判断</a>
+        <a href="service-shurou-iko.html#uc-anxiety" class="tag">復職前の不安</a>
+        <a href="service-shurou-iko.html#uc-interview" class="tag">面接練習</a>
+        <a href="service-shurou-iko.html#uc-listen" class="tag">ただ話したい</a>
       </div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(236,124,149,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div>
-          <div class="trust-main">初回60分</div>
-          <div class="trust-sub">完全無料・秘密厳守</div>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(236,124,149,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <div>
-          <div class="trust-main">全国オンライン</div>
-          <div class="trust-sub">どこからでも対応</div>
-        </div>
-      </div>
-    </div>
+      <a href="service-shurou-iko.html">詳しく見る →</a>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:var(--bg);">
-  <div class="section-inner">
-    <div class="section-label">こんなお悩みありませんか？</div>
-    <h2 class="section-title">就労に悩む方の声</h2>
-    <p class="section-sub">あなただけが感じているわけではありません。一緒に解決策を見つけましょう。</p>
-    <div class="pain-grid">
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern1-soudan.jpg" alt="標識を見て考える人のイラスト。どこに相談すればいいかわからない悩みを象徴" loading="lazy"><h4>障害があって、どこに相談すればいいかわからない</h4><p>制度が複雑で、何から始めればいいか途方に暮れている方のための窓口があります。</p></div>
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern2-kaigo.jpg" alt="親子の手が優しく重なるイラスト。家族の介護とキャリアの両立の悩みを象徴" loading="lazy"><h4>家族の介護で、自分のキャリアを諦めかけている</h4><p>介護をしながら働くための制度と支援があります。一人で抱え込まないでください。</p></div>
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern3-kyushoku.jpg" alt="窓辺で芽吹く小さな植物のイラスト。休職からの小さな一歩を象徴" loading="lazy"><h4>うつ・適応障害で休職中、復職が怖い</h4><p>焦らなくていい。あなたのペースで、小さな一歩から始められます。</p></div>
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern4-hattatsu.jpg" alt="ヘッドホンをつけて落ち着いた空間で過ごす人のイラスト。発達障害の方の心地よい環境を象徴" loading="lazy"><h4>発達障害（ASD/ADHD）で職場になじめない</h4><p>特性を活かせる職場選びと、環境調整のノウハウをお伝えします。</p></div>
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern5-fufu.jpg" alt="夫婦がノートパソコンを一緒に見ているイラスト。夫婦で一緒に考える就労支援を象徴" loading="lazy"><h4>夫・妻が仕事を辞めて、どうすればいいか</h4><p>夫婦で一緒に考える就労支援。パートナーと一緒に参加できます。</p></div>
-      <div class="pain-card"><img class="pain-icon-img" src="/images/concern6-chihou.jpg" alt="ノートパソコンでのビデオ通話と全国地図のイラスト。地方在住でも受けられるオンライン支援を象徴" loading="lazy"><h4>地方在住で、近くに支援機関がない</h4><p>全国どこからでも、オンラインで同じ質の支援を受けられます。</p></div>
+<!-- ===== 最終CTA ===== -->
+<section class="reveal" id="cta">
+  <div class="final-cta">
+    <img src="assets/onozaru-dog.jpg" alt="代表おのざると愛犬のイラスト" style="width:100%;aspect-ratio:1061/927;object-fit:cover;border-radius:var(--radius-md);">
+    <h2>まずは、話すだけでいい。</h2>
+    <p>無料相談は、いつでもオンラインで受け付けています。</p>
+    <div class="hero-btns">
+      <a href="connect.html" class="btn-primary" style="background:var(--pink);">無料相談を予約する</a>
+      <a href="https://lin.ee/zDHGzvx" class="btn-secondary" style="background:transparent;border-color:rgba(255,255,255,.4);color:#fff;" target="_blank" rel="noopener">LINEで気軽に聞く</a>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;padding-bottom:0;">
-  <div class="section-inner">
-    <div style="background:#FFF8E7;border-left:4px solid #EC7C95;border-radius:8px;padding:16px 20px;font-size:0.88rem;color:#5a4000;line-height:1.7;">
-      <strong>【サービスについての大切なご説明】</strong><br>
-      mimemimeは、<strong>指定障害福祉サービス事業所ではありません</strong>。現役の就労移行支援員（介護福祉士）の代表が個人として提供する、対話型の就労・生活伴走サービスです。公的な就労移行支援制度（自立支援給付）の適用外となります。ご不明な点はお気軽にご相談ください。
-    </div>
+<!-- ===== フッター ===== -->
+<footer>
+  <a href="index.html" class="topbar-logo"><img src="assets/mimemime-logo-horizontal.png" alt="mimemime" class="topbar-logo-img"></a>
+  <div class="foot-links">
+    <a href="#service">サービス</a>
+    <a href="shindan_v2.html">診断</a>
+    <a href="#voice">声</a>
+    <a href="https://www.threads.com/@arizaru_ono" target="_blank" rel="noopener">Threads</a>
+    <a href="tokushoho.html">特定商取引法</a>
   </div>
-</section>
-<section class="section" id="services">
-  <div class="section-inner">
-    <div class="section-label">サービス</div>
-    <h2 class="section-title">mimemimeの3つのサポート</h2>
-    <p class="section-sub">あなたの状況に合わせて、最適なサポートを選べます</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="/images/support1-dialogue.jpg" alt="オレンジとブルーの吹き出しが重なり合い、中心にハートが浮かぶイラスト。対話サポートを象徴" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy">
-        <div class="service-header blue"><div class="service-icon-badge"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-8l-4 3v-3H9a3 3 0 0 1-3-3z"/><path d="M17 21h5a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-2.2-2.9"/></svg></div><div class="service-tag">SUPPORT 01</div><h3>「本当の気持ち」に向き合う対話サポート</h3></div>
-        <div class="service-body"><p>就労移行支援や介護の現場で培った経験をもとに、心理的安全性のある対話を通じて、ご本人の本当の気持ち・働き方・課題に、じっくり向き合っていきます。</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-            <a href="shindan.html" style="font-size:.82rem;color:var(--main);font-weight:bold;background:var(--bg);padding:7px 14px;border-radius:6px;text-decoration:none;border:1px solid #cde;">まず自分の状態を知る →</a>
-            <a href="/learning_system/" style="font-size:.82rem;color:var(--gray);background:var(--bg);padding:7px 14px;border-radius:6px;text-decoration:none;border:1px solid #cde;">コースで学ぶ →</a>
-          </div></div>
-      </div>
-      <div class="service-card">
-        <img src="/images/support2-companion.jpg" alt="二人が同じペースで並んで歩く小径のイラスト。伴走サポートを象徴" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy">
-        <div class="service-header orange"><div class="service-icon-badge"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11.5" cy="9.5" r="2.6"/><path d="M7.5 23c0-5 1.5-8.7 4-8.7s4 3.7 4 8.7"/><circle cx="20.5" cy="9.5" r="2.6"/><path d="M16.5 23c0-5 1.5-8.7 4-8.7s4 3.7 4 8.7"/><path d="M10 14.3h3M19 14.3h3"/></svg></div><div class="service-tag">SUPPORT 02</div><h3>働き続けるための伴走サポート</h3></div>
-        <div class="service-body"><p>就職後に感じる「このままで大丈夫だろうか」という不安に、ご本人・ご家族と一緒に向き合います。公的な制度の利用を考えたい場合は、お住まいの地域の支援機関探しもサポートします。</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-            <a href="/connect.html" style="font-size:.82rem;color:#fff;font-weight:bold;background:var(--main);padding:7px 14px;border-radius:6px;text-decoration:none;">無料相談を申し込む →</a>
-            <a href="https://lin.ee/XlWTqy1" style="font-size:.82rem;color:#2ecc71;background:var(--bg);padding:7px 14px;border-radius:6px;text-decoration:none;border:1px solid #cde;">LINEで気軽に話す →</a>
-          </div></div>
-      </div>
-      <div class="service-card">
-        <img src="/images/support3-online.jpg" alt="ノートパソコンで温かい雰囲気のオンライン相談をしているイラスト" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy">
-        <div class="service-header green"><div class="service-icon-badge"><svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="20" height="13" rx="2.4"/><path d="M6 25.5h20"/><circle cx="16" cy="15.5" r="3"/></svg></div><div class="service-tag">SUPPORT 03</div><h3>オンライン個別相談</h3></div>
-        <div class="service-body"><p>制度のこと、職場のこと、家族のこと、何でも話せる無料の個別相談。全国どこからでもビデオ通話で対応。</p><div class="service-price">初回無料・60分</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <p class="copyright">© mimemime</p>
+</footer>
 
-<section class="dark-section">
-  <div class="section-inner">
-    <div class="section-label">なぜmimemime？</div>
-    <h2 class="section-title">選ばれる4つの理由</h2>
-    <p class="section-sub">介護現場で培った「伴走する支援」の哲学が、すべての基盤です</p>
-    <div class="reasons-grid">
-      <div class="reason-item"><img class="reason-icon-img" src="/images/reason1-shienin.jpg" alt="ハートを乗せた手のバッジのイラスト。現役就労移行支援員が代表であることを象徴" loading="lazy"><div class="reason-num">01</div><h4>現役就労移行支援員（介護福祉士）が代表</h4><p>支援の現場で今も動き続けている。「制度」より「人」を見る、実践者の支援です。</p></div>
-      <div class="reason-item"><img class="reason-icon-img" src="/images/reason2-anzen.jpg" alt="巣を守る盾のイラスト。心理的安全性を最優先する姿勢を象徴" loading="lazy"><div class="reason-num">02</div><h4>心理的安全性を最優先</h4><p>「ここにいていい」と感じられる場所から始める。焦らせない、責めない支援。</p></div>
-      <div class="reason-item"><img class="reason-icon-img" src="/images/reason3-online.jpg" alt="日本地図と繋がる点のイラスト。全国オンライン対応を象徴" loading="lazy"><div class="reason-num">03</div><h4>全国オンライン対応</h4><p>地方在住・外出困難・介護中でも安心。場所を選ばずに同じ質の支援を。</p></div>
-      <div class="reason-item"><img class="reason-icon-img" src="/images/reason4-kazoku.jpg" alt="家族が寄り添うイラスト。家族も一緒に支援する姿勢を象徴" loading="lazy"><div class="reason-num">04</div><h4>家族も一緒に支援</h4><p>本人だけでなく、夫婦・家族全体で就労を考える。孤立させない仕組み。</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:linear-gradient(rgba(244,248,251,.94),rgba(244,248,251,.94)),url('/images/message-bg-decoration.jpg');background-size:cover;background-position:center;" id="about">
-  <div class="message-wrap">
-    <div class="message-illustration"><img src="/images/profile-onozaru.jpg" alt="代表 おのざるのプロフィールアイコン" width="136" height="136" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;"></div>
-    <div class="message-body">
-      <div class="message-quote-wrap"><img class="message-quote-bubble" src="/images/message-quote-bubble.jpg" alt="オレンジとブルーの吹き出しが重なるイラスト。対話と共感を象徴" loading="lazy"><p style="font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.6;margin-bottom:6px;">「相談するほどのことでもないかな」<br>そう思っていませんか？</p></div>
-      <div class="message-role" style="margin-bottom:20px;">おのざる ／ 代表取締役・現役就労移行支援員（介護福祉士）</div>
-      <p>私のところに来る方のほとんどが、最初はそう思っています。「うまく話せるか不安」「何を話せばいいかわからない」「こんなことで連絡していいのか」。そういう気持ちを抱えながら来てくれた人と、私はずっと話してきました。</p>
-      <p>現役の就労移行支援員として気づいたのは、「うまく話せない人」ほど、本当に大切なものを抱えているということ。</p>
-      <p style="font-weight:600;color:var(--dark);">だから、うまく説明できなくて大丈夫です。<br>気持ちだけ持ってきてください。整理するのは、私の仕事です。</p>
-      <a href="learning_system/contact.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--accent);color:#fff;font-weight:bold;padding:12px 28px;border-radius:50px;font-size:.9rem;text-decoration:none;">話してみる（無料・60分）</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">ご利用の流れ</div>
-    <h2 class="section-title">はじめてでも安心の5ステップ</h2>
-    <p class="section-sub">まずは気軽に相談から。手続きはスタッフが一緒に進めます。</p>
-    <div class="flow-steps">
-      <div class="flow-step"><div class="step-circle">1</div><img class="step-icon-img" src="/images/step1-moshikomi.jpg" alt="ボタンを押す手のイラスト。無料相談の申し込みを象徴" loading="lazy"><div class="step-body"><h4>無料相談を申し込む</h4><p>フォームから。24時間受付中。</p></div></div>
-      <div class="flow-step"><div class="step-circle">2</div><img class="step-icon-img" src="/images/step2-mendan.jpg" alt="時計と吹き出しのイラスト。60分のオンライン面談を象徴" loading="lazy"><div class="step-body"><h4>オンライン面談（60分）</h4><p>現状・お悩み・希望をじっくりお聞きします。</p></div></div>
-      <div class="flow-step"><div class="step-circle">3</div><img class="step-icon-img" src="/images/step3-annai.jpg" alt="書類が入ったフォルダのイラスト。サービス・制度の案内を象徴" loading="lazy"><div class="step-body"><h4>サービス・制度の案内</h4><p>あなたに合った支援の選択肢をわかりやすくご説明。</p></div></div>
-      <div class="flow-step"><div class="step-circle">4</div><img class="step-icon-img" src="/images/step4-riyoukaishi.jpg" alt="足跡と飛び石のイラスト。自分のペースでの利用開始を象徴" loading="lazy"><div class="step-body"><h4>利用開始・プログラム参加</h4><p>ペースはあなたが決める。週1回からでも大丈夫。</p></div></div>
-      <div class="flow-step"><div class="step-circle">5</div><img class="step-icon-img" src="/images/step5-teichaku.jpg" alt="根を張る木のイラスト。就職後の定着と継続的なフォローを象徴" loading="lazy"><div class="step-body"><h4>就職・定着・その後のフォロー</h4><p>就職がゴールではありません。働き続けるまで伴走します。</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <div class="cta-mobile-image"><img src="/images/cta-door.jpg" alt="扉から光が差し込む道のイラスト" loading="lazy"></div>
-  <h2>まず、話してみませんか？</h2>
-  <p>「相談するほどのことでもない」と思っているあなたへ。<br>その「もやもや」が、今日変わるかもしれません。</p>
-  <a href="learning_system/contact.html" class="cta-btn">無料相談を申し込む（60分・完全無料）</a>
-  <a href="shindan.html" style="display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);font-weight:bold;padding:14px 36px;border-radius:50px;font-size:.9rem;text-decoration:none;margin-top:12px;position:relative;">まず診断してみる（2問・無料）</a>
-  <div style="margin-top:20px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;">
-    <a href="https://lin.ee/XlWTqy1" style="display:inline-flex;align-items:center;gap:8px;background:#06C755;color:#fff;padding:14px 28px;border-radius:50px;font-weight:bold;font-size:.95rem;text-decoration:none;">LINEで相談する</a>
-    <a href="https://www.threads.com/@arizaru_ono" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px 28px;border-radius:50px;font-weight:bold;font-size:.95rem;text-decoration:none;">@ Threadsをフォロー</a>
-  </div>
-  <p class="cta-note">オンライン対応 ／ 全国どこからでも ／ 秘密厳守</p>
-</section>
-
-
-<!-- ブログ最新記事プレビュー（blog/index.htmlから自動取得） -->
-<section style="background:#F4F8FB;padding:60px 24px;">
-  <div style="max-width:900px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:2rem;">
-      <span style="font-size:.78rem;letter-spacing:.12em;color:#EC7C95;font-weight:700;">BLOG</span>
-      <h2 style="font-size:clamp(1.4rem,2.5vw,1.9rem);color:#1F3A4D;margin:.4rem 0 .6rem;">最新のコラム</h2>
-    </div>
-    <style>
-    .blog-preview-card{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:1rem 1.25rem;margin-bottom:.75rem;text-decoration:none;color:#1F3A4D;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;}
-    .blog-preview-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.1);}
-    .bpc-num{font-size:.72rem;color:#3A7CA5;font-weight:700;min-width:2.8rem;}
-    .bpc-title{flex:1;font-size:.9rem;font-weight:600;line-height:1.45;}
-    .bpc-arrow{color:#EC7C95;font-weight:700;}
-    .blog-preview-loading{text-align:center;color:#7F8C8D;font-size:.9rem;padding:1rem 0;}
-    </style>
-
-    <div id="blog-preview-list"><p class="blog-preview-loading">最新記事を読み込み中…</p></div>
-
-    <div style="text-align:center;margin-top:1.5rem;">
-      <a href="/blog/" id="blog-preview-all-link" style="display:inline-block;border:2px solid #3A7CA5;color:#3A7CA5;padding:.7rem 2rem;border-radius:30px;font-weight:700;text-decoration:none;font-size:.9rem;">記事一覧を見る →</a>
-    </div>
-  </div>
-</section>
 <script>
-(function(){
-  var LIST_COUNT = 6;
-  fetch('/blog/index.html')
-    .then(function(r){ return r.text(); })
-    .then(function(html){
-      var doc = new DOMParser().parseFromString(html, 'text/html');
-      var cards = doc.querySelectorAll('article.card');
-      var listEl = document.getElementById('blog-preview-list');
-      var allLinkEl = document.getElementById('blog-preview-all-link');
-      if (!cards.length) { listEl.innerHTML = ''; return; }
-      var out = '';
-      for (var i = 0; i < Math.min(LIST_COUNT, cards.length); i++) {
-        var card = cards[i];
-        var a = card.querySelector('a');
-        if (!a) continue;
-        var href = a.getAttribute('href');
-        var numEl = card.querySelector('.card-num');
-        var titleEl = card.querySelector('.card-title');
-        var num = numEl ? numEl.textContent : '';
-        var title = titleEl ? titleEl.textContent : (card.getAttribute('data-title') || '');
-        out += '<a href="' + href + '" class="blog-preview-card">'
-             + '<span class="bpc-num">' + num + '</span>'
-             + '<span class="bpc-title">' + title + '</span>'
-             + '<span class="bpc-arrow">→</span></a>';
-      }
-      listEl.innerHTML = out;
-      if (allLinkEl) allLinkEl.textContent = '記事一覧を見る（全' + cards.length + '本）→';
-    })
-    .catch(function(){
-      var listEl = document.getElementById('blog-preview-list');
-      if (listEl) listEl.innerHTML = '';
-    });
-})();
+// ハンバーガーメニュー開閉
+function toggleMenu(){
+  const menu = document.getElementById('menu');
+  const btn = document.getElementById('hamburgerBtn');
+  const opening = !menu.classList.contains('open');
+  menu.classList.toggle('open', opening);
+  btn.classList.toggle('open', opening);
+  document.body.classList.toggle('menu-open', opening);
+}
+
+// フェードイン
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// カウントアップ
+const counters = document.querySelectorAll('[data-count]');
+const cio = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el = e.target;
+      const target = parseInt(el.dataset.count,10);
+      const suffixEl = el.querySelector('span');
+      const suffix = suffixEl ? suffixEl.outerHTML : '';
+      let cur = 0;
+      const step = Math.max(1, Math.round(target/24));
+      const tick = ()=>{
+        cur = Math.min(target, cur+step);
+        el.innerHTML = cur + suffix;
+        if(cur < target) requestAnimationFrame(tick);
+      };
+      tick();
+      cio.unobserve(el);
+    }
+  });
+},{threshold:.5});
+counters.forEach(el=>cio.observe(el));
 </script>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo"><img src="/images/brand/mimemime-icon-48.png" alt="" style="height:22px;width:22px;vertical-align:-6px;margin-right:6px;border-radius:50%;">mime<span>mime</span></a>
-        <p>障害のある方・就労に悩む方・その家族のための、オンライン就労支援サービス。</p>
-      </div>
-      <div class="footer-links"><h4>サービス</h4><a href="#services">対話サポート</a><a href="#services">伴走サポート</a><a href="#services">オンライン相談</a></div>
-      <div class="footer-links"><h4>コンテンツ</h4><a href="learning_system/index.html">ラーニングセンター</a><a href="blog/index.html">ブログ</a>
-    <a href="jobs.html">求人情報</a></div>
-      <div class="footer-links"><h4>その他</h4><a href="learning_system/contact.html">無料相談フォーム</a><a href="learning_system/privacy.html">プライバシーポリシー</a> ｜ <a href="/tokushoho.html">特定商取引法に基づく表記</a></div>
-    </div>
-    <div style="text-align:center;padding-bottom:24px;display:flex;justify-content:center;gap:16px;">
-      <a href="https://lin.ee/XlWTqy1" style="display:inline-flex;align-items:center;gap:6px;background:#06C755;color:#fff;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:bold;text-decoration:none;">LINE</a>
-      <a href="https://www.threads.com/@arizaru_ono" style="display:inline-flex;align-items:center;gap:6px;background:#333;color:#fff;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:bold;text-decoration:none;">@ Threads</a>
-      <a href="connect.html" style="display:inline-flex;align-items:center;gap:6px;background:var(--main);color:#fff;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:bold;text-decoration:none;">全SNS一覧</a>
-    </div>
-    <div class="footer-bottom"><span>© 2026 mimemime（まいむまいむ）</span><a href="learning_system/privacy.html">プライバシーポリシー</a></div>
-  </div>
-</footer>
 </body>
 </html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51S65JTC2F"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-51S65JTC2F');</script>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://mimemime.com/shindan_v2.html">
+<title>はたらく気持ち みつめ直しシート｜mimemime</title>
+<meta name="description" content="8つの質問で、今の働き方についての気持ちを言葉にしてみるセルフチェックです。会員登録なしで結果を全部見られます。">
+<meta property="og:title" content="はたらく気持ち みつめ直しシート｜mimemime">
+<meta property="og:description" content="8つの質問で、今の働き方についての気持ちを言葉にしてみるセルフチェックです。会員登録なしで結果を全部見られます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mimemime.com/shindan_v2.html">
+<meta property="og:image" content="https://mimemime.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#EC7C95; --pink-deep:#D45F7B; --pink-pale:#FBE7EC;
+  --brown:#BA8478; --brown-deep:#8A5F55;
+  --cream:#FFF9F4; --cream-2:#FFF2E8;
+  --ink:#3A2E2B; --ink-soft:#7A6F6B; --ink-mute:#9C8F89;
+  --border:#EFE1D6; --radius-lg:24px; --radius-md:16px;
+  --shadow:0 10px 30px rgba(122,88,80,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Sans JP',sans-serif; background:var(--cream); color:var(--ink);
+  line-height:1.8; -webkit-font-smoothing:antialiased;
+  background-image:repeating-linear-gradient(45deg, rgba(186,132,120,.05) 0px, rgba(186,132,120,.05) 2px, transparent 2px, transparent 26px);
+}
+.mark-heading{
+  display:inline;
+  background:linear-gradient(transparent 62%, var(--pink-pale) 62%);
+  padding:0 2px; font-weight:900;
+}
+.remain-badge{
+  position:fixed; right:16px; bottom:16px; z-index:45;
+  width:64px;height:64px;border-radius:50%; background:var(--brown-deep); color:#fff;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-size:.62rem; font-weight:bold; box-shadow:var(--shadow); line-height:1.3;
+}
+.remain-badge b{font-size:1.15rem;font-weight:900;display:block;}
+img{max-width:100%;display:block;}
+
+/* ==== トップバー ==== */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,249,244,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(122,88,80,.12);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 20px; height:58px;
+}
+.topbar-logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:1rem;color:var(--brown-deep);}
+.topbar-logo span{color:var(--pink);}
+.topbar-logo-img{height:26px;width:auto;display:block;border-radius:0;}
+.topbar-tag{font-size:.7rem;color:var(--ink-mute);font-weight:bold;}
+
+.wrap{max-width:560px;margin:0 auto;padding:28px 18px 90px;}
+.step{display:none;}
+.step.active{display:block;animation:up .4s ease both;}
+@keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ==== 冒頭フック(診断然としない、一つの問いだけの静かな画面) ==== */
+.hook{max-width:480px;margin:0 auto;text-align:center;padding-top:6px;}
+.hook-icon{width:52px;height:52px;border-radius:50%;overflow:hidden;margin:0 auto 26px;box-shadow:var(--shadow);}
+.hook-icon img{width:100%;height:100%;object-fit:cover;}
+.hook-q{font-size:1.2rem;font-weight:900;color:var(--ink);line-height:2;margin-bottom:32px;}
+.hook-btns{display:flex;gap:12px;justify-content:center;margin-bottom:6px;}
+.hook-btn{
+  min-width:120px;padding:14px 30px;border-radius:50px;border:1.5px solid var(--brown);
+  background:#fff;color:var(--brown-deep);font-weight:900;font-size:.9rem;font-family:inherit;cursor:pointer;
+  box-shadow:var(--shadow);transition:transform .15s,background .2s,color .2s;
+}
+.hook-btn:hover{background:var(--pink);border-color:var(--pink);color:#fff;transform:translateY(-2px);}
+.hook-followup{margin-top:30px;animation:up .4s ease both;}
+.hook-response{
+  font-size:.9rem;color:var(--ink-soft);line-height:1.95;margin-bottom:26px;text-align:left;background:#fff;
+  border:1px solid var(--border);border-radius:16px;padding:16px 18px;
+}
+
+/* ==== 導入 ==== */
+.intro-hero{text-align:center;}
+.pill-badge{
+  display:inline-block;background:#fff;border:1px solid rgba(186,132,120,.35);
+  border-radius:50px;padding:6px 16px;font-size:.72rem;font-weight:bold;color:var(--brown-deep);
+  box-shadow:var(--shadow);margin-bottom:18px;
+}
+.intro-hero h1{
+  font-size:clamp(1.5rem,6vw,1.9rem);font-weight:900;color:var(--ink);line-height:1.6;margin-bottom:22px;
+}
+.intro-hero h1 em{
+  font-style:normal;color:var(--ink);
+  background:linear-gradient(transparent 60%, var(--pink-pale) 60%);
+  padding:0 4px;
+}
+.intro-illust{
+  width:132px;height:132px;border-radius:50%;margin:0 auto 20px;overflow:hidden;
+  border:4px solid #fff;box-shadow:var(--shadow);
+}
+.intro-illust img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+.lede{font-size:.86rem;color:var(--ink-soft);margin-bottom:20px;line-height:1.9;}
+.privacy{
+  font-size:.7rem;color:var(--ink-mute);line-height:1.8;background:#fff;
+  border:1px solid var(--border);border-radius:12px;padding:12px 15px;margin-bottom:22px;text-align:left;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--pink);color:#fff;font-weight:900;border:none;
+  padding:16px 26px;border-radius:50px;font-size:1rem;cursor:pointer;
+  box-shadow:0 10px 26px rgba(236,124,149,.45);transition:transform .15s;
+}
+.btn-primary:active{transform:scale(.98);}
+.btn-primary:disabled{opacity:.35;cursor:not-allowed;box-shadow:none;}
+
+/* ==== 質問フロー(セクション見出し＋段階開示のカードリスト) ==== */
+.mini-progress{position:sticky;top:58px;z-index:39;height:4px;background:rgba(122,88,80,.12);}
+.mini-progress-fill{height:100%;background:linear-gradient(90deg,var(--brown),var(--pink));transition:width .35s ease;}
+.sec-head{
+  background:#fff;border-radius:var(--radius-lg);padding:26px 22px 22px;box-shadow:var(--shadow);
+  border:1px solid var(--border);text-align:center;margin-bottom:14px;
+}
+.sec-head .pill-badge{margin-bottom:14px;}
+.sec-title{font-size:1.2rem;font-weight:900;color:var(--ink);margin-bottom:10px;}
+.sec-desc{font-size:.82rem;color:var(--ink-soft);line-height:1.85;margin-bottom:8px;}
+.sec-required{font-size:.68rem;color:var(--ink-mute);}
+.q-row-card{
+  background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow);border:1px solid var(--border);
+  border-left:5px solid var(--pink); padding:18px 18px 20px; margin-bottom:12px;
+  animation:up .35s ease both;
+}
+.q-row-card.done{border-left-color:var(--border);opacity:.82;}
+.q-row-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.q-num{font-size:.72rem;font-weight:900;color:var(--pink-deep);letter-spacing:.03em;}
+.q-row-card.done .q-num{color:var(--ink-mute);}
+.q-arrow{color:var(--pink);font-size:.72rem;}
+.q-check{width:18px;height:18px;border-radius:50%;background:var(--brown);color:#fff;font-size:.62rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.q-text{font-size:1.02rem;font-weight:900;color:var(--ink);line-height:1.6;margin-bottom:14px;}
+.q-row-card.done .q-text{font-size:.92rem;margin-bottom:10px;}
+.q-answer-chip{
+  display:flex;align-items:center;gap:9px;background:var(--cream);border-radius:20px;
+  padding:9px 16px;font-size:.8rem;color:var(--ink-soft);font-weight:700;
+}
+.qa-hint{font-size:.74rem;color:var(--ink-mute);margin:10px 0 18px;}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:400px){.options{grid-template-columns:1fr;}}
+.option{
+  display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;width:100%;
+  border:1.5px solid var(--border);border-radius:18px;background:var(--cream);
+  padding:12px 10px;cursor:pointer;font-family:inherit;font-size:.78rem;color:var(--ink-soft);line-height:1.5;
+  transition:border-color .2s,background .2s,transform .12s;
+}
+.opt-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.option:hover{border-color:var(--pink);background:var(--pink-pale);transform:translateY(-1px);}
+.option.selected{border-color:var(--pink-deep);background:var(--pink-pale);color:var(--ink);font-weight:700;box-shadow:0 4px 12px rgba(212,95,123,.2);}
+.btn-back{display:block;width:100%;text-align:center;background:none;border:none;font-family:inherit;
+  font-size:.74rem;color:var(--ink-mute);cursor:pointer;margin-top:12px;padding:4px 0;}
+
+/* ==== 結果画面 ==== */
+.result-eyebrow{text-align:center;font-size:1.05rem;font-weight:900;color:var(--ink);margin-bottom:18px;}
+.result-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:18px;}
+.result-card-top{background:var(--cream-2);padding:22px 24px 0;text-align:center;}
+.result-tag{
+  display:inline-block;font-size:.7rem;font-weight:bold;color:var(--pink-deep);
+  background:var(--pink-pale);border-radius:20px;padding:5px 15px;margin-bottom:14px;letter-spacing:.02em;
+}
+.result-illust{width:88px;height:88px;border-radius:50%;margin:0 auto 14px;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow);}
+.result-illust img{width:100%;height:100%;object-fit:cover;}
+.result-title{font-size:1.28rem;font-weight:900;color:var(--ink);line-height:1.6;padding:0 6px 22px;}
+.result-hint-bar{
+  background:var(--brown-deep);color:#fff;font-size:.72rem;font-weight:bold;
+  padding:9px 24px;letter-spacing:.04em;
+}
+.result-card-body{padding:22px 24px 26px;}
+.r-chart{margin:0 0 1.3rem;padding:16px 16px;background:var(--cream);border-radius:14px;}
+.r-chart .r-chart-label{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-soft);margin-bottom:5px;}
+.r-chart .r-chart-row{margin-bottom:12px;}
+.r-chart .r-chart-row:last-child{margin-bottom:0;}
+.r-chart-track{height:8px;border-radius:4px;background:var(--border);overflow:hidden;}
+.r-chart-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--brown),var(--pink));}
+.r-block{font-size:.86rem;color:var(--ink-soft);line-height:1.95;margin-bottom:1.1rem;}
+.r-block:last-child{margin-bottom:0;}
+.r-block b{color:var(--ink);}
+.r-disclaimer{font-size:.7rem;color:var(--ink-mute);background:var(--cream);border-radius:10px;padding:11px 14px;margin-top:1.2rem;line-height:1.8;}
+
+.r-open-note{
+  background:var(--pink-pale);border-radius:var(--radius-lg);padding:22px 22px 20px;margin-bottom:16px;
+  font-size:.82rem;color:var(--brown-deep);line-height:1.9;text-align:center;
+}
+.r-open-note b{display:block;font-size:.92rem;margin-bottom:8px;color:var(--ink);}
+.btn-cta{
+  display:block;width:100%;border:none;border-radius:50px;background:var(--pink);color:#fff;
+  padding:15px;font-size:.94rem;font-weight:900;cursor:pointer;font-family:inherit;margin:16px 0 9px;
+  box-shadow:0 10px 26px rgba(236,124,149,.4);
+}
+.btn-secondary{
+  display:block;width:100%;border:1.5px solid rgba(122,88,80,.3);border-radius:50px;background:#fff;
+  color:var(--brown-deep);padding:13px;font-size:.86rem;font-weight:bold;cursor:pointer;font-family:inherit;
+}
+.r-source{font-size:.66rem;color:var(--ink-mute);line-height:1.8;padding:0 6px;margin-bottom:1.2rem;}
+.btn-retry{display:block;margin:0 auto;background:none;border:none;font-family:inherit;
+  font-size:.76rem;color:var(--brown-deep);text-decoration:underline;cursor:pointer;text-align:center;width:100%;}
+
+@media(max-width:420px){
+  .sec-head{padding:22px 16px 18px;}
+  .q-row-card{padding:16px 14px 18px;}
+  .result-card-top,.result-card-body{padding-left:18px;padding-right:18px;}
+}
+</style>
+</head>
+<body>
+<div class="remain-badge" id="remainBadge" style="display:none;"><span>残り</span><b id="remainNum">8</b><span>問</span></div>
+
+<div class="topbar">
+  <a href="index.html" class="topbar-logo"><img src="assets/mimemime-logo-horizontal.png" alt="mimemime" class="topbar-logo-img"></a>
+  <span class="topbar-tag">はたらく気持ち みつめ直しシート</span>
+</div>
+<div class="mini-progress" id="miniProgress" style="display:none;"><div class="mini-progress-fill" id="miniFill" style="width:0%;"></div></div>
+
+<div class="wrap">
+
+  <!-- STEP 0: 冒頭フック(診断然としない、一つの問いだけの画面) -->
+  <div class="step active" id="s0">
+    <div class="hook">
+      <div class="hook-icon"><img src="assets/mimemime-icon-96.png" alt="mimemime"></div>
+      <p class="hook-q">最近、誰かに本気で話を聞いてもらえた日はありましたか。<br>家族でも、友人でも、職場の人でも構いません。</p>
+      <div class="hook-btns" id="hookBtns">
+        <button class="hook-btn" onclick="hookAnswer('had')">あった</button>
+        <button class="hook-btn" onclick="hookAnswer('none')">なかった</button>
+      </div>
+      <div class="hook-followup" id="hookFollowup" style="display:none;">
+        <p class="hook-response" id="hookResponse"></p>
+        <div class="intro-illust"><img src="assets/onozaru-dog.jpg" alt="mimemime代表とまめざる"></div>
+        <p class="lede">今の状態を3つの視点から、もう少しだけ言葉にしてみます。<br>正解はありません。今の感覚のままお答えください。<br>所要時間の目安は5〜7分です。</p>
+        <div class="privacy">
+          回答はmimemimeのサービス改善のみに使用します。お名前など個人を特定する情報はいただきません。
+        </div>
+        <button class="btn-primary" onclick="go(1)">8つの質問で、言葉にしてみる →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1〜8: 質問（JSで生成） -->
+  <div class="step" id="sq"></div>
+
+  <!-- STEP 9: 結果 -->
+  <div class="step" id="s9">
+    <p class="result-eyebrow">あなたの、<span class="mark-heading">今の状態</span>は……</p>
+
+    <div class="result-card">
+      <div class="result-card-top">
+        <span class="result-tag" id="rBadge"></span>
+        <div class="result-illust"><img src="assets/mamezaru-icon-circle-300.png" alt="まめざる"></div>
+        <div class="result-title" id="rTitle"></div>
+      </div>
+      <div class="result-hint-bar">気づいてほしいこと</div>
+      <div class="result-card-body">
+        <div class="r-chart" id="rChart"></div>
+        <div id="rBody"></div>
+        <div class="r-disclaimer">
+          この診断は自己理解のための簡易的なものであり、医学的な診断ではありません。<br>
+          心身のつらさが続く場合は、心療内科・カウンセラーなど専門家への相談もあわせてご検討ください。
+        </div>
+      </div>
+    </div>
+
+    <div class="r-open-note">
+      <b>ここまでの結果は、会員登録なしで全部見られます。出し惜しみはしません。</b>
+      ここから先の「あなたに合った具体的な進め方」だけは、文章より対話の方が伝わると思うので、話しながら一緒に整理しましょう。
+      <button class="btn-cta" onclick="location.href='connect.html'">無料で話してみる ↗</button>
+      <button class="btn-secondary" onclick="location.href='learning_system/contact.html'">モニターに応募する</button>
+    </div>
+
+    <div class="r-source" id="rSource"></div>
+    <button class="btn-retry" onclick="restart()">もう一度、やり直す</button>
+  </div>
+
+</div>
+
+<script>
+/* ===================================================================
+   質問設計
+   軸A：自律性（自己決定理論／Deci & Ryan）
+   軸B：心理的安全性（Amy Edmondson, Harvard Business School）
+   軸C：消耗度（心身のサイン。バーンアウト傾向を断定しない中立表現）
+   軸D：迷いのタイプ（恐れ型 / 情報不足型 / 孤独型 / 準備型）
+   =================================================================== */
+const QUESTIONS = [
+  { axis:'A', q:'今の働き方は、誰が決めていますか？', opts:[
+    {t:'だいたい自分で選べている', v:4},
+    {t:'半分は自分で、半分は会社や上司の都合で決まる', v:3},
+    {t:'ほとんど、言われた通りに動いている', v:2},
+    {t:'何を選べばいいかさえ、もうよくわからない', v:1},
+  ]},
+  { axis:'A', q:'休みの日、翌日の仕事のことを考えずに過ごせていますか？', opts:[
+    {t:'考えずに過ごせている', v:4},
+    {t:'たまに頭をよぎる程度', v:3},
+    {t:'気づくと仕事のことばかり考えている', v:2},
+    {t:'休みの日も、気持ちが休まらない', v:1},
+  ]},
+  { axis:'B', q:'今の職場で、失敗やミスを話せますか？', opts:[
+    {t:'話せる。むしろ早めに共有するようにしている', v:4},
+    {t:'相手を選べば話せる', v:3},
+    {t:'できれば隠したい、と思ってしまう', v:2},
+    {t:'怒られるのが怖くて、言い出せない', v:1},
+  ]},
+  { axis:'B', q:'職場で、思っていることをそのまま言えていますか？', opts:[
+    {t:'だいたい言えている', v:4},
+    {t:'場の空気を見てから言う', v:3},
+    {t:'「わがまま」だと思われそうで言えないことが多い', v:2},
+    {t:'何も言わずに、飲み込むことがほとんど', v:1},
+  ]},
+  { axis:'C', q:'最近、こんな体のサインはありますか？', opts:[
+    {t:'特にない', v:4},
+    {t:'休み明けが少し重い程度', v:3},
+    {t:'出社前に動悸がしたり、気分が沈んだりする', v:2},
+    {t:'涙が出たり、食欲がなくなったりすることがある', v:1},
+  ]},
+  { axis:'C', q:'仕事のことを考えたとき、一番近い感覚は？', opts:[
+    {t:'まだやれる、という感覚がある', v:4},
+    {t:'正直、少し疲れてきた', v:3},
+    {t:'頑張りたい気持ちが、消えかけている', v:2},
+    {t:'何も感じなくなってきた', v:1},
+  ]},
+  { axis:'D', q:'「辞めようかどうしようか」を考えるとき、一番近いのは？', opts:[
+    {t:'辞めた後どうなるか考えると、怖くて動けない', v:'fear'},
+    {t:'そもそも他にどんな選択肢があるのか、よくわかっていない', v:'info'},
+    {t:'この気持ち、誰にもちゃんと話せていない', v:'lonely'},
+    {t:'もう答えは出ている。あとは一歩を踏み出すだけ', v:'ready'},
+  ]},
+  { axis:'D', q:'一番、救われそうな言葉はどれですか？', opts:[
+    {t:'「今はまだ、動かなくて大丈夫」', v:'fear'},
+    {t:'「選択肢は、あなたが思うより多いはず」', v:'info'},
+    {t:'「その話、まず私に聞かせて」', v:'lonely'},
+    {t:'「その一歩、一緒に踏み出そう」', v:'ready'},
+  ]},
+];
+
+/* 軸(A/B/C/D)ごとにセクション化。セクション見出し→そのセクションの質問が
+   1問ずつカードで開示され、答えると次のカードが現れる連続スクロール形式 */
+const SECTIONS = [
+  { key:'A', title:'自律性', desc:'今の働き方を、自分の意思でどれくらい選べているかを見ていきます。' },
+  { key:'B', title:'心理的安全性', desc:'今の職場で、本音やミスをどれくらい話せているかを見ていきます。' },
+  { key:'C', title:'心と体の余力', desc:'心身のサインから、今の消耗度を見ていきます。' },
+  { key:'D', title:'迷いのタイプ', desc:'「辞めようか迷う気持ち」が、どのタイプに近いかを見ていきます。' },
+];
+const dotColor = v => (typeof v === 'number') ? {4:'var(--pink-deep)',3:'var(--pink)',2:'var(--brown)',1:'var(--ink-mute)'}[v] : 'var(--brown)';
+
+const answers = new Array(QUESTIONS.length).fill(null);
+let revealed = 0; // 現在アクティブ（未回答）な設問のインデックス。回答済み数と一致する
+
+function renderFlow(){
+  let html = '';
+  SECTIONS.forEach(sec => {
+    const secQs = QUESTIONS.map((q,i)=>({q,i})).filter(o => o.q.axis === sec.key);
+    if (secQs[0].i > revealed) return; // このセクションはまだ始まっていない
+    const secCount = secQs.length;
+    html += `
+      <div class="sec-head">
+        <span class="pill-badge">${secCount}問</span>
+        <h2 class="sec-title"><span class="mark-heading">${sec.title}</span></h2>
+        <p class="sec-desc">${sec.desc}</p>
+        <p class="sec-required">※直感でお答えください。正解はありません</p>
+      </div>
+    `;
+    secQs.forEach((o, li) => {
+      if (o.i > revealed) return;
+      const label = sec.key + '.' + (li+1);
+      if (answers[o.i] !== null) {
+        const chosen = o.q.opts[answers[o.i]];
+        html += `
+          <div class="q-row-card done" id="qrow-${o.i}">
+            <div class="q-row-top"><span class="q-num">${label}</span><span class="q-check">✓</span></div>
+            <p class="q-text">${o.q.q}</p>
+            <div class="q-answer-chip"><span class="opt-dot" style="background:${dotColor(chosen.v)}"></span>${chosen.t}</div>
+          </div>
+        `;
+      } else {
+        const opts = o.q.opts.map((opt, oi) => `<button class="option" onclick="answerRow(${o.i},${oi})"><span class="opt-dot" style="background:${dotColor(opt.v)}"></span>${opt.t}</button>`).join('');
+        html += `
+          <div class="q-row-card active" id="qrow-${o.i}">
+            <div class="q-row-top"><span class="q-num">${label}</span><span class="q-arrow">▶</span></div>
+            <p class="q-text">${o.q.q}</p>
+            <div class="options">${opts}</div>
+          </div>
+        `;
+      }
+    });
+  });
+  if (revealed >= QUESTIONS.length) {
+    html += `<button class="btn-primary" style="margin-top:8px;" onclick="showResult()">結果を見る →</button>`;
+  }
+  document.getElementById('sq').innerHTML = html;
+  document.getElementById('miniFill').style.width = Math.round((revealed/QUESTIONS.length)*100) + '%';
+  document.getElementById('remainNum').textContent = QUESTIONS.length - revealed;
+}
+
+function answerRow(i, idx){
+  if (i !== revealed) return;
+  answers[i] = idx;
+  revealed++;
+  renderFlow();
+  setTimeout(() => {
+    const next = document.getElementById('qrow-' + revealed) || document.querySelector('#sq .btn-primary');
+    if (next) next.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 80);
+}
+
+/* 冒頭フック：スコアリングはしない。立ち止まって一言だけ答えてもらうための問い */
+const HOOK_RESPONSE = {
+  had:  'それは、ちゃんと覚えていてください。誰かに聞いてもらえた時間は、今のあなたの中にまだ残っているはずです。今の働き方ではどうでしょうか。',
+  none: 'そうかもしれません。最近、自分の話を最後まで聞いてもらった記憶がない、という人は少なくありません。その感覚には、理由があります。',
+};
+function hookAnswer(v){
+  document.getElementById('hookResponse').textContent = HOOK_RESPONSE[v];
+  document.getElementById('hookFollowup').style.display = 'block';
+  document.getElementById('hookBtns').style.display = 'none';
+}
+
+function go(n){
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  if (n === 1) {
+    revealed = 0; answers.fill(null); renderFlow();
+    document.getElementById('sq').classList.add('active');
+    document.getElementById('remainBadge').style.display = 'flex';
+    document.getElementById('miniProgress').style.display = 'block';
+  } else {
+    document.getElementById('s'+n).classList.add('active');
+    document.getElementById('remainBadge').style.display = 'none';
+    document.getElementById('miniProgress').style.display = 'none';
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ===================================================================
+   結果生成：doubtType×軸状態＝32通りをそれぞれ独立した一つの文章として
+   書き下ろした固定パターン方式。軸状態キー：自律性(A)・心理的安全性(B)・
+   心と体の余力(C)を高(H)/低(L)で組み合わせた8パターン（HHH〜LLL）。
+   グラフ(rChart)は数値から動的に描画する。
+   =================================================================== */
+const OPEN = {
+  fear:   { tag:'恐れ型', line:'「動いた後が怖くて、動けない」。それは臆病なのではなく、今の場所にまだ何か守りたい理由があるからかもしれません。' },
+  info:   { tag:'情報不足型', line:'「選択肢が見えていない」だけなのに、「答えが出ない自分」を責めてしまっていませんか。' },
+  lonely: { tag:'孤独型', line:'一人で抱えている時間が長いほど、同じ場所をぐるぐる回っているように感じてしまうものです。' },
+  ready:  { tag:'準備型', line:'気持ちの整理は、もうかなり進んでいるように見えます。あとは、最初の一歩を一緒に決めるだけかもしれません。' },
+};
+
+const RESULTS = {
+  fear: {
+    HHH:'働き方も選べていて、本音も話せて、心と体もまだ元気。それでも「動くのが怖い」なら、それは環境のせいではなく、変化そのものへの自然な警戒かもしれません。<b>今の場所を守りながら、少しずつ外の情報だけ集めてみる</b>くらいの速度で十分です。',
+    HHL:'裁量もあり、本音も話せる環境にいながら、心と体だけが先に疲れてきている。それは頑張りすぎているサインで、環境のせいにしなくていい分、余計に「自分が弱いだけ」と感じやすい状態です。<b>怖いのは変化ではなく、これ以上頑張れない自分を認めること</b>かもしれません。',
+    HLH:'自分のやり方は保てているけれど、本音までは飲み込んでいる。エイミー・エドモンドソン教授の心理的安全性の研究でも、本音を話せない環境は誰にとっても負担になるとされています。<b>まだ体力があるうちに、安心して話せる場所を外に持っておく</b>ことが、怖さへの一番の備えになります。',
+    HLL:'自分のやり方はどうにか保てているのに、本音は言えず、心と体はもう限界に近い。一人でやり方を工夫し続けてきた分、誰かに頼るという発想自体が遠くなっているのかもしれません。<b>怖いのは動くことより、これ以上一人で抱えること</b>のはずです。',
+    LHH:'裁量はなくても、安心して話せる環境があり、まだ気力もある。それは恵まれた状態に見えますが、「このままでいいのか」という違和感が拭えないなら、怖さの正体は環境ではなく<b>自分の意思が置き去りにされていること</b>かもしれません。',
+    LHL:'決められることは少なく、良い職場のはずなのに疲れが抜けない。自己決定理論では、自分で選んでいる感覚が薄いと意欲が落ちやすいことが知られています。<b>環境を責める必要はなく、量や裁量の話を一度誰かにしてみる</b>だけでも違うはずです。',
+    LLH:'決められることも少なく、本音も言えない。それでもまだ気力で踏ん張れているとしたら、それはかなり我慢強く頑張ってきた証拠です。<b>怖いのは、その我慢がいつまで持つか自分でもわからないこと</b>ではないでしょうか。',
+    LLL:'裁量もなく、本音も話せず、心と体も限界に近い。これだけ条件が重なっている状態で「怖くて動けない」のは、弱さではなく当然の反応です。<b>今は動くかどうかより、まずこの状態を誰かに知っておいてもらうこと</b>が先かもしれません。',
+  },
+  info: {
+    HHH:'働き方も選べて、本音も話せて、余力もある。それでも「選択肢が見えない」と感じるなら、今の場所に不満があるからではなく、<b>単純に外の情報に触れる機会が少ないだけ</b>かもしれません。',
+    HHL:'裁量も安心感もある環境にいながら、疲れだけが蓄積している。この場合の「選択肢が見えない」は、今の場所を否定する材料ではなく、<b>働き方の量や範囲を調整する選択肢がある、というだけ</b>のことが多いです。',
+    HLH:'自分のやり方は保てていても、本音は言えないまま。選択肢が見えないと感じるのは、判断材料が乏しいからというより、<b>本音を言える場所を基準に選んだことがまだない</b>からかもしれません。',
+    HLL:'自分の裁量はあるのに、本音は言えず、体力も削られている。情報不足というより、<b>今の消耗した状態のまま選ぼうとしていること自体が難しさの原因</b>になっている可能性があります。',
+    LHH:'裁量はなくても安心できる環境で、まだ余力もある。この状態での「選択肢が見えない」は、視野が狭いのではなく、<b>裁量を取り戻すという発想そのものが選択肢に入っていなかっただけ</b>かもしれません。',
+    LHL:'良い職場のはずなのに、裁量のなさから疲れがたまっている。自己決定理論でも、自分で選べる範囲の狭さが意欲を下げる要因になるとされています。<b>今の職場の中に、選べる余地がまだ残っていないか</b>から探せます。',
+    LLH:'裁量もなく、本音も言えないが、気力はまだ残っている。この状態は情報を集める体力自体はあるということなので、<b>比較する材料さえ揃えば、判断は思ったより早く進む</b>はずです。',
+    LLL:'裁量もなく、本音も言えず、心と体も限界に近い。この状態で「情報を集めてから」と考えると、いつまでも動けなくなってしまいます。<b>まず一つだけ、話を聞いてくれる場所を選ぶこと自体が最初の情報収集</b>になります。',
+  },
+  lonely: {
+    HHH:'働き方も選べて、本音も話せて、余力もある。それでも「話せていない」と感じるなら、環境の問題ではなく、<b>言葉にする相手をまだ意識的に選んでいないだけ</b>かもしれません。',
+    HHL:'裁量も安心感もある職場にいながら、疲れは自分の中に溜め込んでいる。周りに話せる人がいても、「これくらいで疲れたと言うのは甘え」と自分で線を引いてしまっていませんか。<b>その線引きこそ、一人で背負っている証拠</b>です。',
+    HLH:'自分のやり方は保てているけれど、本音を話せる相手が職場にいない。エドモンドソン教授の研究の通り、本音を話せない環境では誰でも一人で抱え込みやすくなります。<b>職場の外に、その役割を持てる場所を一つ作る</b>だけで違います。',
+    HLL:'自分のやり方でどうにか保っているものの、本音は言えず、体力も限界に近い。ここまで一人でやってきたこと自体が、すでに十分頑張ってきた証拠です。<b>それでも今は、抱え続ける段階を終えていいタイミング</b>かもしれません。',
+    LHH:'裁量はなくても安心できる環境で、まだ気力もある。それでも「一人で抱えている」感覚があるなら、話せる場所と、<b>意思決定に関われている感覚は別のもの</b>だと気づくところから始まります。',
+    LHL:'良い職場にいるはずなのに、裁量のなさからくる疲れを、誰にも相談せずに抱えてきた。<b>「職場は悪くないから相談しづらい」という遠慮そのものが、孤独の正体</b>になっていることがあります。',
+    LLH:'裁量もなく本音も言えない環境で、それでもまだ気力を保っている。それは相当な我慢の積み重ねのはずです。<b>気力があるうちに、一度だけでもその我慢を誰かに話してみる</b>ことをおすすめします。',
+    LLL:'裁量もなく、本音も言えず、心と体もかなり消耗している。ここまで一人で抱えてきたことに、まず驚きます。<b>今日、この診断に答えたこと自体が、一人で抱えるのをやめる最初の一歩</b>です。',
+  },
+  ready: {
+    HHH:'働き方も選べて、本音も話せて、余力もある。それでも心が決まっているなら、それは逃げではなく、<b>今の環境で得られるものをすでに得きった、という前向きな結論</b>のはずです。',
+    HHL:'裁量も安心感もある職場にいながら、それでも疲れが限界に近づいている。頑張れる環境だからこそ、<b>頑張り続けることと、頑張るのをやめることの両方が選択肢に入っている</b>状態です。',
+    HLH:'自分のやり方は保てていても、本音を言えない場所に見切りをつけつつある。まだ余力があるうちに動けるのは、<b>消耗しきる前に判断できている</b>という意味で、悪くないタイミングです。',
+    HLL:'自分のやり方で踏ん張ってきたものの、本音は言えず、体力も限界に近い。ここまで頑張った上での結論なら、<b>それは十分すぎるほど考え抜いた末の答え</b>のはずです。',
+    LHH:'裁量はなくても安心できる環境で、まだ気力もある。それでも決意が固まっているなら、<b>余力があるうちに動けるという、一番良いタイミングを迎えている</b>状態です。',
+    LHL:'良い職場だけれど裁量がなく、疲れがたまってきた中での決断。<b>環境の良し悪しではなく、自分の意思をどれだけ発揮できるかで選んだ結論</b>だとすれば、それは筋の通った判断です。',
+    LLH:'裁量もなく本音も言えない中で、それでも気力を保ちながら出した結論。<b>限界まで我慢してからではなく、まだ動ける余力があるうちに決められている</b>のは、むしろ良いタイミングです。',
+    LLL:'裁量もなく、本音も言えず、心と体もかなり消耗した中で出した結論。ここまで条件が重なった状態で決意できているなら、<b>あとは一人で最後の一歩まで背負わないこと</b>だけを意識してください。',
+  },
+};
+
+function showResult(){
+  const a = { A:0, B:0, C:0, D:{fear:0,info:0,lonely:0,ready:0} };
+  QUESTIONS.forEach((q, i) => {
+    const v = q.opts[answers[i]].v;
+    if (q.axis === 'D') a.D[v] += (i === 6 ? 2 : 1); // Q7を主、Q8を補強として重み付け
+    else a[q.axis] += v;
+  });
+  const autonomyHigh = (a.A / 2) >= 2.8;
+  const safetyHigh   = (a.B / 2) >= 2.8;
+  const energyHigh   = (a.C / 2) >= 2.8;
+  const axisKey = (autonomyHigh?'H':'L') + (safetyHigh?'H':'L') + (energyHigh?'H':'L');
+  const order = ['fear','info','lonely','ready'];
+  const doubtType = order.reduce((best, k) => a.D[k] > a.D[best] ? k : best, 'fear');
+
+  document.getElementById('rBadge').textContent = OPEN[doubtType].tag;
+  document.getElementById('rTitle').textContent = OPEN[doubtType].line;
+
+  /* 3軸の簡易可視化（登録なしで全表示） */
+  const chartRows = [
+    { label:'自律性（自分で選べている感覚）', pct: Math.round((a.A/8)*100) },
+    { label:'心理的安全性（本音を話せる感覚）', pct: Math.round((a.B/8)*100) },
+    { label:'心と体の余力', pct: Math.round((a.C/8)*100) },
+  ];
+  document.getElementById('rChart').innerHTML = chartRows.map(r => `
+    <div class="r-chart-row">
+      <div class="r-chart-label"><span>${r.label}</span><span>${r.pct}%</span></div>
+      <div class="r-chart-track"><div class="r-chart-fill" style="width:${r.pct}%;"></div></div>
+    </div>
+  `).join('');
+
+  document.getElementById('rBody').innerHTML =
+    `<div class="r-block">${RESULTS[doubtType][axisKey]}</div>`;
+  document.getElementById('rSource').innerHTML =
+    '※参考：Edmondson, A. (1999) “Psychological Safety and Learning Behavior in Work Teams,” Harvard Business School／Deci, E. L. &amp; Ryan, R. M., Self-Determination Theory（自己決定理論）。本診断は上記の研究概念を一般向けに簡略化して構成した簡易セルフチェックです。';
+
+  go(9);
+}
+
+function restart(){
+  answers.fill(null);
+  revealed = 0;
+  go(0);
+}
+</script>
+</body>
+</html>
