@@ -19,10 +19,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <lastmod>2026-06-14</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://mimemime.com/compare.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -763,4 +759,16 @@
   <url><loc>https://mimemime.com/blog/blog_219_kyushoku_teate_jimu_meiwaku.html</loc><lastmod>2026-10-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mimemime.com/blog/blog_221_kyushoku_joushi_mail_hentou.html</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mimemime.com/blog/blog_222_kyushoku_douki_renraku_senpai.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_218_kyushoku_shokuba_shorui_teishutsu.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_220_kyushoku_live_ryoko_joshi.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_223_kyushoku_joushi_doukou_shinsatsu.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_224_kyushoku_tameshi_shussha_shonichi.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_225_kyushoku_shoyo_zero.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_226_kyushoku_nenmatsu_chosei.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_227_kyushoku_juminzei_tsuchi.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_228_kyushoku_kenshin_annai.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_229_kyushoku_bounenkai_annai.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_230_kyushoku_kekkonshiki_shotai.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_231_kyushoku_nengajo_kaesu.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/blog/blog_232_kyushoku_oshogatsu_shigoto_dou.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
