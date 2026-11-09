@@ -26,7 +26,7 @@ const PAUSE_THRESHOLD_SEC = 0.6; // これより長い単語間の空白を「�
 const IDEAL_CHARS_PER_MIN = { min: 220, max: 340 }; // 暫定：日本語の落ち着いた会話速度の目安（要調整）
 const FILLER_WORDS = ['えーと', 'えっと', 'えーっと', 'あのー', 'あの', 'そのー', 'まあ', 'なんか', 'んーと', 'えー'];
 
-exports.handler = async (event) => {
+const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
@@ -73,7 +73,7 @@ exports.handler = async (event) => {
     form.append('response_format', 'verbose_json');
     form.append('timestamp_granularities[]', 'word');
 
-    const res = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    const res = await fetch(`${(process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '')}/audio/transcriptions`, {
       method: 'POST',
       headers: { authorization: `Bearer ${openaiKey}` },
       body: form,
@@ -155,7 +155,7 @@ exports.handler = async (event) => {
 - 間の取り方: ${metrics.pause.note}（${durationSec.toFixed(0)}秒間で${metrics.pause.count}回、平均${metrics.pause.avgPauseSec}秒）
 - 「えーと」「あの」等のつなぎ言葉: ${metrics.filler.note}`;
 
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(`${(process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/$/, '')}/v1/messages`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -187,3 +187,10 @@ function scoreAgainstRange(value, min, max) {
   if (value > max) return Math.max(0, Math.round(100 - ((value - max) / max) * 100));
   return 100;
 }
+
+// Netlify Functions v2 エントリーポイント（AI Gateway の認証情報は v2 ランタイムでのみ注入される）
+export default async (req) => {
+  const event = { httpMethod: req.method, body: req.method === 'GET' || req.method === 'HEAD' ? '' : await req.text() };
+  const result = await handler(event);
+  return new Response(result.body ?? '', { status: result.statusCode, headers: result.headers || {} });
+};

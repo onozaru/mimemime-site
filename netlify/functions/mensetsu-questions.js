@@ -10,7 +10,7 @@
 // 注意: このエンドポイントは会社URLへのアクセス・スクレイピングは行わない。
 // 入力された会社名・メモのテキストのみをもとに質問を組み立てる。
 
-exports.handler = async (event) => {
+const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
@@ -46,7 +46,7 @@ exports.handler = async (event) => {
 - 出力は日本語の質問文だけを8行、前置きや番号なしで1問1行で返す（1行目〜8行目がそのまま質問1〜8になる）`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(`${(process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/$/, '')}/v1/messages`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -95,4 +95,11 @@ exports.handler = async (event) => {
   } catch (err) {
     return { statusCode: 500, body: JSON.stringify({ error: String(err) }) };
   }
+};
+
+// Netlify Functions v2 エントリーポイント（AI Gateway の認証情報は v2 ランタイムでのみ注入される）
+export default async (req) => {
+  const event = { httpMethod: req.method, body: req.method === 'GET' || req.method === 'HEAD' ? '' : await req.text() };
+  const result = await handler(event);
+  return new Response(result.body ?? '', { status: result.statusCode, headers: result.headers || {} });
 };
