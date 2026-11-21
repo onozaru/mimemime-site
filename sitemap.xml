@@ -10,9 +10,7 @@
   <url><loc>https://mimemime.com/learning_system/contact.html</loc><lastmod>2026-01-15</lastmod><priority>0.9</priority></url>
   <url><loc>https://mimemime.com/learning_system/about.html</loc><lastmod>2026-01-15</lastmod><priority>0.6</priority></url>
   <url><loc>https://mimemime.com/connect.html</loc><lastmod>2026-06-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://mimemime.com/learning_system/privacy.html</loc><lastmod>2026-01-15</lastmod><priority>0.4</priority></url>
   <url><loc>https://mimemime.com/shindan.html</loc><lastmod>2026-06-11</lastmod><priority>0.9</priority></url>
-  <url><loc>https://mimemime.com/b2b-lp.html</loc><lastmod>2026-07-13</lastmod><priority>0.7</priority></url>
   <url>
     <loc>https://mimemime.com/tokushoho.html</loc>
     <changefreq>yearly</changefreq>
@@ -785,4 +783,7 @@
   <url><loc>https://mimemime.com/blog/blog_244_kyushoku_ato_shurou_iko_kengaku.html</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mimemime.com/blog/blog_245_fukushoku_shonichi_kashiori.html</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mimemime.com/blog/blog_246_fukushoku_byomei_idesu.html</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mimemime.com/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://mimemime.com/contact.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://mimemime.com/operator.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

@@ -9,10 +9,32 @@
   status = 301
   force = true
 
+# 2026-11-21：存在しないURLにトップの中身を返していた全件ルール（from="/*" to="/index.html" status=404）を削除。
+# 削除後は、存在しないURLに /404.html（site_trust.py が段階表から作る地図型のページ）が返る。
+# 古いURLの行き先（ファイルが残っているものは force=true が必要）
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
+  from = "/jobs"
+  to = "/blog/index.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/jobs.html"
+  to = "/blog/index.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/learning_system/privacy"
+  to = "/privacy-policy.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/learning_system/privacy.html"
+  to = "/privacy-policy.html"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/admin/*"
